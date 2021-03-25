@@ -1,14 +1,34 @@
+import React from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import Header from './components/header/header.component';
 import './App.css';
-import React from 'react'
 
-class App() extends React.Component {
-  render(){
-    return (
-      <div className="App">
-        
-      </div>
-    );
-  }
+class App extends React.Component {
+    render() {
+        return (
+            <div className='App'>
+                <div className='cover'>
+                    <Header/>
+                </div>
+
+                {/* <Switch>
+                    <Route exact path='/' component={HomePage} />
+                    <Route path='/shop' component={ShopPage} />
+                    <Route
+                        exact
+                        path='/signin'
+                        render={() =>
+                            this.props.currentUser ? (
+                                <Redirect to='/' />
+                            ) : (
+                                <SignInAndSignUpPage />
+                            )
+                        }
+                    ></Route>
+                </Switch> */}
+            </div>
+        );
+    }
 }
 //kol khara
 export default App;
