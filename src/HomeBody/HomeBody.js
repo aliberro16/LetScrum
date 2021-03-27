@@ -1,33 +1,13 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import { Container } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
+import React from "react";
+import "./HomeBody.css";
+import { Button } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 
-import '../homepage/homepage.styles.scss';
-
-const HomePage = () => (
-        <Container className='left-container'>
-            <h1 className='title'>
-                One place<br></br>for all your work.
-            </h1>
-            <h5 className='subtitle'>Save one day every week. Guaranteed.</h5>
-            <div className='inp-btn'>
-                <input
-                    type='email'
-                    placeholder='Enter your email address'
-                    className='email-input'
-                />
-                <Button color='primary' variant='contained' className='btn'>
-                    Get Started
-                </Button>
-            </div>
-            {/* <a href='' className='arrow-container'>
-                        <div className='txt'>Scroll</div>
-                        <div className='arrow'/>
-                        <div className='arrow'/>
-                        <div className='arrow'/>
-                    </a> */}
-            <div className="homebody">
+const HomeBody = () => {
+  return (
+    <div>
+      <Container>
+        <div className="homebody">
           <div className="header_section1">
             <h1> Lets Learn Scrum!</h1>
             <p className="paragraph_center">
@@ -92,7 +72,10 @@ const HomePage = () => (
 
           </div>
           
-        </div>        
-        </Container>
-);
-export default HomePage;
+        </div>
+      </Container>
+    </div>
+  );
+};
+
+export default HomeBody;

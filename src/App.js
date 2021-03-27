@@ -33,5 +33,5 @@ class App extends React.Component {
         );
     }
 }
-//kol khara
 export default App;
+
