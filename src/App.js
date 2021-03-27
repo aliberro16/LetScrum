@@ -12,11 +12,7 @@ class App extends React.Component {
                     <Header/>
                     
                     <HomePage />
-                    <HomePage />
-                    <HomePage />
-                    <HomePage />
-                    <HomePage />
-                    <HomePage />
+       
                 </div>
                 {/* <Switch>
                     <Route exact path='/' component={HomePage} />
