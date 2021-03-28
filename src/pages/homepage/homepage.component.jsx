@@ -1,7 +1,9 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
-
+import LearnImage from '../../assets/images/learn-image.svg';
+import CreateProjectImage from '../../assets/images/create-project-image.svg';
+import JoinTeamImage from '../../assets/images/join-team-image.svg';
 import '../homepage/homepage.styles.scss';
 
 const HomePage = () => (
@@ -28,16 +30,15 @@ const HomePage = () => (
                     </a> */}
         <div className='body-section'>
             <div className='header_section1'>
-                <h1> Let's Learn how to Scrum!</h1>
+                <h1 className='learn-title'> Let's Learn how to Scrum!</h1>
                 <p className='paragraph_center'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum.
+                    Introduction to Scrum is tailored to help anyone interested
+                    to know more about Scrum. Learn about key concepts in Scrum
+                    as defined in the methodologiy and to get a basic
+                    understanding of how Scrum framework works in delivering
+                    successful projects. Here you can find video lectures on all
+                    aspects of Scrum and how it has been designed to help you implement scrum in your
+                    projects.
                 </p>
                 <Button
                     variant='outlined'
@@ -47,11 +48,7 @@ const HomePage = () => (
                 >
                     Start Learning →
                 </Button>
-                <img
-                    className='sprint_image'
-                    alt=''
-                    src='https://d2k1ftgv7pobq7.cloudfront.net/meta/p/res/images/spirit/product/89d378b845766a8f0c48e955336266f8/board.png'
-                />
+                <img className='sprint_image' alt='' src={LearnImage} />
             </div>
             <div className='header_section2'>
                 <div className='edit_section2'>
@@ -73,7 +70,7 @@ const HomePage = () => (
                 <img
                     className='create_project_image'
                     alt=''
-                    src='https://d2k1ftgv7pobq7.cloudfront.net/meta/p/res/images/spirit/product/89d378b845766a8f0c48e955336266f8/board.png'
+                    src={CreateProjectImage}
                 />
             </div>
             <div className='header_section3'>
@@ -96,7 +93,7 @@ const HomePage = () => (
                 <img
                     className='create_project_image'
                     alt=''
-                    src='https://d2k1ftgv7pobq7.cloudfront.net/meta/p/res/images/spirit/product/89d378b845766a8f0c48e955336266f8/board.png'
+                    src={JoinTeamImage}
                 />
             </div>
         </div>
