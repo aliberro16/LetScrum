@@ -8,6 +8,7 @@ a{
 *{
     box-sizing: border-box;
     margin: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 .cover{
@@ -19,5 +20,5 @@ a{
     background-position-y: -900px;
     background-position-x: 300px;
     z-index: -1;
-    position: absolute;
+
 }

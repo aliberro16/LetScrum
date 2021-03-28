@@ -19,10 +19,10 @@ const Header = () => {
         window.addEventListener('scroll', handleScroll);
     });
     let navbarClasses = ['navbar'];
-    let optionClasses = ['option hvr-underline-from-center']
+    let optionClasses = ['option hvr-underline-from-center'];
     if (scrolled) {
         navbarClasses.push('scrolled');
-        optionClasses.push('hvr-underline2')
+        optionClasses.push('hvr-underline2');
     }
     return (
         <div className='header'>
@@ -32,22 +32,13 @@ const Header = () => {
                         <img src={Logo} alt='LetScrum' className='logo' />
                     </Link>
                     <div className='options'>
-                        <Link
-                            to='/learn'
-                            className={optionClasses.join(' ')}
-                        >
+                        <Link to='/learn' className={optionClasses.join(' ')}>
                             LEARN
                         </Link>
-                        <Link
-                            to='/about'
-                            className={optionClasses.join(' ')}
-                        >
+                        <Link to='/about' className={optionClasses.join(' ')}>
                             ABOUT US
                         </Link>
-                        <Link
-                            to='/contact'
-                            className={optionClasses.join(' ')}
-                        >
+                        <Link to='/contact' className={optionClasses.join(' ')}>
                             CONTACT US
                         </Link>
                         <div className='auth-options'>
