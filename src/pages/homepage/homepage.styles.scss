@@ -18,17 +18,21 @@
     flex-direction: row-reverse;
     justify-content: center;
     
-    .background {
-        width: 200px;
-        height: 200px;
-
-    }
+    // background-image: url('../../assets/BlobImage.jpg');
+    // background-repeat: no-repeat;
+    // background-size: 50%;
+    // background-position-x: 800px;
+    // background-position-y: -500px;
+    // background-attachment: initial;
     .homepage-container {
         display: flex;
         flex-direction: column;
         margin-top: 70px;
         top: 0;
         .start-section {
+            display: flex;
+            justify-content: start;
+            align-items: center;
             .email-section {
                 .title {
                     margin: 0;
@@ -88,7 +92,7 @@
                 .paragraph_center {
                     max-width: 800px;
                     margin-top: 20px;
-                    font-size: 22px;
+                    font-size: 25px;
                     font-family: 'Roboto', sans-serif;
                     text-align: center;
                     text-justify: inter-word;

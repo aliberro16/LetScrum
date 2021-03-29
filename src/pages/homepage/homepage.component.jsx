@@ -9,7 +9,7 @@ import BackgroundImage from '../../assets/BlobImage.jpg';
 const HomePage = () => (
     <div className='homepage'>
         <div className="background">
-            <img src={BackgroundImage} />
+            {/* <img src={BackgroundImage} /> */}
         </div>
         <div>
             <Container>
