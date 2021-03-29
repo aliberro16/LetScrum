@@ -5,10 +5,11 @@ import LearnImage from '../../assets/images/learn-image.svg';
 import CreateProjectImage from '../../assets/images/create-project-image.svg';
 import JoinTeamImage from '../../assets/images/join-team-image.svg';
 import '../homepage/homepage.styles.scss';
+import BackToTop from '../../components/scroll_to_top_button/ScrollButton.js'
 
 const HomePage = () => (
     <Container className='left-container'>
-        <h1 className='title'>
+        <h1 className='title' id="back-to-top-anchor">
             One place<br></br>for all your work.
         </h1>
         <h5 className='subtitle'>Save one day every week. Guaranteed.</h5>
@@ -97,6 +98,7 @@ const HomePage = () => (
                 />
             </div>
         </div>
+        <BackToTop></BackToTop>
     </Container>
 );
 export default HomePage;
