@@ -8,10 +8,8 @@ class App extends React.Component {
     render() {
         return (
             <div className='App'>
-                <div className='cover'>
-                    <Header/>
-                    <HomePage />
-                </div>
+                <Header />
+                <HomePage />
             </div>
         );
     }
