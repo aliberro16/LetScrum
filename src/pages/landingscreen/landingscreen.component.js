@@ -12,7 +12,7 @@ import signinImg from '../../assets/images/horizontalbg.png'
 
 const LandingScreen = () => {
   return (
-    <div>
+    <div className = 'pagebackground'>
       <Header />
       <Container className="container">
         <div className="banner">
