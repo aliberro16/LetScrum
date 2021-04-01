@@ -11,14 +11,13 @@ a{
     font-family: 'Roboto', sans-serif;
 }
 
-.cover{
+/* `.cover{
     background-image: url('./assets/BlobBackground.svg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: -1500px;
     background-position-x: -100px;
-    /* background-size: 20%; */
     background-attachment: scroll;
     position: sticky;
     z-index: -1;
-}
+} */

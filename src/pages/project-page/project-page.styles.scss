@@ -1,4 +1,3 @@
-
 //SCSS SYNTAX
 @mixin orange-button {
     background-color: #e5a056 !important;
@@ -10,75 +9,23 @@
     width: 500px;
     height: 500px;
     object-fit: contain;
-    margin-right: 100px;
 }
-
-.homepage {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-    
-    // background-image: url('../../assets/BlobImage.jpg');
-    // background-repeat: no-repeat;
-    // background-size: 50%;
-    // background-position-x: 800px;
-    // background-position-y: -500px;
-    // background-attachment: initial;
-    .homepage-container {
+.page-gradient {
+    background-image: linear-gradient(
+        to bottom,
+        #b8c0cb,
+        #cbcfd8,
+        #dddfe5,
+        #eeeff2,
+        #ffffff
+    );
+    .project-page {
         display: flex;
-        flex-direction: column;
-        margin-top: 70px;
-        top: 0;
-        .start-section {
-            display: flex;
-            justify-content: start;
-            align-items: center;
-            .email-section {
-                .title {
-                    margin: 0;
-                    font: 800 50px/69px 'Roboto', sans-serif;
-                    color: #292d34;
-                    text-align: left;
-                }
-                .subtitle {
-                    color: #7c828d;
-                    margin: 5px 0 25px;
-                    font-weight: 400;
-                    font-size: 18px;
-                    line-height: 29px;
-                    font-family: 'Roboto', Arial, serif;
-                    display: flex;
-                    justify-content: left;
-                }
+        flex-direction: row-reverse;
+        justify-content: center;
 
-                .inp-btn {
-                    display: flex;
-                    justify-content: left;
-                    .email-input {
-                        outline: 0;
-                        font: 400 14px/16px 'Roboto', Arial, serif;
-                        color: #ff6584;
-                        max-height: 50px;
-                        padding: 20px 46px 18px;
-                        background: url('../../assets/icons/email.svg')
-                                no-repeat 17px 15px/16px 16px,
-                            #fff;
-                        border-radius: 4px;
-                        width: 360px;
-                        border: 0;
-                        // box-shadow: 0 10px 25px rgb(0 0 0 / 15%);
-                        box-shadow: 0px 10px 10px #888888;
-                        border-left: 5px solid #ff6584;
-                    }
-                    .btn {
-                        margin-left: 10px;
-                        background-color: #ff6584;
-                    }
-                }
-            }
-        }
         .body-section {
-            margin-top: 250px;
+            margin-top: 100px;
             color: rgb(41, 45, 52);
 
             .header_section1 {
@@ -86,6 +33,12 @@
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
+
+                & div {
+                    & h1 {
+                        text-align: center;
+                    }
+                }
                 .learn-title {
                     font-size: 50px;
                 }
@@ -95,6 +48,7 @@
                     font-size: 25px;
                     font-family: 'Roboto', sans-serif;
                     text-align: center;
+                    line-height: 35px;
                     text-justify: inter-word;
                 }
 
@@ -113,6 +67,7 @@
                         background-color: #e5a056;
                         color: white;
                         font-weight: normal;
+                        border-color:#e5a056 ;
                     }
                 }
                 .sprint_image {
@@ -127,9 +82,13 @@
                 flex-direction: row-reverse;
                 align-items: center;
                 margin-top: 50px;
+                height: 400px;
+
+                width: 100%;
                 .paragraph_center {
                     max-width: 800px;
-                    font-size: 22px;
+                    font-size: 20px;
+                    line-height: 30px;
                     margin-top: 15px;
                 }
                 .orange_button {
@@ -137,25 +96,29 @@
                 }
                 .create_project_image {
                     @include img();
+                    margin-right: 100px;
                 }
             }
             .header_section3 {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-
+                margin: 50px 0;
                 .paragraph_center {
                     max-width: 800px;
-                    font-size: 22px;
+                    font-size: 20px;
                     margin-top: 15px;
+                    line-height: 30px;
                 }
                 .orange_button {
                     @include orange-button();
                 }
                 .create_project_image {
                     @include img();
+                    margin-left: 100px;
                 }
             }
         }
     }
 }
+// }

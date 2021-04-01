@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../../assets/logo.png';
+import Logo from '../../assets/images/logo.png';
 import { Container } from '@material-ui/core';
 import './header.styles.scss';
 
@@ -32,12 +32,6 @@ const Header = () => {
                         <img src={Logo} alt='LetScrum' className='logo' />
                     </Link>
                     <div className='options'>
-                        <Link to='/learn' className={optionClasses.join(' ')}>
-                            LEARN
-                        </Link>
-                        <Link to='/about' className={optionClasses.join(' ')}>
-                            ABOUT US
-                        </Link>
                         <Link to='/contact' className={optionClasses.join(' ')}>
                             CONTACT US
                         </Link>

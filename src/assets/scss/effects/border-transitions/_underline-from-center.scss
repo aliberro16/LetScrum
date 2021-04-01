@@ -13,7 +13,7 @@
 		left: 51%;
 		right: 51%;
 		bottom: 0;
-		background: #fff;
+		background: #2f2e41;
 		height: 4px;
 		@include prefixed(transition-property, "left, right");
 		@include prefixed(transition-duration, $duration);
