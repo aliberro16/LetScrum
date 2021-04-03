@@ -34,9 +34,6 @@
         .logo-container {
             max-width: 100px;
             height: 100px;
-            .logo {
-                rotate: 90;
-            }
         }
 
         .options {
@@ -49,6 +46,7 @@
                 cursor: pointer;
                 transition: 0.4s;
                 text-decoration: none;
+                color:  #292d34;
             }
 
             .auth-options {
