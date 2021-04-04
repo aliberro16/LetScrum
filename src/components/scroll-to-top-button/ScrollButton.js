@@ -14,6 +14,7 @@ import './ScrollButton.scss'
 const useStyles = makeStyles((theme) => ({
   root: {
     position: 'fixed',
+    zIndex:'1000',
     bottom: theme.spacing(2),
     right: theme.spacing(2),
   },
