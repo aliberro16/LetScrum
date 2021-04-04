@@ -48,7 +48,7 @@
                     font-size: 25px;
                     font-family: 'Roboto', sans-serif;
                     text-align: center;
-                    line-height: 35px;
+                    line-height: 32px;
                     text-justify: inter-word;
                 }
 
@@ -58,7 +58,7 @@
                     color: #ff8248;
                     border-color: #ff8248;
                     font-weight: bold;
-                    margin-top: 50px;
+                    margin-top: 30px;
                     .arrow {
                         padding-bottom: 3px;
                         padding-left: 5px;
@@ -81,7 +81,7 @@
                 display: flex;
                 flex-direction: row-reverse;
                 align-items: center;
-                margin-top: 50px;
+                margin-top: 30px;
                 height: 400px;
 
                 width: 100%;
@@ -103,7 +103,8 @@
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                margin: 50px 0;
+                margin: 30px 0;
+                
                 .paragraph_center {
                     max-width: 800px;
                     font-size: 20px;
