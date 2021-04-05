@@ -5,6 +5,7 @@ import HomePage from './pages/homepage/homepage.component';
 import './App.css';
 import Footer from './components/footer/Footer.js'
 import LandingScreen from './pages/landingscreen/landingscreen.component.js'
+import EducationPage from './pages/educationpage/educationpage.component';
 
 class App extends React.Component {
     render() {
@@ -14,7 +15,8 @@ class App extends React.Component {
                     {/* <Header/>
                     <HomePage />
                     <Footer/> */}
-                    <LandingScreen/>
+                    {/* <LandingScreen/> */}
+                    <EducationPage/>
                 </div>
             </div>
         );
