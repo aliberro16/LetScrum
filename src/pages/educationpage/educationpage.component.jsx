@@ -12,7 +12,7 @@ function EducationPage() {
       <Container>
         <div className="banner">
           <h1>Documentation</h1>
-          <h3> Enjoy Learning</h3>
+          <h2> Enjoy Learning!</h2>
         </div>
         <div className="App">
           <h1 className = 'h1'>Documentation</h1>
@@ -52,7 +52,7 @@ function EducationPage() {
               </div>
             </TabPanel>
           </Tabs>
-          <h1 className = 'h1'>Videos</h1>
+          <h1 className = 'h1 space-up'>Videos</h1>
           <Tabs>
             <TabList>
               <Tab>
