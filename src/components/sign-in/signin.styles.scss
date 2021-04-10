@@ -1,36 +1,49 @@
-.form-container {
+.signin-page {
     display: flex;
-    justify-content: center;
-    margin: 100px 50px 0 50px;
-
-    .sign-in-container {
+    .image {
         display: flex;
         width: 50%;
-        height: 500px;
+        height: 900px;
+    }
+    .form-container {
+        display: flex;
         justify-content: center;
-        align-items: center;
-
-        .sign-in {
-            width: 50%;
+        height: 900px;
+        width: 50%;
+        .sign-in-container {
             display: flex;
-            flex-direction: column;
-            .title {
-                font-size: 40px;
-                margin: 10px 0;
-            }
-            .subtitle {
-                font-size: 17px;
-                color: #5d5d5d;
-            }
-            .buttons {
-                margin-top: 20px;
+            margin: 100px 50px 0 50px;
+            width: 800px;
+            height: 600px;
+            justify-content: center;
+            align-items: center;
+
+            .sign-in {
+                width: 500px;
                 display: flex;
-                justify-content: space-between;
-                &:hover{
-                    background-color: green;
+                flex-direction: column;
+                .title {
+                    font-size: 40px;
+                    margin: 10px 0;
+                }
+                .subtitle {
+                    font-size: 17px;
+                    color: #5d5d5d;
+                }
+                .buttons {
+                    margin-top: 20px;
+                    display: flex;
+                    justify-content: space-between;
+                }
+                .register {
+                    margin-top: 20px;
+                    color: rgb(88, 88, 88);
+                    font-size: 15px;
+                    .link {
+                        color: rgb(74, 135, 233);
+                    }
                 }
             }
         }
     }
-   
 }

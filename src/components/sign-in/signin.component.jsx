@@ -4,7 +4,9 @@ import FormInput from '../../components/form-input/form-input.component';
 import { Container } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
-import SignInImage from '../../assets/images/signin.svg';
+import { Link } from 'react-router-dom';
+import LoginImage from '../../assets/images/Login.svg';
+
 
 class SignIn extends React.Component {
     constructor(props) {
@@ -33,54 +35,68 @@ class SignIn extends React.Component {
 
     render() {
         return (
-            <div className='form-container'>
-                {/* <div className='image'>
-                    <img src={SignInImage} />
-                </div> */}
-                <Paper variant='outlined' square className='sign-in-container'>
-                    <div className='sign-in'>
-                        <h2 className='title'>Welcome Back</h2>
-                        <span className='subtitle'>
-                            Don't miss your next opportunity. Sign in to stay
-                            updated to your professional world.
-                        </span>
-                        <form action='' onSubmit={this.handleSubmit}>
-                            <FormInput
-                                type='email'
-                                name='email'
-                                value={this.state.email}
-                                handleChange={this.handleChange}
-                                label='Email'
-                                required
-                            />
-                            <FormInput
-                                type='password'
-                                name='password'
-                                value={this.state.password}
-                                handleChange={this.handleChange}
-                                label='Password'
-                                required
-                            />
-                            <div className='buttons'>
-                                <Button
-                                    color='primary'
-                                    variant='contained'
-                                    size='large'
-                                >
-                                    Sign in
-                                </Button>
-                                <Button
-                                    color='secondary'
-                                    variant='contained'
-                                    size='large'
-                                >
-                                    {' '}
-                                    Sign in with Google{' '}
-                                </Button>
+            <div className='signin-page'>
+                <div className='image'>
+                    <img src={LoginImage} />
+                </div>
+                <div className='form-container'>
+                    <Paper
+                        variant='outlined'
+                        square
+                        className='sign-in-container'
+                    >
+                        <div className='sign-in'>
+                            <h2 className='title'>Welcome Back</h2>
+                            <span className='subtitle'>
+                                Don't miss your next opportunity. Sign in to
+                                stay updated to your professional world.
+                            </span>
+                            <form action='' onSubmit={this.handleSubmit}>
+                                <FormInput
+                                    type='email'
+                                    name='email'
+                                    value={this.state.email}
+                                    handleChange={this.handleChange}
+                                    label='Email'
+                                    required
+                                />
+                                <FormInput
+                                    type='password'
+                                    name='password'
+                                    value={this.state.password}
+                                    handleChange={this.handleChange}
+                                    label='Password'
+                                    required
+                                />
+                                <div className='buttons'>
+                                    <Button
+                                        color='primary'
+                                        variant='contained'
+                                        size='large'
+                                    >
+                                        Sign in
+                                    </Button>
+                                    <Button
+                                        color='secondary'
+                                        variant='contained'
+                                        size='large'
+                                    >
+                                        {' '}
+                                        Sign in with Google{' '}
+                                    </Button>
+                                </div>
+                            </form>
+                            <div class='register'>
+                                <span>
+                                    New to LetScrum?{' '}
+                                    <Link to='/signup' className='link'>
+                                        Join now
+                                    </Link>
+                                </span>
                             </div>
-                        </form>
-                    </div>
-                </Paper>
+                        </div>
+                    </Paper>
+                </div>
             </div>
         );
     }

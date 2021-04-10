@@ -3,7 +3,7 @@ import ProjectPage from './pages/project-page/project-page.component';
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import LandingScreen from './pages/landingscreen/landingscreen.component.jsx'
-import SignIn from './components/sign-in/signin.component'
+import SignIn from './pages/signin-page/signin-page.component'
 
 class App extends React.Component {
     render() {
