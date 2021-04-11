@@ -1,4 +1,4 @@
-.signin-page {
+.signup-page {
     display: flex;
     .image {
         display: flex;
@@ -10,15 +10,15 @@
         justify-content: center;
         height: 900px;
         width: 50%;
-        .sign-in-container {
+        .sign-up-container {
             display: flex;
-            margin: 100px 50px 0 50px;
+            margin: 70px 50px 0 50px;
             width: 800px;
-            height: 600px;
+            height: 800px;
             justify-content: center;
             align-items: center;
 
-            .sign-in {
+            .sign-up {
                 width: 500px;
                 display: flex;
                 flex-direction: column;
@@ -35,21 +35,10 @@
                     margin-top: 20px;
                     display: flex;
                     justify-content: space-between;
-                    .btn1 {
+                    
+                    & Button{
                         background-color: #658eaf;
                         color: #ffffff;
-                    }
-                    .google-icon{
-                        width: 28px;
-                        height: fit-content;
-                    }
-                }
-                .register {
-                    margin-top: 20px;
-                    color: rgb(88, 88, 88);
-                    font-size: 15px;
-                    .link {
-                        color: rgb(74, 135, 233);
                     }
                 }
             }

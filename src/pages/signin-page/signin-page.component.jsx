@@ -8,4 +8,4 @@ const SignInPage = () => {
         </div>
     );
 };
-export default SignIn;
+export default SignInPage;

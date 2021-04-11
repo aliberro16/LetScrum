@@ -6,7 +6,8 @@ import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import { Link } from 'react-router-dom';
 import LoginImage from '../../assets/images/Login.svg';
-
+import GoogleIcon from '../../assets/icons/google.svg'
+import { Icon } from 'react-icons-kit'
 
 class SignIn extends React.Component {
     constructor(props) {
@@ -73,23 +74,26 @@ class SignIn extends React.Component {
                                         color='primary'
                                         variant='contained'
                                         size='large'
+                                        className='btn1'
                                     >
                                         Sign in
                                     </Button>
                                     <Button
                                         color='secondary'
-                                        variant='contained'
+                                        variant='outlined'
                                         size='large'
+                                        className='google-btn'
                                     >
-                                        {' '}
-                                        Sign in with Google{' '}
+                                        <img src={GoogleIcon} className='google-icon'/>
+                                        &ensp;
+                                        Sign in with Google
                                     </Button>
                                 </div>
                             </form>
                             <div class='register'>
                                 <span>
                                     New to LetScrum?{' '}
-                                    <Link to='/signup' className='link'>
+                                    <Link to='/register' className='link'>
                                         Join now
                                     </Link>
                                 </span>

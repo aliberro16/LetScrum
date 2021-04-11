@@ -43,7 +43,7 @@ const Header = () => {
                                 SIGN IN
                             </Link>
                             <Link
-                                to='/signin'
+                                to='/register'
                                 className={optionClasses.join(' ')}
                             >
                                 REGISTER
