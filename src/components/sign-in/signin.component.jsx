@@ -9,6 +9,7 @@ import LoginImage from '../../assets/images/Login.svg';
 import GoogleIcon from '../../assets/icons/google.svg'
 import { Icon } from 'react-icons-kit'
 
+
 class SignIn extends React.Component {
     constructor(props) {
         super(props);

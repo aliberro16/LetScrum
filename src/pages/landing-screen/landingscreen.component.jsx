@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
-import Header from '../../components/header/header.component';
+import React from 'react';
 import { Container } from '@material-ui/core';
+import Header from '../../components/header/header.component';
 import Button from '@material-ui/core/Button';
 import CreateProjectImage from '../../assets/images/create-project-image.svg';
 import BackToTop from '../../components/scroll-to-top-button/ScrollButton.js';
-import './landingscreen.styles.scss';
-import Footer from '../../components/footer/Footer.component';
-import signinImg from '../../assets/images/horizontalbg.png';
+import Footer from '../../components/footer/footer.component';
+import horizontalbg from '../../assets/images/horizontalbg.png';
 import ScrollAnimation from 'react-animate-on-scroll';
+import './landingscreen.styles.scss';
 
 const LandingScreen = () => {
     return (
@@ -99,7 +99,7 @@ const LandingScreen = () => {
                                     Sign Up{' '}
                                 </Button>
                             </div>
-                            <img width='190px' src={signinImg}></img>
+                            <img width='190px' src={horizontalbg}></img>
                         </div>
                     </div>
                 </div>

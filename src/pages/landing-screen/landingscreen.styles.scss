@@ -15,18 +15,22 @@
     object-fit: contain;
     margin-right: 100px;
 }
-.pagebackground{
-background-image: linear-gradient(to bottom,rgb(247, 235, 250), rgba(255, 255, 255,1) );
-width: 100%;
+.pagebackground {
+    background-image: linear-gradient(
+        to bottom,
+        rgb(247, 235, 250),
+        rgba(255, 255, 255, 1)
+    );
+    width: 100%;
 
     .container {
         top: 0;
         z-index: -1;
-       
-        .banner{
+
+        .banner {
             display: flex;
             flex-direction: row;
-            .left__banner{
+            .left__banner {
                 display: flex;
                 align-items: flex-start;
                 flex-direction: column;
@@ -47,7 +51,7 @@ width: 100%;
                     display: flex;
                     justify-content: left;
                 }
-            
+
                 .inp-btn {
                     display: flex;
                     justify-content: left;
@@ -57,15 +61,15 @@ width: 100%;
                         color: #4a4a4a;
                         max-height: 50px;
                         padding: 20px 46px 18px;
-                        background: url('../../assets/icons/email.svg') no-repeat 17px 15px/16px
-                                16px,
+                        background: url('../../assets/icons/email.svg')
+                                no-repeat 17px 15px/16px 16px,
                             #fff;
                         border-radius: 4px;
                         width: 360px;
                         border: 0;
                         // box-shadow: 0 10px 25px rgb(0 0 0 / 15%);
                         box-shadow: 0px 10px 10px #888888;
-                        border-left: 5px solid  #ff8148;
+                        border-left: 5px solid #ff8148;
                     }
                     .btn {
                         margin-left: 10px;
@@ -74,113 +78,109 @@ width: 100%;
                     }
                 }
             }
-            .right__banner{
+            .right__banner {
                 display: flex;
                 justify-content: flex-end; //el content tab3 div byetharak hasab el x
-                // align-items: flex-end; // el content te3 div  hasab el y  
+                // align-items: flex-end; // el content te3 div  hasab el y
                 width: 1000px;
             }
         }
-        .info__section{
+        .info__section {
             display: flex;
             justify-content: space-between;
             // background-color: lawngreen;
             margin-top: 100px;
-    
-            .info__content{
+
+            .info__content {
                 display: flex;
                 flex-direction: column;
                 width: 300px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                text-align: center;  
-                .color__text{
+                text-align: center;
+                .color__text {
                     color: #2784ff;
                 }
-                .color__text1{
+                .color__text1 {
                     color: #f9a826;
                 }
-                .color__text2{
+                .color__text2 {
                     color: #ff6584;
                 }
             }
         }
-        .signup__section{
+        .signup__section {
             margin-top: 100px;
-            background-image: url("../../assets/images/Bg1.jpg");
-            .signup__content{
+            background-image: url('../../assets/images/Bg1.jpg');
+            .signup__content {
                 display: flex;
-    
-                h1{
+
+                h1 {
                     font-size: 50px;
                 }
-                p{
+                p {
                     font-size: 25px;
-                    color:#7c828d;
+                    color: #7c828d;
                 }
-                .signup__content__btn__image{
+                .signup__content__btn__image {
                     width: 400px;
                     display: flex;
                     justify-content: flex-end;
-                    .signup__content__btn{
+                    .signup__content__btn {
                         height: inherit;
                         width: 200px;
                         margin-top: 90px;
-                        margin-right:20px ;
+                        margin-right: 20px;
                     }
                 }
             }
         }
-        .features__section{
+        .features__section {
             margin-top: 70px;
             margin-bottom: 100px;
-            .color__text{
+            .color__text {
                 color: #2784ff;
             }
-            .color__text1{
+            .color__text1 {
                 color: #f9a826;
             }
-            .color__text2{
+            .color__text2 {
                 color: #ff6584;
             }
-            .feature1__content{
+            .feature1__content {
                 display: flex;
                 margin-bottom: 50px;
                 margin-top: 20px;
-                .feature1__content__text{
-                   display: flex;
-                   flex-direction: column;
-                    margin: 0 100px;  
+                .feature1__content__text {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 0 100px;
                     justify-content: center;
                 }
             }
-            .feature2__content{
+            .feature2__content {
                 display: flex;
                 flex-direction: row-reverse;
                 margin-bottom: 50px;
-                .feature2__content__text{
-                   display: flex;
-                   flex-direction: column;
-                    margin: 0 100px;  
+                .feature2__content__text {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 0 100px;
                     justify-content: center;
                 }
             }
-            & h1{
+            & h1 {
                 font-size: 32px;
             }
-            & p{
+            & p {
                 font-size: 18px;
                 margin-top: 20px;
             }
         }
-    
-        
-        
     }
-    .back{
+    .back {
         position: static;
         z-index: -1;
     }
 }
-
