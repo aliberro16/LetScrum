@@ -7,6 +7,11 @@ import BackToTop from '../../components/scroll-to-top-button/ScrollButton.js';
 import Footer from '../../components/footer/footer.component';
 import horizontalbg from '../../assets/images/horizontalbg.png';
 import ScrollAnimation from 'react-animate-on-scroll';
+import LearnImage from '../../assets/images/online-learn.jpg';
+import BuildImage from '../../assets/images/build-project.jpg';
+import AboutUsImage from '../../assets/images/About.jpg';
+import TrackProjectsImage from '../../assets/images/trackProjects.svg';
+import TwoInOne from '../../assets/images/two-in-one.svg';
 import './landingscreen.styles.scss';
 
 const LandingScreen = () => {
@@ -14,7 +19,7 @@ const LandingScreen = () => {
         <div className='pagebackground'>
             <Header />
             <Container className='container'>
-                <div className='banner'>
+                <div className='banner1'>
                     <div className='left__banner'>
                         <h1 className='title' id='back-to-top-anchor'>
                             One place<br></br>for all your work.
@@ -48,10 +53,7 @@ const LandingScreen = () => {
                 </div>
                 <div className='info__section'>
                     <div className='info__content'>
-                        <img
-                            src='https://cdn2.vectorstock.com/i/1000x1000/25/01/agile-development-software-methodology-scrum-vector-21282501.jpg'
-                            width='350'
-                        ></img>
+                        <img src={LearnImage} width='350'></img>
                         <h2 className='color__text'> Learn Easily</h2>
                         <p>
                             {' '}
@@ -60,18 +62,12 @@ const LandingScreen = () => {
                         </p>
                     </div>
                     <div className='info__content'>
-                        <img
-                            src='https://cdn2.vectorstock.com/i/1000x1000/25/01/agile-development-software-methodology-scrum-vector-21282501.jpg'
-                            width='350'
-                        ></img>
+                        <img src={BuildImage} width='350'></img>
                         <h2 className='color__text1'> Build Project</h2>
                         <p> Build your projects keeping track of work </p>
                     </div>
                     <div className='info__content'>
-                        <img
-                            src='https://cdn2.vectorstock.com/i/1000x1000/25/01/agile-development-software-methodology-scrum-vector-21282501.jpg'
-                            width='350'
-                        ></img>
+                        <img src={AboutUsImage} width='350'></img>
                         <h2 className='color__text2'> About Us</h2>
                         <p>
                             {' '}
@@ -84,7 +80,7 @@ const LandingScreen = () => {
                 <div className='signup__section'>
                     <div className='signup__content'>
                         <div className='signup__content__text'>
-                            <h1>LetScrum, To get your projects Done.</h1>
+                            <h1>LetScrum, To get your projects done.</h1>
                             <p>Don't loose time, Login Now!</p>
                         </div>
                         <div></div>
@@ -94,6 +90,7 @@ const LandingScreen = () => {
                                     color='primary'
                                     variant='contained'
                                     className='btn'
+                                    href='/register'
                                 >
                                     {' '}
                                     Sign Up{' '}
@@ -126,7 +123,7 @@ const LandingScreen = () => {
                             <img
                                 width='500px'
                                 alt=''
-                                src={CreateProjectImage}
+                                src={TrackProjectsImage}
                             />
                         </div>
                         <div className='feature2__content__text'>
@@ -134,7 +131,7 @@ const LandingScreen = () => {
                             <p>
                                 Building your projects on LetScrum enables you
                                 to keep track of the project, showing you the
-                                tasks to do, doing amd done
+                                tasks to do, doing and done
                             </p>
                         </div>
                     </div>
@@ -143,7 +140,7 @@ const LandingScreen = () => {
                             <img
                                 width='500px'
                                 alt=''
-                                src={CreateProjectImage}
+                                src={TwoInOne}
                             />
                         </div>
                         <div className='feature1__content__text'>

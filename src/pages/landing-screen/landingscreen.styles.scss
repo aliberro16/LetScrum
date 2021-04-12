@@ -27,7 +27,7 @@
         top: 0;
         z-index: -1;
 
-        .banner {
+        .banner1{
             display: flex;
             flex-direction: row;
             .left__banner {
@@ -100,13 +100,18 @@
                 align-items: center;
                 text-align: center;
                 .color__text {
-                    color: #2784ff;
+                    color: #2f9190;
                 }
                 .color__text1 {
-                    color: #f9a826;
+                    color: #ffc05c;
                 }
                 .color__text2 {
-                    color: #ff6584;
+                    color: #ff4f5a;
+                }
+                & p{
+                    font-size: 16px;
+                    margin-top: 5px;
+                    line-height: 20px;
                 }
             }
         }
@@ -138,7 +143,6 @@
         }
         .features__section {
             margin-top: 70px;
-            margin-bottom: 100px;
             .color__text {
                 color: #2784ff;
             }

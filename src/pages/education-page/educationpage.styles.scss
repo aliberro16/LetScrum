@@ -91,6 +91,18 @@
   .panel-content {
     text-align: center;
     color: black;
+    margin-left: 150px;
+
+    & a{
+        color: red;
+    }
+    .video-title{
+        width: 300px;
+        text-align: left;
+    }
+    .video-player{
+        margin-top: 15px;
+    }
   }
   .h1{
       color: black;

@@ -12,7 +12,7 @@ import Zoom from '@material-ui/core/Zoom';
 import ReactPlayer from 'react-player';
 import './educationpage.styles.scss';
 
-function EducationPage(){
+function EducationPage() {
     return (
         <div className='pagebackground'>
             <Header />
@@ -34,10 +34,7 @@ function EducationPage(){
                         </TabList>
 
                         <TabPanel>
-                            <div
-                                className='panel-content'
-                                style={{ marginLeft: 150 }}
-                            >
+                            <div className='panel-content'>
                                 <h4>{file1.replace(/^.*[\\\/]/, '')}</h4>
                                 <Tooltip
                                     TransitionComponent={Zoom}
@@ -46,21 +43,14 @@ function EducationPage(){
                                     enterDelay={50}
                                     leaveDelay={150}
                                 >
-                                    <a
-                                        href={file1}
-                                        target='_blank'
-                                        style={{ color: 'red' }}
-                                    >
+                                    <a href={file1} target='_blank'>
                                         <Icon size={120} icon={filePdf} />
                                     </a>
                                 </Tooltip>
                             </div>
                         </TabPanel>
                         <TabPanel>
-                            <div
-                                className='panel-content'
-                                style={{ marginLeft: 150 }}
-                            >
+                            <div className='panel-content'>
                                 <h4>{file2.replace(/^.*[\\\/]/, '')}</h4>
                                 <Tooltip
                                     TransitionComponent={Zoom}
@@ -69,11 +59,7 @@ function EducationPage(){
                                     enterDelay={50}
                                     leaveDelay={200}
                                 >
-                                    <a
-                                        href={file2}
-                                        target='_blank'
-                                        style={{ color: 'red' }}
-                                    >
+                                    <a href={file2} target='_blank'>
                                         <Icon size={120} icon={filePdf} />
                                     </a>
                                 </Tooltip>
@@ -98,31 +84,51 @@ function EducationPage(){
                         </TabList>
 
                         <TabPanel>
-                            <div
-                                className='panel-content'
-                                style={{ marginLeft: 150 }}
-                            >
+                            <div className='panel-content'>
+                                <h2 className='video-title'>What is Scrum?</h2>
                                 <ReactPlayer
-                                    width='480px'
-                                    height='300px'
+                                    width='600px'
+                                    height='400px'
                                     controls
-                                    url='https://www.youtube.com/watch?v=fuOUiXEaeQg'
+                                    url='https://www.youtube.com/watch?v=2Vt7Ik8Ublw'
+                                    className='video-player'
                                 />
                             </div>
                         </TabPanel>
                         <TabPanel>
                             <div className='panel-content'>
-                                <h2>Any content 2</h2>
+                                <h2 className='video-title'>Scrum roles</h2>
+                                <ReactPlayer
+                                    width='600px'
+                                    height='400px'
+                                    controls
+                                    url='https://www.youtube.com/watch?v=j7T1m2Amc40'
+                                    className='video-player'
+                                />
                             </div>
                         </TabPanel>
                         <TabPanel>
                             <div className='panel-content'>
-                                <h2>Any content 3</h2>
+                            <h2 className='video-title'>Scrum retrospective</h2>
+                                <ReactPlayer
+                                    width='600px'
+                                    height='400px'
+                                    controls
+                                    url='https://www.youtube.com/watch?v=bHfbeucM7Tg'
+                                    className='video-player'
+                                />
                             </div>
                         </TabPanel>
                         <TabPanel>
                             <div className='panel-content'>
-                                <h2>Any content 4</h2>
+                            <h2 className='video-title'>Burn-Down chart</h2>
+                                <ReactPlayer
+                                    width='600px'
+                                    height='400px'
+                                    controls
+                                    url='https://www.youtube.com/watch?v=GokN-50Jt4A'
+                                    className='video-player'
+                                />
                             </div>
                         </TabPanel>
                         <TabPanel>

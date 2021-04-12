@@ -32,8 +32,11 @@ const Header = () => {
                         <img src={Logo} alt='LetScrum' className='logo' />
                     </Link>
                     <div className='options'>
-                        <Link to='/contact' className={optionClasses.join(' ')}>
-                            CONTACT US
+                        <Link to='/learn' className={optionClasses.join(' ')}>
+                            LEARN SCRUM
+                        </Link>
+                        <Link to='/project' className={optionClasses.join(' ')}>
+                            PROJECTS
                         </Link>
                         <div className='auth-options'>
                             <Link

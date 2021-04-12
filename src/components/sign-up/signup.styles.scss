@@ -12,8 +12,8 @@
         width: 50%;
         .sign-up-container {
             display: flex;
-            margin: 70px 50px 0 50px;
-            width: 800px;
+            margin: 70px 35px 0 35px;
+            width: 700px;
             height: 800px;
             justify-content: center;
             align-items: center;
@@ -40,6 +40,9 @@
                         background-color: #658eaf;
                         color: #ffffff;
                     }
+                }
+                .sign-up-form{
+                    width: 80%;
                 }
             }
         }
