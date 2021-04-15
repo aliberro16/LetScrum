@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/images/logo.png';
 import { Container } from '@material-ui/core';
 import './header.styles.scss';
+import { auth } from '../../firebase/firebase.utils';
 
-const Header = () => {
+const Header = ({ currentUser }) => {
     const [scrolled, setScrolled] = React.useState(false);
     const handleScroll = () => {
         const offset = window.scrollY;
@@ -38,20 +40,35 @@ const Header = () => {
                         <Link to='/project' className={optionClasses.join(' ')}>
                             PROJECTS
                         </Link>
-                        <div className='auth-options'>
-                            <Link
-                                to='/signin'
-                                className={optionClasses.join(' ')}
-                            >
-                                SIGN IN
-                            </Link>
-                            <Link
-                                to='/register'
-                                className={optionClasses.join(' ')}
-                            >
-                                REGISTER
-                            </Link>
-                        </div>
+                        {/* <div onClick={() => auth.signOut()} className={optionClasses.join(' ')}>
+                            SSSSSSSIgnOuttt
+                        </div> */}
+                        {currentUser ? (
+                            <div className='auth-options'>
+                                <div
+                                    className={optionClasses.join(' ')}
+                                    onClick={() => auth.signOut()}
+                                    style={{fontWeight:'bold'}}
+                                >
+                                    SIGN OUT
+                                </div>
+                            </div>
+                        ) : (
+                            <div className='auth-options'>
+                                <Link
+                                    to='/signin'
+                                    className={optionClasses.join(' ')}
+                                >
+                                    SIGN IN
+                                </Link>
+                                <Link
+                                    to='/register'
+                                    className={optionClasses.join(' ')}
+                                >
+                                    REGISTER
+                                </Link>
+                            </div>
+                        )}
                     </div>
                 </Container>
             </div>
@@ -59,4 +76,7 @@ const Header = () => {
     );
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+    currentUser: state.user.currentUser,
+});
+export default connect(mapStateToProps)(Header);

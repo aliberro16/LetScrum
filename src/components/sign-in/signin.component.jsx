@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import LoginImage from '../../assets/images/Login.svg';
 import GoogleIcon from '../../assets/icons/google.svg'
 import { Icon } from 'react-icons-kit'
-
+import {signInWithGoogle} from '../../firebase/firebase.utils'
 
 class SignIn extends React.Component {
     constructor(props) {
@@ -84,8 +84,9 @@ class SignIn extends React.Component {
                                         variant='outlined'
                                         size='large'
                                         className='google-btn'
+                                        onClick={signInWithGoogle}
                                     >
-                                        <img src={GoogleIcon} className='google-icon'/>
+                                        <img src={GoogleIcon} className='google-icon' />
                                         &ensp;
                                         Sign in with Google
                                     </Button>
