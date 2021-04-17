@@ -6,9 +6,10 @@ import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import { Link } from 'react-router-dom';
 import LoginImage from '../../assets/images/Login.svg';
-import GoogleIcon from '../../assets/icons/google.svg'
-import { Icon } from 'react-icons-kit'
-import {signInWithGoogle} from '../../firebase/firebase.utils'
+import GoogleIcon from '../../assets/icons/google.svg';
+import { Icon } from 'react-icons-kit';
+import { signInWithGoogle } from '../../firebase/firebase.utils';
+import { auth } from '../../firebase/firebase.utils';
 
 class SignIn extends React.Component {
     constructor(props) {
@@ -18,17 +19,16 @@ class SignIn extends React.Component {
             password: '',
         };
     }
-    // handleSubmit = async(event) => {
-    //     event.preventDefault();
-    //     const {email, password} = this.state;
-    //     try{
-    //         await auth.signInWithEmailAndPassword(email, password);
-    //         this.setState({ email: '', password: '' });
-    //     }
-    //     catch(error){
-    //         console.error(error);
-    //     }
-    // };
+    handleSubmit = async (event) => {
+        event.preventDefault();
+        const { email, password } = this.state;
+        try {
+            await auth.signInWithEmailAndPassword(email, password);
+            this.setState({ email: '', password: '' });
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     handleChange = (event) => {
         const { value, name } = event.target;
@@ -76,6 +76,7 @@ class SignIn extends React.Component {
                                         variant='contained'
                                         size='large'
                                         className='btn1'
+                                        type='submit'
                                     >
                                         Sign in
                                     </Button>
@@ -86,9 +87,11 @@ class SignIn extends React.Component {
                                         className='google-btn'
                                         onClick={signInWithGoogle}
                                     >
-                                        <img src={GoogleIcon} className='google-icon' />
-                                        &ensp;
-                                        Sign in with Google
+                                        <img
+                                            src={GoogleIcon}
+                                            className='google-icon'
+                                        />
+                                        &ensp; Sign in with Google
                                     </Button>
                                 </div>
                             </form>
