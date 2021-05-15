@@ -106,7 +106,7 @@ export default function Footer() {
                             <div className='contactus'>
                                 <h1>Contact Us</h1>
                                 <form>
-                                    <label for='fname'>First name:</label>
+                                    <label htmlFor='fname'>First name:</label>
                                     <br></br>
                                     <input
                                         type='text'
@@ -114,7 +114,7 @@ export default function Footer() {
                                         name='fname'
                                     />
                                     <br></br>
-                                    <label for='lname'>Last name:</label>
+                                    <label htmlFor='lname'>Last name:</label>
                                     <br></br>
                                     <input
                                         type='text'
@@ -122,7 +122,7 @@ export default function Footer() {
                                         name='lname'
                                     />
                                     <br></br>
-                                    <label for='lname'>Your message:</label>
+                                    <label htmlFor='lname'>Your message:</label>
                                     <br></br>
                                     <textarea
                                         name='Text1'

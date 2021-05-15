@@ -1,13 +1,11 @@
 import React from 'react';
 import './signin.styles.scss';
 import FormInput from '../../components/form-input/form-input.component';
-import { Container } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import { Link } from 'react-router-dom';
 import LoginImage from '../../assets/images/Login.svg';
 import GoogleIcon from '../../assets/icons/google.svg';
-import { Icon } from 'react-icons-kit';
 import { signInWithGoogle } from '../../firebase/firebase.utils';
 import { auth } from '../../firebase/firebase.utils';
 
@@ -95,7 +93,7 @@ class SignIn extends React.Component {
                                     </Button>
                                 </div>
                             </form>
-                            <div class='register'>
+                            <div className='register'>
                                 <span>
                                     New to LetScrum?{' '}
                                     <Link to='/register' className='link'>

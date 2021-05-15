@@ -34,10 +34,10 @@ const Header = ({ currentUser }) => {
                         <img src={Logo} alt='LetScrum' className='logo' />
                     </Link>
                     <div className='options'>
-                        <Link to='/learn' className={optionClasses.join(' ')}>
+                        <Link to='/learn' className={optionClasses.join('active ')}>
                             LEARN SCRUM
                         </Link>
-                        <Link to='/project' className={optionClasses.join(' ')}>
+                        <Link to='/project' className={optionClasses.join('active ')}>
                             PROJECTS
                         </Link>
                         {/* <div onClick={() => auth.signOut()} className={optionClasses.join(' ')}>

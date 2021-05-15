@@ -156,9 +156,8 @@ const LandingScreen = () => {
             </Container>
 
             <BackToTop />
-            <ScrollAnimation animateIn='fadeInUp' className='back'>
                 <Footer />
-            </ScrollAnimation>
+          
         </div>
     );
 };
