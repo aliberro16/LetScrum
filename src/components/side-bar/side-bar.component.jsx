@@ -82,6 +82,9 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up('sm')]: {
             width: theme.spacing(9) + 1,
         },
+        [theme.breakpoints.down('xs')]: {
+            width: 0,
+        }
     },
     toolbar: {
         // display: 'flex',
@@ -278,7 +281,7 @@ const SideBar = (props, currentUser) => {
                                     paper: classes.drawerClose,
                                 }}
                                 variant='permanent'
-                                open
+                                // open
                             >
                                 {drawer}
                             </Drawer>
