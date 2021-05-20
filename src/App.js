@@ -43,14 +43,14 @@ class App extends React.Component {
                         <Route exact path='/' component={LandingScreen} />
                         <Route exact path='/project' component={ProjectPage} />
                         <Route exact path='/learn' component={EducationPage} />
-                        <Route exact path='/test/:id' component={SideBarPage} />
+                        <Route exact path='/work/:id' component={SideBarPage} />
                         <Route
                             exact
                             path='/signin'
                             render={() =>
                                 this.props.currentUser ? (
                                         <Redirect
-                                            to={`test/${this.props.currentUser.uid}`}
+                                            to={`work/${this.props.currentUser.uid}`}
                                         />
                                     )
                                  : (
@@ -64,7 +64,7 @@ class App extends React.Component {
                             render={() =>
                                 this.props.currentUser ? (
                                     <Redirect
-                                        to={`test/${this.props.currentUser.id}`}
+                                        to={`work/${this.props.currentUser.id}`}
                                     />
                                 ) : (
                                     <SignUpPage />

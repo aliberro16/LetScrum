@@ -1,6 +1,9 @@
-import React,{useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { deepOrange } from '@material-ui/core/colors';
+import { Link, useParams } from 'react-router-dom';
+import { auth, firestore } from '../../firebase/firebase.utils';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -9,18 +12,29 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Hidden from '@material-ui/core/Hidden';
-import MailIcon from '@material-ui/icons/Mail';
 import Avatar from '@material-ui/core/Avatar';
-import { deepOrange } from '@material-ui/core/colors';
-import { Link, useParams } from 'react-router-dom';
-import './side-bar.styles.scss';
-import { auth, firestore } from '../../firebase/firebase.utils';
+import Collapse from '@material-ui/core/Collapse';
+
+import AddIcon from '@material-ui/icons/Add';
+import AccountTreeIcon from '@material-ui/icons/AccountTree';
+import MenuIcon from '@material-ui/icons/Menu';
+import BarChartIcon from '@material-ui/icons/BarChart';
 import HomeIcon from '@material-ui/icons/Home';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import FolderIcon from '@material-ui/icons/Folder';
+import HourglassFullIcon from '@material-ui/icons/HourglassFull';
+import RoomServiceIcon from '@material-ui/icons/RoomService';
+
+import ProductBackLogIcon from '../../assets/icons/backlog.svg';
+import SprintIcon from '../../assets/icons/sprint.svg';
+import JoinIcon from '../../assets/icons/join.svg';
+import './side-bar.styles.scss';
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -42,8 +56,8 @@ const useStyles = makeStyles((theme) => ({
             duration: theme.transitions.duration.enteringScreen,
         }),
     },
-    flexContainer:{
-        display:'flex'
+    flexContainer: {
+        display: 'flex',
     },
     menuButton: {
         [theme.breakpoints.up('sm')]: {
@@ -84,12 +98,9 @@ const useStyles = makeStyles((theme) => ({
         },
         [theme.breakpoints.down('xs')]: {
             width: 0,
-        }
+        },
     },
     toolbar: {
-        // display: 'flex',
-        // alignItems: 'center',
-        // justifyContent: 'flex-end',
         padding: theme.spacing(0, 1),
         // necessary for content to be below app bar
         ...theme.mixins.toolbar,
@@ -110,35 +121,91 @@ const useStyles = makeStyles((theme) => ({
         height: theme.spacing(3),
         fontSize: '12px',
     },
+    nested: {
+        paddingLeft: theme.spacing(4),
+        paddingTop: theme.spacing(2),
+    },
+    newSize: {
+        width: '56px',
+        height: '48px',
+    },
+    iconSize: {
+        width: '24px',
+        height: '24px',
+    },
 }));
 
-const SideBar = (props, currentUser) => {
+const SideBar = (props) => {
     const { window } = props;
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = useState(false);
     const [user, setUser] = useState();
-    const {id} = useParams();
-    useEffect(()=>{
+    const [expand, setExpand] = useState(false);
+    const { id } = useParams();
+    useEffect(() => {
         //Grab the user info from db
-        firestore.collection('users')
-        .doc(id)
-        .get()
-        .then((doc)=>{
-            if(doc.exists){
-                //save user info
-                setUser(doc.data());
-            }else{
-                //redirect to HomePage
-            }
-        })
-    },[])
+        firestore
+            .collection('users')
+            .doc(id)
+            .get()
+            .then((doc) => {
+                if (doc.exists) {
+                    //save user info
+                    setUser(doc.data());
+                } else {
+                    //redirect to HomePage
+                }
+            });
+    }, []);
 
-    console.log("user is", user);
+    // console.log('user is', user);
+
+    const handleClick = () => {
+        setExpand(!expand);
+    };
+
     const handleDrawerToggle = () => {
+        if (!open) {
+            setExpand(true);
+        } else {
+            setExpand(false);
+        }
+        // console.log('open? ',!open);
+        // console.log('expand? ',expand);
+
         setOpen(!open);
     };
 
+    var displaySubMenuIcons = (text) => {
+        if (text.includes('Create')) {
+            return <AddIcon />;
+        } else if (text.includes('Join')) {
+            return (
+                <img
+                    src={JoinIcon}
+                    alt='join project icon'
+                    className={classes.iconSize}
+                />
+            );
+        } else if (text.includes('Choose')) {
+            return (
+                <FolderIcon/>
+            );
+        }else if(text.includes('Waiting')){
+            return <HourglassFullIcon/>
+        }
+        else {
+            return <RoomServiceIcon/>
+        }
+    };
+    const subListItems = [
+        'Create project',
+        'Join project',
+        'Choose project',
+        'Waiting room',
+        'Pending request',
+    ];
     const container =
         window !== undefined ? () => window().document.body : undefined;
 
@@ -147,21 +214,62 @@ const SideBar = (props, currentUser) => {
             <div className={classes.toolbar}>
                 <Divider />
                 <div>
-                    <List>
-                        {['Home', 'Starred', 'Send email', 'Drafts'].map(
-                            (text, index) => (
-                                <ListItem button key={text}>
-                                    <ListItemIcon>
-                                        {index % 2 === 0 ? (
-                                            <HomeIcon />
-                                        ) : (
-                                            <MailIcon />
-                                        )}
-                                    </ListItemIcon>
-                                    <ListItemText primary={text} />
-                                </ListItem>
-                            )
-                        )}
+                    <List aria-labelledby='nested-list-subheader'>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <HomeIcon />
+                            </ListItemIcon>
+                            <ListItemText primary='Home' />
+                        </ListItem>
+                        <ListItem button className={classes.newSize}>
+                            <ListItemIcon>
+                                <img
+                                    src={ProductBackLogIcon}
+                                    alt='product backlog icon'
+                                    className={classes.iconSize}
+                                />
+                            </ListItemIcon>
+                            <ListItemText primary='Product Backlog' />
+                        </ListItem>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <img
+                                    src={SprintIcon}
+                                    alt='product backlog icon'
+                                    className={classes.iconSize}
+                                />
+                            </ListItemIcon>
+                            <ListItemText primary='Sprints' />
+                        </ListItem>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <BarChartIcon />
+                            </ListItemIcon>
+                            <ListItemText primary='Charts' />
+                        </ListItem>
+                        <ListItem button onClick={handleClick}>
+                            <ListItemIcon>
+                                <AccountTreeIcon />
+                            </ListItemIcon>
+                            <ListItemText primary='Projects' />
+                            {expand ? <ExpandLess /> : <ExpandMore />}
+                        </ListItem>
+                        <Collapse in={expand} timeout='auto' unmountOnExit>
+                            <List component='div' disablePadding>
+                                {subListItems.map((item) => (
+                                    <ListItem
+                                        button
+                                        className={classes.nested}
+                                        key={item}
+                                    >
+                                        <ListItemIcon>
+                                            {displaySubMenuIcons(item)}
+                                        </ListItemIcon>
+                                        <ListItemText primary={item} />
+                                    </ListItem>
+                                ))}
+                            </List>
+                        </Collapse>
                     </List>
                 </div>
                 <Divider />
@@ -195,15 +303,13 @@ const SideBar = (props, currentUser) => {
                             <ListItem button>
                                 <div className='avatar'>
                                     {open ? (
-                                        <Avatar className={classes.orange}>
-                                            
-                                        </Avatar>
+                                        <Avatar
+                                            className={classes.orange}
+                                        ></Avatar>
                                     ) : (
                                         <Avatar
                                             className={`${classes.small} ${classes.orange}`}
-                                        >
-                                            
-                                        </Avatar>
+                                        ></Avatar>
                                     )}
                                 </div>
                             </ListItem>
@@ -243,12 +349,7 @@ const SideBar = (props, currentUser) => {
             </AppBar>
             <div className={classes.flexContainer}>
                 <div>
-                    <nav
-                        className={
-                            classes.drawerClose
-                        }
-                        aria-label='Mazen'
-                    >
+                    <nav className={classes.drawerClose} aria-label='Mazen'>
                         <Hidden smUp implementation='css'>
                             <Drawer
                                 container={container}
@@ -336,10 +437,4 @@ const SideBar = (props, currentUser) => {
     );
 };
 
-// const mapStateToProps = (state) => ({
-//     currentUser: state.user.currentUser,
-// });
-
-//export default connect(mapStateToProps)(SideBar);
 export default SideBar;
-
