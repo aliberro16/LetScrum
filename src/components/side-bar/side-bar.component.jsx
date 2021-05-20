@@ -18,6 +18,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Hidden from '@material-ui/core/Hidden';
 import Avatar from '@material-ui/core/Avatar';
 import Collapse from '@material-ui/core/Collapse';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import Fade from '@material-ui/core/Fade';
+import Button from '@material-ui/core/Button';
 
 import AddIcon from '@material-ui/icons/Add';
 import AccountTreeIcon from '@material-ui/icons/AccountTree';
@@ -133,6 +137,13 @@ const useStyles = makeStyles((theme) => ({
         width: '24px',
         height: '24px',
     },
+    menuPadding: {
+        marginTop: '30px',
+        marginLeft:'25px'
+    },
+    blackLink: {
+        color: 'black',
+    },
 }));
 
 const SideBar = (props) => {
@@ -142,6 +153,8 @@ const SideBar = (props) => {
     const [open, setOpen] = useState(false);
     const [user, setUser] = useState();
     const [expand, setExpand] = useState(false);
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const opened = Boolean(anchorEl);
     const { id } = useParams();
     useEffect(() => {
         //Grab the user info from db
@@ -161,7 +174,7 @@ const SideBar = (props) => {
 
     // console.log('user is', user);
 
-    const handleClick = () => {
+    const handleSubMenuToggle = () => {
         setExpand(!expand);
     };
 
@@ -177,6 +190,14 @@ const SideBar = (props) => {
         setOpen(!open);
     };
 
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
     var displaySubMenuIcons = (text) => {
         if (text.includes('Create')) {
             return <AddIcon />;
@@ -189,16 +210,14 @@ const SideBar = (props) => {
                 />
             );
         } else if (text.includes('Choose')) {
-            return (
-                <FolderIcon/>
-            );
-        }else if(text.includes('Waiting')){
-            return <HourglassFullIcon/>
-        }
-        else {
-            return <RoomServiceIcon/>
+            return <FolderIcon />;
+        } else if (text.includes('Waiting')) {
+            return <HourglassFullIcon />;
+        } else {
+            return <RoomServiceIcon />;
         }
     };
+
     const subListItems = [
         'Create project',
         'Join project',
@@ -209,6 +228,24 @@ const SideBar = (props) => {
     const container =
         window !== undefined ? () => window().document.body : undefined;
 
+    const profileMenu = (
+        <Menu
+            id='fade-menu'
+            anchorEl={anchorEl}
+            keepMounted
+            open={opened}
+            onClose={handleClose}
+            TransitionComponent={Fade}
+            className={classes.menuPadding}
+        >
+            <Link to={`work/${id}/profile`} className={classes.blackLink}>
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+            </Link>
+            <Link to='/' className={classes.blackLink}>
+                <MenuItem onClick={() => auth.signOut()}>Logout</MenuItem>
+            </Link>
+        </Menu>
+    );
     const drawer = (
         <div>
             <div className={classes.toolbar}>
@@ -247,7 +284,7 @@ const SideBar = (props) => {
                             </ListItemIcon>
                             <ListItemText primary='Charts' />
                         </ListItem>
-                        <ListItem button onClick={handleClick}>
+                        <ListItem button onClick={handleSubMenuToggle}>
                             <ListItemIcon>
                                 <AccountTreeIcon />
                             </ListItemIcon>
@@ -279,23 +316,33 @@ const SideBar = (props) => {
                             <ListItem button>
                                 <div className='avatar'>
                                     {open ? (
-                                        <Avatar className={classes.orange}>
-                                            {user.displayName
-                                                ? user.displayName
-                                                      .charAt(0)
-                                                      .toUpperCase()
-                                                : ''}
-                                        </Avatar>
+                                        <div>
+                                            <Avatar
+                                                className={classes.orange}
+                                                onClick={handleClick}
+                                            >
+                                                {user.displayName
+                                                    ? user.displayName
+                                                          .charAt(0)
+                                                          .toUpperCase()
+                                                    : ''}
+                                            </Avatar>
+                                            {profileMenu}
+                                        </div>
                                     ) : (
-                                        <Avatar
-                                            className={`${classes.small} ${classes.orange}`}
-                                        >
-                                            {user.displayName
-                                                ? user.displayName
-                                                      .charAt(0)
-                                                      .toUpperCase()
-                                                : ''}
-                                        </Avatar>
+                                        <div>
+                                            <Avatar
+                                                className={`${classes.small} ${classes.orange}`}
+                                                onClick={handleClick}
+                                            >
+                                                {user.displayName
+                                                    ? user.displayName
+                                                          .charAt(0)
+                                                          .toUpperCase()
+                                                    : ''}
+                                            </Avatar>
+                                            {profileMenu}
+                                        </div>
                                     )}
                                 </div>
                             </ListItem>
@@ -303,24 +350,25 @@ const SideBar = (props) => {
                             <ListItem button>
                                 <div className='avatar'>
                                     {open ? (
-                                        <Avatar
-                                            className={classes.orange}
-                                        ></Avatar>
+                                        <div>
+                                            <Avatar
+                                                className={classes.orange}
+                                                onClick={handleClick}
+                                            ></Avatar>
+                                            {profileMenu}
+                                        </div>
                                     ) : (
-                                        <Avatar
-                                            className={`${classes.small} ${classes.orange}`}
-                                        ></Avatar>
+                                        <div>
+                                            <Avatar
+                                                className={`${classes.small} ${classes.orange}`}
+                                                onClick={handleClick}
+                                            ></Avatar>
+                                            {profileMenu}
+                                        </div>
                                     )}
                                 </div>
                             </ListItem>
                         )}
-                        <ListItem>
-                            <div className='signOut'>
-                                <Link to='/' onClick={() => auth.signOut()}>
-                                    Sign Out
-                                </Link>
-                            </div>
-                        </ListItem>
                     </List>
                 </div>
             </div>
