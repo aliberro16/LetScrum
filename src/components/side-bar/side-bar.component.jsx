@@ -9,7 +9,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import ListItem from '@material-ui/core/ListItem';
@@ -21,7 +20,6 @@ import Collapse from '@material-ui/core/Collapse';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Fade from '@material-ui/core/Fade';
-import Button from '@material-ui/core/Button';
 
 import AddIcon from '@material-ui/icons/Add';
 import AccountTreeIcon from '@material-ui/icons/AccountTree';
@@ -37,7 +35,9 @@ import RoomServiceIcon from '@material-ui/icons/RoomService';
 import ProductBackLogIcon from '../../assets/icons/backlog.svg';
 import SprintIcon from '../../assets/icons/sprint.svg';
 import JoinIcon from '../../assets/icons/join.svg';
+import ImgSlider from '../../components/image-slider/image-slider.component';
 import './side-bar.styles.scss';
+import About from '../../assets/images/About.jpg';
 
 const drawerWidth = 240;
 
@@ -113,6 +113,17 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         padding: theme.spacing(3),
     },
+    imgContainer: {
+        backgroundColor: 'red',
+        // height:'100%',
+        // width:'100%',
+        position: 'relative',
+        img: {
+            position: 'absolute',
+            height: '100%',
+            width: '100%',
+        },
+    },
     orange: {
         color: theme.palette.getContrastText(deepOrange[500]),
         backgroundColor: deepOrange[500],
@@ -139,7 +150,7 @@ const useStyles = makeStyles((theme) => ({
     },
     menuPadding: {
         marginTop: '30px',
-        marginLeft:'25px'
+        marginLeft: '25px',
     },
     blackLink: {
         color: 'black',
@@ -156,6 +167,7 @@ const SideBar = (props) => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const opened = Boolean(anchorEl);
     const { id } = useParams();
+
     useEffect(() => {
         //Grab the user info from db
         firestore
@@ -238,7 +250,7 @@ const SideBar = (props) => {
             TransitionComponent={Fade}
             className={classes.menuPadding}
         >
-            <Link to={`work/${id}/profile`} className={classes.blackLink}>
+            <Link to={`/work/${id}/profile`} className={classes.blackLink}>
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
             </Link>
             <Link to='/' className={classes.blackLink}>
@@ -252,32 +264,47 @@ const SideBar = (props) => {
                 <Divider />
                 <div>
                     <List aria-labelledby='nested-list-subheader'>
-                        <ListItem button>
-                            <ListItemIcon>
-                                <HomeIcon />
-                            </ListItemIcon>
-                            <ListItemText primary='Home' />
-                        </ListItem>
-                        <ListItem button className={classes.newSize}>
-                            <ListItemIcon>
-                                <img
-                                    src={ProductBackLogIcon}
-                                    alt='product backlog icon'
-                                    className={classes.iconSize}
-                                />
-                            </ListItemIcon>
-                            <ListItemText primary='Product Backlog' />
-                        </ListItem>
-                        <ListItem button>
-                            <ListItemIcon>
-                                <img
-                                    src={SprintIcon}
-                                    alt='product backlog icon'
-                                    className={classes.iconSize}
-                                />
-                            </ListItemIcon>
-                            <ListItemText primary='Sprints' />
-                        </ListItem>
+                        <Link
+                            to={`/work/${id}/home`}
+                            className={classes.blackLink}
+                        >
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <HomeIcon />
+                                </ListItemIcon>
+                                <ListItemText primary='Home' />
+                            </ListItem>
+                        </Link>
+                        <Link
+                            to={`/work/${id}/productbacklog`}
+                            className={classes.blackLink}
+                        >
+                            <ListItem button className={classes.newSize}>
+                                <ListItemIcon>
+                                    <img
+                                        src={ProductBackLogIcon}
+                                        alt='product backlog icon'
+                                        className={classes.iconSize}
+                                    />
+                                </ListItemIcon>
+                                <ListItemText primary='Product Backlog' />
+                            </ListItem>
+                        </Link>
+                        <Link
+                            to={`/work/${id}/sprints`}
+                            className={classes.blackLink}
+                        >
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <img
+                                        src={SprintIcon}
+                                        alt='product backlog icon'
+                                        className={classes.iconSize}
+                                    />
+                                </ListItemIcon>
+                                <ListItemText primary='Sprints' />
+                            </ListItem>
+                        </Link>
                         <ListItem button>
                             <ListItemIcon>
                                 <BarChartIcon />
@@ -437,47 +464,21 @@ const SideBar = (props) => {
                         </Hidden>
                     </nav>
                 </div>
-                <div>
-                    <main className={classes.content}>
-                        <div className={classes.toolbar} />
-                        <Typography paragraph>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Rhoncus dolor purus non enim
-                            praesent elementum facilisis leo vel. Risus at
-                            ultrices mi tempus imperdiet. Semper risus in
-                            hendrerit gravida rutrum quisque non tellus.
-                            Convallis convallis tellus id interdum velit laoreet
-                            id donec ultrices. Odio morbi quis commodo odio
-                            aenean sed adipiscing. Amet nisl suscipit adipiscing
-                            bibendum est ultricies integer quis. Cursus euismod
-                            quis viverra nibh cras. Metus vulputate eu
-                            scelerisque felis imperdiet proin fermentum leo.
-                            Mauris commodo quis imperdiet massa tincidunt. Cras
-                            tincidunt lobortis feugiat vivamus at augue. At
-                            augue eget arcu dictum varius duis at consectetur
-                            lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-                            donec massa sapien faucibus et molestie ac.
-                        </Typography>
-                        <Typography paragraph>
-                            Consequat mauris nunc congue nisi vitae suscipit.
-                            Fringilla est ullamcorper eget nulla facilisi etiam
-                            dignissim diam. Pulvinar elementum integer enim
-                            neque volutpat ac tincidunt. Ornare suspendisse sed
-                            nisi lacus sed viverra tellus. Purus sit amet
-                            volutpat consequat mauris. Elementum eu facilisis
-                            sed odio morbi. Euismod lacinia at quis risus sed
-                            vulputate odio. Morbi tincidunt ornare massa eget
-                            egestas purus viverra accumsan in. In hendrerit
-                            gravida rutrum quisque non tellus orci ac.
-                            Pellentesque nec nam aliquam sem et tortor. Habitant
-                            morbi tristique senectus et. Adipiscing elit duis
-                            tristique sollicitudin nibh sit. Ornare aenean
-                            euismod elementum nisi quis eleifend. Commodo
-                            viverra maecenas accumsan lacus vel facilisis. Nulla
-                            posuere sollicitudin aliquam ultrices sagittis orci
-                            a.
-                        </Typography>
+                <div style={{display:'flex', justifyContent:'center'}}>
+                    <main>
+                        <div className='content'>
+                            <div className={classes.toolbar} />
+                            <div className='img-container'>
+                                <ImgSlider className='responsive'>
+
+                                </ImgSlider>
+                                {/* <img
+                                    src={About}
+                                    alt=''
+                                    className='responsive'
+                                /> */}
+                            </div>
+                        </div>
                     </main>
                 </div>
             </div>

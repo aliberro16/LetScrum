@@ -1,11 +1,22 @@
 
-.signOut{
-    a{
+.signOut {
+    a {
         color: black !important;
         text-transform: uppercase;
         font-size: 12px;
         font-weight: bold;
-        
+    }
+}
+.content {
+    display: flex;
+    height: 980px - 64px;
+    overflow: hidden;
+    margin-top: 70px;
+    margin-left: 100px;
+}
+.img-container {
+    // display: flex;
+        .responsive {
+        }
     }
 
-}

@@ -6,13 +6,13 @@ import CreateProjectImage from '../../assets/images/create-project-image.svg';
 import BackToTop from '../../components/scroll-to-top-button/ScrollButton.js';
 import Footer from '../../components/footer/footer.component';
 import horizontalbg from '../../assets/images/horizontalbg.png';
-import ScrollAnimation from 'react-animate-on-scroll';
 import LearnImage from '../../assets/images/online-learn.jpg';
 import BuildImage from '../../assets/images/build-project.jpg';
 import AboutUsImage from '../../assets/images/About.jpg';
 import TrackProjectsImage from '../../assets/images/trackProjects.svg';
 import TwoInOne from '../../assets/images/two-in-one.svg';
 import './landingscreen.styles.scss';
+import ImgSlider from '../../components/image-slider/image-slider.component';
 
 const LandingScreen = () => {
     return (

@@ -15,7 +15,7 @@ export default function Footer() {
     return (
         <AppBar className='footer_bg' position='static'>
             <div className='footer'>
-                <Container className='content' maxWidth='lg'>
+                <Container  maxWidth='lg'>
                     <div className='footer__content'>
                         <div className='top__content'>
                             <div>
