@@ -4,7 +4,7 @@ import Header from '../../components/header/header.component';
 import Button from '@material-ui/core/Button';
 import CreateProjectImage from '../../assets/images/create-project-image.svg';
 import BackToTop from '../../components/scroll-to-top-button/ScrollButton.js';
-import Footer from '../../components/footer/footer.component';
+import Footer from '../../components/footer/Footer.component';
 import horizontalbg from '../../assets/images/horizontalbg.png';
 import LearnImage from '../../assets/images/online-learn.jpg';
 import BuildImage from '../../assets/images/build-project.jpg';

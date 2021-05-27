@@ -35,7 +35,7 @@ import RoomServiceIcon from '@material-ui/icons/RoomService';
 import ProductBackLogIcon from '../../assets/icons/backlog.svg';
 import SprintIcon from '../../assets/icons/sprint.svg';
 import JoinIcon from '../../assets/icons/join.svg';
-import ImgSlider from '../../components/image-slider/image-slider.component';
+// import ImgSlider from '../../components/image-slider/image-slider.component';
 import './side-bar.styles.scss';
 import About from '../../assets/images/About.jpg';
 
@@ -44,6 +44,7 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
+        
     },
     appBar: {
         zIndex: theme.zIndex.drawer + 1,
@@ -465,21 +466,7 @@ const SideBar = (props) => {
                     </nav>
                 </div>
                 <div style={{display:'flex', justifyContent:'center'}}>
-                    <main>
-                        <div className='content'>
-                            <div className={classes.toolbar} />
-                            <div className='img-container'>
-                                <ImgSlider className='responsive'>
-
-                                </ImgSlider>
-                                {/* <img
-                                    src={About}
-                                    alt=''
-                                    className='responsive'
-                                /> */}
-                            </div>
-                        </div>
-                    </main>
+                 
                 </div>
             </div>
         </div>

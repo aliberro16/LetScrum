@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../../components/header/header.component';
-import Footer from '../../components/footer/footer.component';
+import Footer from '../../components/footer/Footer.component';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import file1 from '../../assets/pdf/AgileCourse.pdf';
 import file2 from '../../assets/pdf/ScrumCourse.pdf';
