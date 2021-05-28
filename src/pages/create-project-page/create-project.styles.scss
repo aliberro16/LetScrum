@@ -1,0 +1,31 @@
+.flex-container {
+    display: flex;
+    overflow: hidden;
+    margin-left: 150px;
+    .f-inp {
+        margin-top: 100px;
+        width: 20%;
+
+        .buttons {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 15px;
+        }
+
+        .input-copy {
+            display: flex;
+            height: fit-content;
+            background-color: lightblue;
+            
+            svg{
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+        .btn{
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+    }
+}

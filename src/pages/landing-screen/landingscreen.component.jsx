@@ -11,8 +11,7 @@ import BuildImage from '../../assets/images/build-project.jpg';
 import AboutUsImage from '../../assets/images/About.jpg';
 import TrackProjectsImage from '../../assets/images/trackProjects.svg';
 import TwoInOne from '../../assets/images/two-in-one.svg';
-import './landingscreen.styles.scss';
-import ImgSlider from '../../components/image-slider/image-slider.component';
+import './landingscreen.styles.scss'; 
 
 const LandingScreen = () => {
     return (

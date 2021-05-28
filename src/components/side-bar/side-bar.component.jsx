@@ -35,9 +35,7 @@ import RoomServiceIcon from '@material-ui/icons/RoomService';
 import ProductBackLogIcon from '../../assets/icons/backlog.svg';
 import SprintIcon from '../../assets/icons/sprint.svg';
 import JoinIcon from '../../assets/icons/join.svg';
-import ImgSlider from '../../components/image-slider/image-slider.component';
 import './side-bar.styles.scss';
-import About from '../../assets/images/About.jpg';
 
 const drawerWidth = 240;
 
@@ -129,7 +127,10 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: deepOrange[500],
     },
     avatar: {
-        textAlign: 'center',
+        backgroundColor: 'red',
+    },
+    avatar_width: {
+        width: 'fit-content',
     },
     small: {
         width: theme.spacing(3),
@@ -320,24 +321,30 @@ const SideBar = (props) => {
                         </ListItem>
                         <Collapse in={expand} timeout='auto' unmountOnExit>
                             <List component='div' disablePadding>
-                                {subListItems.map((item) => (
-                                    <ListItem
-                                        button
-                                        className={classes.nested}
-                                        key={item}
+                                {subListItems.map((item,i) => (
+                                    <Link
+                                        to={`/work/${id}/project/${item.replace(' ','-').toLowerCase()}`}
+                                        className={classes.blackLink}
+                                        key={i}
                                     >
-                                        <ListItemIcon>
-                                            {displaySubMenuIcons(item)}
-                                        </ListItemIcon>
-                                        <ListItemText primary={item} />
-                                    </ListItem>
+                                        <ListItem
+                                            button
+                                            className={classes.nested}
+                                            key={i}
+                                        >
+                                            <ListItemIcon key={i}>
+                                                {displaySubMenuIcons(item)}
+                                            </ListItemIcon>
+                                            <ListItemText primary={item} key={i}/>
+                                        </ListItem>
+                                    </Link>
                                 ))}
                             </List>
                         </Collapse>
                     </List>
                 </div>
                 <Divider />
-                <div>
+                <div className={classes.avatar_width}>
                     <List>
                         {user ? (
                             <ListItem button>
@@ -464,22 +471,8 @@ const SideBar = (props) => {
                         </Hidden>
                     </nav>
                 </div>
-                <div style={{display:'flex', justifyContent:'center'}}>
-                    <main>
-                        <div className='content'>
-                            <div className={classes.toolbar} />
-                            <div className='img-container'>
-                                <ImgSlider className='responsive'>
-
-                                </ImgSlider>
-                                {/* <img
-                                    src={About}
-                                    alt=''
-                                    className='responsive'
-                                /> */}
-                            </div>
-                        </div>
-                    </main>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    
                 </div>
             </div>
         </div>
