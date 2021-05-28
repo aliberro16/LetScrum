@@ -39,6 +39,7 @@ import JoinIcon from '../../assets/icons/join.svg';
 import './side-bar.styles.scss';
 import About from '../../assets/images/About.jpg';
 
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -251,7 +252,7 @@ const SideBar = (props) => {
             TransitionComponent={Fade}
             className={classes.menuPadding}
         >
-            <Link to={`/work/${id}/profile`} className={classes.blackLink}>
+            <Link to={`/work/${id}/profile`}  className={classes.blackLink}>
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
             </Link>
             <Link to='/' className={classes.blackLink}>

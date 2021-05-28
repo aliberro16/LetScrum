@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+import { useParams } from "react-router-dom";
 import PhoneIcon from "@material-ui/icons/Phone";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import PersonPinIcon from "@material-ui/icons/PersonPin";
@@ -20,7 +21,9 @@ import styled from "styled-components";
 import photo from "../../assets/images/person avatar.png";
 import Button from "@material-ui/core/Button";
 import photo1 from "../../assets/images/myproject.JPG";
-import photo2 from "../../assets/images/map.JPG"
+import photo2 from "../../assets/images/map.JPG";
+import FormInput from "../form-input/form-input.component";
+import { firestore } from "../../firebase/firebase.utils";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -84,112 +87,179 @@ export default function ScrollableTabsButtonPrevent() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const [displayName, setDisplayName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState();
+  const [major, setMajor] = useState("");
+
+  const handleChange1 = (event) => {
+    const displayName = event.target.value;
+    setDisplayName(displayName);
+  };
+
+  const { id } = useParams();
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    //Grab the user info from db
+    firestore
+      .collection("users")
+      .doc(id)
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          //save user info
+          setUser(doc.data());
+        } else {
+          //redirect to HomePage
+        }
+      });
+  }, []);
 
   return (
+    
     <div className={classes.root}>
-      <AppBar position="static">
-        <Container>
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            variant="scrollable"
-            scrollButtons="off"
-            aria-label="scrollable prevent tabs example"
-            // class={classes.btnContainer}
-          >
-            <Tabe
-              icon={<PersonPinIcon />}
-              aria-label="person"
-              {...a11yProps(1)}
-              label="Profile"
-            />
+      {user ? (
+        <>
+        <AppBar position="static">
+          <Container>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              variant="scrollable"
+              scrollButtons="off"
+              aria-label="scrollable prevent tabs example"
+              // class={classes.btnContainer}
+            >
+              <Tabe
+                icon={<PersonPinIcon />}
+                aria-label="person"
+                {...a11yProps(1)}
+                label="Profile"
+              />
 
-            <Tabe
-              icon={<AccountTreeIcon />}
-              aria-label="person"
-              {...a11yProps(2)}
-              label="My Projects"
-            />
+              <Tabe
+                icon={<AccountTreeIcon />}
+                aria-label="person"
+                {...a11yProps(2)}
+                label="My Projects"
+              />
 
-            <Tabe
-              icon={<ListAltIcon />}
-              aria-label="person"
-              {...a11yProps(0)}
-              label="Map"
-            />
-          </Tabs>
-        </Container>
-      </AppBar>
-      <TabPanel value={value} index={0}>
-        <TabContainer>
-          <img src={photo} alt="" />
-          <Content>
-            <PersInfo>
-              <ul>
-                <li>
-                  <h1>Username:</h1>
-                  <h2>Ali Berro</h2>
-                </li>
-                <li>
-                  <h1>Email:</h1>
-                  <h2>ali.berro16@hotmail.com</h2>
-                </li>
-                <li>
-                  <h1>Phone:</h1>
-                  <h2>76874009</h2>
-                </li>
-                <li>
-                  <h1>Major:</h1>
-                  <h2>front end</h2>
-                </li>
-              </ul>
-            </PersInfo>
-            <Button color="primary" variant="contained" href="">
-              {" "}
-              EDIT{" "}
-            </Button>
-          </Content>
-        </TabContainer>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <TabContainer1>
-          <img src={photo1} alt="" />
-          <Content>
-            <h1>You are not joined in any project !</h1>
-            <BtnWraper>
-            <Button color="primary" variant="contained" href="">
-              {" "}
-              Create Project{" "}
-            </Button>
-            <ButtonOrange color="secondary" variant="contained" href="">
-              {" "}
-              Join Project{" "}
-            </ButtonOrange>
-            </BtnWraper>
-          </Content>
-        </TabContainer1>
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-      <TabContainer2>
-          <img src={photo2} alt="" />
-          <Content>
-            <h1>You are not joined in any project !</h1>
-            <BtnWraper>
-            <Button color="primary" variant="contained" href="">
-              {" "}
-              Create Project{" "}
-            </Button>
-            <ButtonOrange color="secondary" variant="contained" href="">
-              {" "}
-              Join Project{" "}
-            </ButtonOrange>
-            </BtnWraper>
-          </Content>
-        </TabContainer2>
-      </TabPanel>
+              <Tabe
+                icon={<ListAltIcon />}
+                aria-label="person"
+                {...a11yProps(0)}
+                label="Map"
+              />
+            </Tabs>
+          </Container>
+        </AppBar>
+        <TabPanel value={value} index={0}>
+          <TabContainer>
+            <img src={photo} alt="" />
+            
+              <Content>
+                <PersInfo>
+                  <FormInput1
+                    type="text"
+                    name="displayName"
+                    value={user.displayName}
+                    onChange={handleChange1}
+                    label="Username"
+                    required
+                  />
+                  <FormInput1
+                    type="email"
+                    name="displayName"
+                    value={user.email}
+                    onChange={handleChange1}
+                    label="Email"
+                    required
+                  />
+                  <FormInput1
+                    type="tel"
+                    name="displayName"
+                    value={displayName}
+                    onChange={handleChange1}
+                    label="Phone Number"
+                    required
+                  />
+
+                  <FormInput1
+                    type="text"
+                    name="displayName"
+                    value={displayName}
+                    onChange={handleChange1}
+                    label="Major"
+                    required
+                  />
+                </PersInfo>
+                <BtnWraper1>
+                  <Button
+                    size="large"
+                    color="primary"
+                    variant="contained"
+                    href=""
+                  >
+                    {" "}
+                    EDIT{" "}
+                  </Button>
+                </BtnWraper1>
+              </Content>
+            
+          </TabContainer>
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <TabContainer1>
+            <img src={photo1} alt="" />
+            <Content>
+              <h1>You are not joined in any project !</h1>
+              <BtnWraper>
+                <Button color="primary" variant="contained" href="">
+                  {" "}
+                  Create Project{" "}
+                </Button>
+                <ButtonOrange color="" variant="contained" href="">
+                  {" "}
+                  Join Project{" "}
+                </ButtonOrange>
+              </BtnWraper>
+            </Content>
+          </TabContainer1>
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          <TabContainer2>
+            <img src={photo2} alt="" />
+            <Content>
+              <h1>You are not joined in any project !</h1>
+              <BtnWraper>
+                <Button color="primary" variant="contained" href="">
+                  {" "}
+                  Create Project{" "}
+                </Button>
+                <ButtonOrange color="" variant="contained" href="">
+                  {" "}
+                  Join Project{" "}
+                </ButtonOrange>
+              </BtnWraper>
+            </Content>
+          </TabContainer2>
+        </TabPanel>
+      </>
+      ) : (
+        <div></div>
+      )}
     </div>
+    
   );
 }
+const ButtonOrange = styled(Button)`
+  background-color: #ff5722;
+  color: white;
+  &:hover {
+    background-color: #ff5722;
+  }
+`;
 const Container = styled.div`
   display: flex;
   justify-content: start;
@@ -199,7 +269,9 @@ const Tabe = styled(Tab)`
   margin-left: 20px;
 `;
 const Content = styled.div`
+  width: 50%;
   display: flex;
+  justify-content: flex-end;
   flex-direction: column;
   align-items: center;
 `;
@@ -221,19 +293,21 @@ max-width: 100%;
 }
 `;
 const PersInfo = styled.div`
-  ul {
-    width: 100%;
-    li {
-      h1 {
-        text-decoration: underline;
-      }
-      h2 {
-        letter-spacing: 1.8px;
-        color: #393e46;
-      }
-    }
+  width: 70%;
+  @media (max-width: 979px) {
+    min-width: 250px;
   }
-}
+`;
+const TabContainer2 = styled(TabContainer)`
+display:flex;
+flex-direction: row-reverse;
+  img {
+    width: 500px;
+  }
+  @media (max-width: 979px) {
+    img { 
+        display: none;
+    }
 `;
 const TabContainer1 = styled(TabContainer)`
 display:flex;
@@ -247,29 +321,22 @@ flex-direction: row-reverse;
     }
 `;
 
-const TabContainer2 = styled(TabContainer)`
-display:flex;
-flex-direction: row-reverse;
-  img {
-    width: 500px;
-  }
-  @media (max-width: 979px) {
-    img { 
-        display: none;
-    }
-`;
-
 const BtnWraper = styled.div`
-display:flex;
-justify-content:space-between;
-width:500px;
-@media (max-width: 979px) {
-   width:300px;
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  @media (max-width: 979px) {
+    width: 300px;
+  }
 `;
-const ButtonOrange = styled(Button)`
-background-color:#ff5722;
-&:hover {
-  background-color:#ff5722; 
-   }
+const BtnWraper1 = styled(BtnWraper)`
+  justify-content: flex-end;
+  @media (max-width: 979px) {
+    width: 300px;
+    justify-content: center;
+  }
 `;
 
+const FormInput1 = styled(FormInput)`
+  ${"" /* width: 30%; */}
+`;
