@@ -321,21 +321,21 @@ const SideBar = (props) => {
                         </ListItem>
                         <Collapse in={expand} timeout='auto' unmountOnExit>
                             <List component='div' disablePadding>
-                                {subListItems.map((item,i) => (
+                                {subListItems.map((item,index) => (
                                     <Link
                                         to={`/work/${id}/project/${item.replace(' ','-').toLowerCase()}`}
                                         className={classes.blackLink}
-                                        key={i}
+                                        key={index}
                                     >
                                         <ListItem
                                             button
                                             className={classes.nested}
-                                            key={i}
+                                            
                                         >
-                                            <ListItemIcon key={i}>
+                                            <ListItemIcon >
                                                 {displaySubMenuIcons(item)}
                                             </ListItemIcon>
-                                            <ListItemText primary={item} key={i}/>
+                                            <ListItemText primary={item}/>
                                         </ListItem>
                                     </Link>
                                 ))}

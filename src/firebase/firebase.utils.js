@@ -35,6 +35,30 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     return userRef;
 };
 
+// export const createProjectDocument = async(userId, additionalData) => {
+    
+//     const projectRef = firestore.doc(`users/${userId}/projects/iHOYqQgRMkVENLqtb8YZ`);
+//     const snapShot = await projectRef.get();
+//     if(!snapShot.exists){
+//         const {title, description, maxMembersNumber, key} = project;
+//         const createdAt = new Date();
+
+//         try{
+//             await projectRef.set({
+//                 title,
+//                 description,
+//                 maxMembersNumber,
+//                 key,
+//                 createdAt,
+//                 ...additionalData
+//             })
+//         }catch(error){
+//             console.log('error creating project',error.message);
+//         }
+//     }
+//     return project;
+// };
+
 firebase.initializeApp(config);
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();

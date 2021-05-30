@@ -1,111 +1,190 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SideBar from '../../components/side-bar/side-bar.component';
 import FormInput from '../../components/form-input/form-input.component';
 import Button from '@material-ui/core/Button';
 import './create-project.styles.scss';
 import { v4 as uuidv4 } from 'uuid';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
+import { firestore } from '../../firebase/firebase.utils';
+import { useParams } from 'react-router-dom';
+import Alert from '@material-ui/lab/Alert';
+import CreateProjectImage from '../../assets/images/create-project.svg';
 
 const CreateProject = () => {
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [maxMembersNum, setMaxMembersNum] = useState(0);
-    const [key, setKey] = useState('');
+    const createdAt = new Date();
+    const { id } = useParams();
+    const [error, setError] = useState(null);
+    const [errorMessage, setErrorMessage] = useState('');
+    const [isSuccessfull, setSuccess] = useState(null);
 
-    const handleChange1 = (event) => {
-        const title = event.target.value;
-        setTitle(title);
+    const [data, setData] = useState({
+        title: '',
+        description: '',
+        maxMembersNumber: 0,
+        key: '',
+        createdAt: createdAt,
+    });
+
+    const emptyProjectData = {
+        title: '',
+        description: '',
+        maxMembersNumber: 0,
+        key: '',
     };
 
-    const handleChange2 = (event) => {
-        const description = event.target.value;
-        setDescription(description);
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
     };
 
-    const handleChange3 = (event) => {
-        const maxMembersNum = event.target.value;
-        setMaxMembersNum(maxMembersNum);
-    };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (data.key != '') {
+            try {
+                const projectRef = await firestore
+                    .collection('users')
+                    .doc(id)
+                    .collection('projects')
+                    .add(data);
 
-    const handleChange4 = (event) => {
-        const key = event.target.value;
-        setKey(key);
+                setSuccess(true);
+                setData(emptyProjectData);
+                console.log('project added successfully!');
+            } catch (error) {
+                console.error(error);
+                setError(error);
+                setErrorMessage(error.message);
+            }
+        } else {
+            e.preventDefault();
+            setSuccess(false);
+            setErrorMessage('Please generate key');
+            setError(true);
+        }
     };
 
     return (
-        <div className='flex-container'>
+        <>
             <div>
-                <SideBar />
+                {error ? (
+                    <div
+                        style={{
+                            width: '100%',
+                            marginTop: '60px',
+                            paddingLeft: '69px',
+                            position: 'absolute',
+                            transition: 'all 0.3s ease',
+                        }}
+                    >
+                        <Alert severity='warning'>{errorMessage}</Alert>
+                    </div>
+                ) : isSuccessfull ? (
+                    <div
+                        style={{
+                            width: '100%',
+                            marginTop: '64px',
+                            paddingLeft: '69px',
+                            position: 'absolute',
+                            transition: 'all 0.3s ease',
+                        }}
+                    >
+                        <Alert severity='success' color='info'>
+                            Project added successfully!
+                        </Alert>
+                    </div>
+                ) : null}
             </div>
-            <div className='f-inp'>
-                <form
-                    onSubmit={() => {
-                        console.log('Submission done!');
-                    }}
-                >
-                    <FormInput
-                        type='text'
-                        name='Title'
-                        value={title}
-                        onChange={handleChange1}
-                        label='Project title'
-                        required
-                    />
-                    <FormInput
-                        type='text'
-                        name='Description'
-                        value={description}
-                        onChange={handleChange2}
-                        label='Description'
-                    />
-                    <FormInput
-                        type='number'
-                        name='MaxMembersNumber'
-                        value={maxMembersNum}
-                        onChange={handleChange3}
-                        label='Maximum members number'
-                        required
-                    />
+            <div className='first-container'>
+                <div className='flex-container'>
+                    <div className='sidebar'>
+                        <SideBar />
+                    </div>
 
-                    <div className='input-copy'>
-                        <div style={{backgroundColor:'red'}}>
+                    <div className='f-inp'>
+                        <form onSubmit={handleSubmit}>
                             <FormInput
                                 type='text'
-                                name='Key'
-                                value={key}
-                                label='Unique key'
+                                name='title'
+                                value={data.title}
+                                onChange={handleChange}
+                                label='Project title'
                                 required
-                                disabled={true}
                             />
-                        </div>
-                        <div  style={{backgroundColor:'green',width:'inherit',display:'flex',alignItems:'center'}}>
-                            <FileCopyIcon fontSize='large' />
-                        </div>
-                    </div>
 
-                    <div className='btn'>
-                        <Button
-                            color='primary'
-                            variant='contained'
-                            size='small'
-                            onClick={() => setKey(uuidv4())}
-                        >
-                            GENERATE KEY
-                        </Button>
+                            <FormInput
+                                type='text'
+                                name='description'
+                                value={data.description}
+                                onChange={handleChange}
+                                label='Description'
+                                multiline
+                            />
+                            <FormInput
+                                type='number'
+                                name='maxMembersNumber'
+                                value={data.maxMembersNumber}
+                                onChange={handleChange}
+                                label='Maximum members number'
+                                required
+                            />
+
+                            <div className='input-copy'>
+                                <div className='key-input'>
+                                    <FormInput
+                                        type='text'
+                                        name='key'
+                                        value={data.key}
+                                        label='Unique key'
+                                        onChange={handleChange}
+                                        required
+                                        disabled
+                                    />
+                                </div>
+                                <FileCopyIcon
+                                    fontSize='large'
+                                    className='copy-icon'
+                                    onClick={() => {
+                                        navigator.clipboard.writeText(data.key);
+                                    }}
+                                />
+                            </div>
+
+                            <div className='btn'>
+                                <Button
+                                    color='primary'
+                                    variant='contained'
+                                    size='small'
+                                    onClick={() =>
+                                        setData((prevData) => ({
+                                            ...prevData,
+                                            key: uuidv4(),
+                                        }))
+                                    }
+                                >
+                                    GENERATE KEY
+                                </Button>
+                            </div>
+                            <div className='buttons'>
+                                <Button
+                                    type='submit'
+                                    color='default'
+                                    variant='contained'
+                                    size='large'
+                                >
+                                    CREATE PROJECT
+                                </Button>
+                            </div>
+                        </form>
                     </div>
-                    <div className='buttons'>
-                        <Button
-                            type='submit'
-                            color='default'
-                            variant='contained'
-                            size='large'
-                        >
-                            CREATE PROJECT
-                        </Button>
-                    </div>
-                </form>
+                </div>
+                <div className='project-image'>
+                    <img src={CreateProjectImage} alt='create-project' />
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 

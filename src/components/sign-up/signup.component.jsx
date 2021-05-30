@@ -89,13 +89,6 @@ class SignUp extends React.Component {
                     </div>
                 ) : null}
                 <div className='signup-page'>
-                    {/* {this.state.error ? (
-                        <div style={{ display: 'block', width: '100%' }}>
-                            <Alert variant='filled' severity='error'>
-                                {this.state.errorMessage}
-                            </Alert>
-                        </div>
-                    ) : null} */}
                     <div className='image'>
                         <img src={SignUpImage} />
                     </div>
