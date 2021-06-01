@@ -12,6 +12,7 @@ import ScrollToTop from '../src/StartFromTop';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import './App.css';
 import CreateProject from './pages/create-project-page/create-project.component';
+import projectDetail from './pages/project-detail-page/projectDetail';
 
 class App extends React.Component {
     unsubscribeFromAuth = null;
@@ -46,6 +47,8 @@ class App extends React.Component {
                         <Route exact path='/learn' component={EducationPage} />
                         <Route exact path='/work/:id' component={SideBarPage} />
                         <Route exact path='/work/:id/project/create-project' component={CreateProject} />
+                        <Route exact path='/work/:id/project/project-detail' component={projectDetail} />
+
                         <Route
                             exact
                             path='/signin'
