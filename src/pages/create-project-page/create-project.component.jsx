@@ -9,6 +9,8 @@ import { firestore } from '../../firebase/firebase.utils';
 import { useParams } from 'react-router-dom';
 import Alert from '@material-ui/lab/Alert';
 import CreateProjectImage from '../../assets/images/create-project.svg';
+import Expire from '../../components/expire/expire.component';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const CreateProject = () => {
     const createdAt = new Date();
@@ -40,29 +42,34 @@ const CreateProject = () => {
         }));
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        if (data.key != '') {
-            try {
-                const projectRef = await firestore
-                    .collection('users')
-                    .doc(id)
-                    .collection('projects')
-                    .add(data);
+    const addProjectDocToFirestore = async () => {
+        const projectRef = await firestore
+            .collection('users')
+            .doc(id)
+            .collection('projects')
+            .add(data);
+        console.log(projectRef);
+    };
 
+    const handleSubmit = async (e) => {
+        try {
+            e.preventDefault();
+            if (data.key != '') {
+                addProjectDocToFirestore();
                 setSuccess(true);
+                setError(false);
                 setData(emptyProjectData);
                 console.log('project added successfully!');
-            } catch (error) {
-                console.error(error);
-                setError(error);
-                setErrorMessage(error.message);
+            } else {
+                e.preventDefault();
+                setSuccess(false);
+                setErrorMessage('Please generate key');
+                setError(true);
             }
-        } else {
-            e.preventDefault();
-            setSuccess(false);
-            setErrorMessage('Please generate key');
-            setError(true);
+        } catch (error) {
+            console.error(error);
+            setError(error);
+            setErrorMessage(error.message);
         }
     };
 
@@ -121,6 +128,7 @@ const CreateProject = () => {
                                 onChange={handleChange}
                                 label='Description'
                                 multiline
+                                rowsMax={3}
                             />
                             <FormInput
                                 type='number'
@@ -129,6 +137,12 @@ const CreateProject = () => {
                                 onChange={handleChange}
                                 label='Maximum members number'
                                 required
+                                InputProps={{
+                                    inputProps: {
+                                        max: 10,
+                                        min: 0,
+                                    },
+                                }}
                             />
 
                             <div className='input-copy'>
@@ -143,13 +157,17 @@ const CreateProject = () => {
                                         disabled
                                     />
                                 </div>
-                                <FileCopyIcon
-                                    fontSize='large'
-                                    className='copy-icon'
-                                    onClick={() => {
-                                        navigator.clipboard.writeText(data.key);
-                                    }}
-                                />
+                                <Tooltip title='Copy to clipboard'>
+                                    <FileCopyIcon
+                                        fontSize='large'
+                                        className='copy-icon'
+                                        onClick={() => {
+                                            navigator.clipboard.writeText(
+                                                data.key
+                                            );
+                                        }}
+                                    />
+                                </Tooltip>
                             </div>
 
                             <div className='btn'>
