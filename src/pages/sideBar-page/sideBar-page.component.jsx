@@ -8,7 +8,6 @@ const SideBarPage = () =>{
         <div>
         <SideBar/>
         <Container>
-        <ImgSlider/>
         </Container>
         </div>
         
