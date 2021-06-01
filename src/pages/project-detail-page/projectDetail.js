@@ -14,20 +14,34 @@ function projectDetail() {
       </div>
       <div className='content'>
         <div className='details'>
+        <div className='detail-info'>
             <h2>Title:</h2> 
             <span>FYP</span>
+        </div>
+        <div className='detail-info'>
             <h2>Description:</h2>
             <span>final year project</span>
+        </div>
+        <div className='detail-info'>
             <h2>Topic:</h2>
             <span>letscrum</span>
+        </div>
+        <div className='detail-info'>
             <h2>Start Date:</h2>
             <span>6/1/2021</span>
+        </div>
+        <div className='detail-info'>
             <h2>Size:</h2>
             <span>4</span>
+        </div>
+        <div className='detail-info'>
             <h2>Project Key:</h2>
-            <span>sfesdafgdsgtfdhfgdfgdwet</span>
+            <span>sfesdafgdsgtfdhfgdfgdwetsdfvdbzzxcvxxfdg</span>
+        </div>
+        <div className='detail-info'> 
             <h2>Status:</h2>
             <span>active</span>
+        </div>
         </div>
         <div className="image">
             <img src = {detailimg}/>
