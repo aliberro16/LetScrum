@@ -11,7 +11,10 @@ import SideBarPage from './pages/sideBar-page/sideBar-page.component';
 import ScrollToTop from '../src/StartFromTop';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import './App.css';
+// import Profile from './pages/profile-page/profile';
+import waitingroom from './pages/waiting-room/waitingroom';
 import CreateProject from './pages/create-project-page/create-project.component';
+
 
 class App extends React.Component {
     unsubscribeFromAuth = null;
@@ -46,6 +49,8 @@ class App extends React.Component {
                         <Route exact path='/learn' component={EducationPage} />
                         <Route exact path='/work/:id' component={SideBarPage} />
                         <Route exact path='/work/:id/project/create-project' component={CreateProject} />
+                        {/* <Route exact path='/work/:id/profile' component={Profile}/>  */}
+                        <Route exact path='/work/:id/project/waiting-room' component={waitingroom}/> 
                         <Route
                             exact
                             path='/signin'

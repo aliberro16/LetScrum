@@ -14,8 +14,11 @@
 .footer_bg {
     background-color: #292d34 !important;
     font-family: 'Roboto', Arial, sans-serif;
+    margin-top: 100px;
     margin-bottom: 0;
     padding-bottom: 0;
+     width: 1520px !important;
+    margin-left: -145px; 
 }
 .logo-container {
     max-width: 100px;
@@ -79,7 +82,7 @@
 .test {
     height: 315px;
 }
-.btttom__content__pos {
+.btttom_content_pos {
     display: flex;
 }
 .text__social {

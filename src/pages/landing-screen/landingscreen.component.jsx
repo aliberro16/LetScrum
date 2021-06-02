@@ -152,10 +152,10 @@ const LandingScreen = () => {
                         </div>
                     </div>
                 </div>
-            </Container>
-
             <BackToTop />
                 <Footer />
+            </Container>
+
           
         </div>
     );

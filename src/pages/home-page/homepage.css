@@ -1,0 +1,22 @@
+.container {
+    font-family: sans-serif;
+    text-align: center;
+    margin-top: 20px;
+    height: 600px;
+    margin-left: 900px;
+  }
+  
+  .error {
+    display: none;
+  }
+  .error.active {
+    display: block;
+    color: blue;
+  }
+  
+  .fade-out {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 1s 0.5s, opacity 0.5s;
+  }
+  
