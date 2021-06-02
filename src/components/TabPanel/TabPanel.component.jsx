@@ -237,7 +237,7 @@ export default function ScrollableTabsButtonPrevent() {
                   {" "}
                   Create Project{" "}
                 </Button>
-                <ButtonOrange color="" variant="contained" href="">
+                <ButtonOrange  variant="contained" href="">
                   {" "}
                   Join Project{" "}
                 </ButtonOrange>
