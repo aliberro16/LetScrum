@@ -35,13 +35,16 @@ import RoomServiceIcon from '@material-ui/icons/RoomService';
 import ProductBackLogIcon from '../../assets/icons/backlog.svg';
 import SprintIcon from '../../assets/icons/sprint.svg';
 import JoinIcon from '../../assets/icons/join.svg';
+// import ImgSlider from '../../components/image-slider/image-slider.component';
 import './side-bar.styles.scss';
+
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
+        
     },
     appBar: {
         zIndex: theme.zIndex.drawer + 1,
@@ -251,7 +254,7 @@ const SideBar = (props) => {
             TransitionComponent={Fade}
             className={classes.menuPadding}
         >
-            <Link to={`/work/${id}/profile`} className={classes.blackLink}>
+            <Link to={`/work/${id}/profile`}  className={classes.blackLink}>
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
             </Link>
             <Link to='/' className={classes.blackLink}>

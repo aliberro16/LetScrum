@@ -16,6 +16,7 @@ import waitingroom from './pages/waiting-room/waitingroom';
 import CreateProject from './pages/create-project-page/create-project.component';
 import HomePage from './pages/home-page/homepage';
 
+import Profile from './pages/profile-page/profile';
 
 class App extends React.Component {
     unsubscribeFromAuth = null;
@@ -53,6 +54,7 @@ class App extends React.Component {
                         {/* <Route exact path='/work/:id/profile' component={Profile}/>  */}
                         <Route exact path='/work/:id/project/waiting-room' component={waitingroom}/> 
                         <Route exact path='/work/:id/home' component={HomePage}/> 
+                        <Route exact path='/work/:id/profile' component={Profile}/> 
                         <Route
                             exact
                             path='/signin'
