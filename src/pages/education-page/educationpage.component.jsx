@@ -11,7 +11,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
 import ReactPlayer from 'react-player';
 import './educationpage.styles.scss';
-
+import styled from "styled-components"
 function EducationPage() {
     return (
         <div className='pagebackground'>
@@ -138,10 +138,11 @@ function EducationPage() {
                         </TabPanel>
                     </Tabs>
                 </div>
-            </Container>
             <Footer />
+            </Container>
         </div>
     );
 }
 
 export default EducationPage;
+
