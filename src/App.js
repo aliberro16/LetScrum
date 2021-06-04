@@ -49,7 +49,7 @@ class App extends React.Component {
                         <Route exact path='/' component={LandingScreen} />
                         <Route exact path='/project' component={ProjectPage} />
                         <Route exact path='/learn' component={EducationPage} />
-                        <Route exact path='/work/:id' component={SideBarPage} />
+                        {/* <Route exact path='/work/:id' component={SideBarPage} /> */}
                         <Route exact path='/work/:id/project/create-project' component={CreateProject} />
                         {/* <Route exact path='/work/:id/profile' component={Profile}/>  */}
                         <Route exact path='/work/:id/project/waiting-room' component={waitingroom}/> 
@@ -61,7 +61,7 @@ class App extends React.Component {
                             render={() =>
                                 this.props.currentUser ? (
                                         <Redirect
-                                            to={`work/${this.props.currentUser.uid}`}
+                                            to={`work/${this.props.currentUser.uid}/home`}
                                         />
                                     )
                                  : (
