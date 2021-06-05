@@ -73,7 +73,6 @@ export default function CustomizedDialogs() {
   };
   const handleClose = () => {
     setOpen(false);
-    
   };
 
   const handleChange = (e) => {
@@ -99,7 +98,7 @@ export default function CustomizedDialogs() {
   };
 
   return (
-    <div >
+    <div>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
         Edit
       </Button>
@@ -111,7 +110,7 @@ export default function CustomizedDialogs() {
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
           Edit Profile
         </DialogTitle>
-        <DialogContent dividers style={{width:'500px'}}>
+        <DialogContent dividers style={{ width: "500px" }}>
           <Content>
             <PersInfo>
               <form onSubmit={handleSubmit}>
@@ -140,14 +139,23 @@ export default function CustomizedDialogs() {
                   required
                 />
                 <DialogActions>
+                  {data.displayName && data.email && data.phoneNumber?
+                    <Button
+                      autoFocus
+                      onClick={handleClose}
+                      type="submit"
+                      color="primary"
+                    >
+                      Save changes
+                    </Button>
+                  :
                   <Button
-                    autoFocus
-                    // onClick={handleClose}
-                    type="submit"
-                    color="primary"
-                  >
-                    Save changes
-                  </Button>
+                      autoFocus
+                      type="submit"
+                      disabled
+                    >
+                      Save changes
+                    </Button>}
                 </DialogActions>
               </form>
             </PersInfo>
