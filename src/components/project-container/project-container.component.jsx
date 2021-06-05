@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { firestore } from "../../firebase/firebase.utils";
 import "./project-container.styles.scss";
+import Button from "@material-ui/core/Button";
 const ProjectContainer = () => {
   const { id } = useParams();
   const [projectData, setProjectData] = useState([]);
@@ -34,24 +35,34 @@ const ProjectContainer = () => {
 
   return (
     <div className="project-container">
-      <div>
+      <div className="project-container-listContainer">
         {projectData.map((project) =>
           project ? (
+            <div className="project-list-container">
             <div className="project-list">
-              <p>{project.title}</p>
+              <span className ="project-container-projectTitle">{project.title.toUpperCase()}</span>
               <ul>
-                <li>{project.description}</li>
-                <li>{project.key}</li>
-                <li>{project.maxMembersNumber}</li>
+                <li><span>Description:&nbsp;</span>{project.description}</li>
+                <li><span>Key:&nbsp;</span> {project.key}</li>
+                <li><span>Members Number:&nbsp;</span>{project.maxMembersNumber}</li>
                 {project.createdAt ? (
-                  <li>{convertTimeStampToDate(project.createdAt)}</li>
+                  <li><span>Creation Date:&nbsp;</span>{convertTimeStampToDate(project.createdAt)}</li>
                 ) : (
                   <li></li>
                 )}
               </ul>
             </div>
+              <div>
+                <Button variant="contained" color="primary">
+                  Primary
+                </Button>
+              </div>
+            </div>
           ) : (
-            <div>NO PROJECTS YET</div>
+            <div className="project-container-noProject">
+              NO PROJECTS YET
+              {console.log("no project")}
+            </div>
           )
         )}
       </div>
