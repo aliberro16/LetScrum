@@ -5,6 +5,8 @@ import WarningIcon from "@material-ui/icons/Warning";
 // import "./productbacklog.scss";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
 function ProductBacklog() {
   return (
     <Container>
@@ -17,9 +19,11 @@ function ProductBacklog() {
             <WarningIcon /> &nbsp; You are not joined in any project!
           </span>
           <Btnwraper>
-            <CreateButton variant="contained">Create Project</CreateButton>
+            <CreateButton variant="contained">
+              <Link to="/work/:id/project/create-project">Create Project</Link>
+            </CreateButton>
             <Button variant="contained" color="primary">
-              Join Project
+              <Link to="/work/:id/project/join-project">Join Project</Link>
             </Button>
           </Btnwraper>
         </LeftSection>
@@ -60,10 +64,10 @@ const Content = styled.div`
   width: 1350px;
   height: 600px;
   margin-top: 100px;
-    ${'' /* background-color: red;  */}
-    @media (max-width: 979px) {
-       margin-left:150px
-    }
+  ${"" /* background-color: red;  */}
+  @media (max-width: 979px) {
+    margin-left: 150px;
+  }
 `;
 const LeftSection = styled.div`
   width: 50%;
