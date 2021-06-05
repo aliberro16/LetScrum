@@ -24,6 +24,7 @@ import photo1 from "../../assets/images/myproject.JPG";
 import photo2 from "../../assets/images/map.JPG";
 import FormInput from "../form-input/form-input.component";
 import { firestore } from "../../firebase/firebase.utils";
+import Dialog from "../../components/dialog/CustomizedDialogs";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -87,19 +88,17 @@ export default function ScrollableTabsButtonPrevent() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const [displayName, setDisplayName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState();
-  const [major, setMajor] = useState("");
-
-  const handleChange1 = (event) => {
-    const displayName = event.target.value;
-    setDisplayName(displayName);
-  };
 
   const { id } = useParams();
   const [user, setUser] = useState();
+  const [open, setOpen] = React.useState(false);
 
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
   useEffect(() => {
     //Grab the user info from db
     firestore
@@ -114,143 +113,125 @@ export default function ScrollableTabsButtonPrevent() {
           //redirect to HomePage
         }
       });
-  }, []);
+  });
 
   return (
-    
     <div className={classes.root}>
       {user ? (
         <>
-        <AppBar position="static">
-          <Container>
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              variant="scrollable"
-              scrollButtons="off"
-              aria-label="scrollable prevent tabs example"
-              // class={classes.btnContainer}
-            >
-              <Tabe
-                icon={<PersonPinIcon />}
-                aria-label="person"
-                {...a11yProps(1)}
-                label="Profile"
-              />
+          <AppBar position="static">
+            <Container>
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                variant="scrollable"
+                scrollButtons="off"
+                aria-label="scrollable prevent tabs example"
+                // class={classes.btnContainer}
+              >
+                <Tabe
+                  icon={<PersonPinIcon />}
+                  aria-label="person"
+                  {...a11yProps(1)}
+                  label="Profile"
+                />
 
-              <Tabe
-                icon={<AccountTreeIcon />}
-                aria-label="person"
-                {...a11yProps(2)}
-                label="My Projects"
-              />
+                <Tabe
+                  icon={<AccountTreeIcon />}
+                  aria-label="person"
+                  {...a11yProps(2)}
+                  label="My Projects"
+                />
 
-              <Tabe
-                icon={<ListAltIcon />}
-                aria-label="person"
-                {...a11yProps(0)}
-                label="Map"
-              />
-            </Tabs>
-          </Container>
-        </AppBar>
-        <TabPanel value={value} index={0}>
-          <TabContainer>
-            <img src={photo} alt="" />
-            
+                <Tabe
+                  icon={<ListAltIcon />}
+                  aria-label="person"
+                  {...a11yProps(0)}
+                  label="Map"
+                />
+              </Tabs>
+            </Container>
+          </AppBar>
+          <TabPanel value={value} index={0}>
+            <TabContainer>
+              <img src={photo} alt="" />
+
               <Content>
                 <PersInfo>
                   <FormInput1
                     type="text"
                     name="displayName"
                     value={user.displayName}
-                    onChange={handleChange1}
                     label="Username"
-                    required
+                    disabled
                   />
                   <FormInput1
                     type="email"
-                    name="displayName"
+                    name="email"
                     value={user.email}
-                    onChange={handleChange1}
                     label="Email"
-                    required
+                    disabled
                   />
                   <FormInput1
                     type="tel"
-                    name="displayName"
-                    value={displayName}
-                    onChange={handleChange1}
+                    name="phoneNumber"
+                    value={user.phoneNumber}
                     label="Phone Number"
-                    required
-                  />
-
-                  <FormInput1
-                    type="text"
-                    name="displayName"
-                    value={displayName}
-                    onChange={handleChange1}
-                    label="Major"
-                    required
+                    
+                    disabled
                   />
                 </PersInfo>
                 <BtnWraper1>
-                  <Button
-                    size="large"
-                    color="primary"
-                    variant="contained"
-                    href=""
-                  >
-                    {" "}
-                    EDIT{" "}
-                  </Button>
+                  <Dialog
+                    onClose={handleClose}
+                    aria-labelledby="customized-dialog-title"
+                    open={open}
+                  ></Dialog>
                 </BtnWraper1>
               </Content>
-            
-          </TabContainer>
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          <TabContainer1>
-            <img src={photo1} alt="" />
-            <Content>
-              <h1>You are not joined in any project !</h1>
-              <BtnWraper>
-                <Button color="primary" variant="contained" href="">
-                  {" "}
-                  Create Project{" "}
-                </Button>
-                <ButtonOrange color="" variant="contained" href="">
-                  {" "}
-                  Join Project{" "}
-                </ButtonOrange>
-              </BtnWraper>
-            </Content>
-          </TabContainer1>
-        </TabPanel>
-        <TabPanel value={value} index={2}>
-          <TabContainer2>
-            <img src={photo2} alt="" />
-            <Content>
-              <h1>You are not joined in any project !</h1>
-              <BtnWraper>
-                <Button color="primary" variant="contained" href="">
-                  {" "}
-                  Create Project{" "}
-                </Button>
-                <ButtonOrange  variant="contained" href="">
-                  {" "}
-                  Join Project{" "}
-                </ButtonOrange>
-              </BtnWraper>
-            </Content>
-          </TabContainer2>
-        </TabPanel>
-      </>
+            </TabContainer>
+          </TabPanel>
+          <TabPanel value={value} index={1}>
+            <TabContainer1>
+              <img src={photo1} alt="" />
+              <Content>
+                <h1>You are not joined in any project !</h1>
+                <BtnWraper>
+                  <Button color="primary" variant="contained" href="">
+                    {" "}
+                    Create Project{" "}
+                  </Button>
+                  <ButtonOrange color="" variant="contained" href="">
+                    {" "}
+                    Join Project{" "}
+                  </ButtonOrange>
+                </BtnWraper>
+              </Content>
+            </TabContainer1>
+          </TabPanel>
+          <TabPanel value={value} index={2}>
+            <TabContainer2>
+              <img src={photo2} alt="" />
+              <Content>
+                <h1>You are not joined in any project !</h1>
+                <BtnWraper>
+                  <Button color="primary" variant="contained" href="">
+                    {" "}
+                    Create Project{" "}
+                  </Button>
+                  <ButtonOrange variant="contained" href="">
+                    {" "}
+                    Join Project{" "}
+                  </ButtonOrange>
+                </BtnWraper>
+              </Content>
+            </TabContainer2>
+          </TabPanel>
+        </>
       ) : (
         <div></div>
       )}
     </div>
-    
   );
 }
 const ButtonOrange = styled(Button)`
