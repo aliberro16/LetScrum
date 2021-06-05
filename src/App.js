@@ -17,6 +17,7 @@ import CreateProject from './pages/create-project-page/create-project.component'
 import HomePage from './pages/home-page/homepage';
 import Profile from './pages/profile-page/profile';
 import ProductBacklog from './pages/product-backlog/productbacklog';
+import PendingProject from './pages/pending-project/PendingProject';
 
 class App extends React.Component {
     unsubscribeFromAuth = null;
@@ -54,7 +55,7 @@ class App extends React.Component {
                         <Route exact path='/work/:id/home' component={HomePage}/> 
                         <Route exact path='/work/:id/profile' component={Profile}/>
                         <Route exact path='/work/:id/productbacklog' component={ProductBacklog}/>  
-                        
+                        <Route exact path='/work/:id/project/pending-request' component={PendingProject}/>  
                         <Route
                             exact
                             path='/signin'
