@@ -1,0 +1,24 @@
+.key-form {
+    display: flex;
+    padding-left: 200px;
+    margin-top: 50px;
+    @media (max-width: 600px) {
+        display: flex;
+        justify-content: center;
+        padding-left: 0;
+        margin-top: 30px;
+
+    }
+    input {
+        width: 400px;
+        @media (max-width: 600px) {
+            width: 350px;
+            
+        }
+    }
+    .join-btn{
+        display: flex;
+        padding-top: 50px;
+        justify-content: flex-end;
+    }
+}

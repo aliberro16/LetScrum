@@ -2,22 +2,21 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.actions';
+import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import ProjectPage from './pages/project-page/project-page.component';
 import SignInPage from './pages/signin-page/signin-page.component';
 import SignUpPage from './pages/signup-page/signup-page.component';
 import LandingScreen from './pages/landing-screen/landingscreen.component';
 import EducationPage from './pages/education-page/educationpage.component';
-import SideBarPage from './pages/sideBar-page/sideBar-page.component';
 import ScrollToTop from '../src/StartFromTop';
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
-import './App.css';
-// import Profile from './pages/profile-page/profile';
 import waitingroom from './pages/waiting-room/waitingroom';
 import CreateProject from './pages/create-project-page/create-project.component';
 import HomePage from './pages/home-page/homepage';
 import Profile from './pages/profile-page/profile';
 import ProductBacklog from './pages/product-backlog/productbacklog';
 import PendingProject from './pages/pending-project/PendingProject';
+import JoinProjectPage from './pages/join-project-page/join-project.component';
+import './App.css';
 
 class App extends React.Component {
     unsubscribeFromAuth = null;
@@ -56,6 +55,7 @@ class App extends React.Component {
                         <Route exact path='/work/:id/profile' component={Profile}/>
                         <Route exact path='/work/:id/productbacklog' component={ProductBacklog}/>  
                         <Route exact path='/work/:id/project/pending-request' component={PendingProject}/>  
+                        <Route exact path='/work/:id/project/join-project' component={JoinProjectPage} />
                         <Route
                             exact
                             path='/signin'
@@ -76,7 +76,7 @@ class App extends React.Component {
                             render={() =>
                                 this.props.currentUser ? (
                                     <Redirect
-                                        to={`work/${this.props.currentUser.id}`}
+                                        to={`work/${this.props.currentUser.uid}`}
                                     />
                                 ) : (
                                     <SignUpPage />

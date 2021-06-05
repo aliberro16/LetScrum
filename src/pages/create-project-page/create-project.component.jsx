@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { firestore } from '../../firebase/firebase.utils';
+import { useParams } from 'react-router-dom';
 import SideBar from '../../components/side-bar/side-bar.component';
 import FormInput from '../../components/form-input/form-input.component';
 import Button from '@material-ui/core/Button';
-import './create-project.styles.scss';
-import { v4 as uuidv4 } from 'uuid';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
-import { firestore } from '../../firebase/firebase.utils';
-import { useParams } from 'react-router-dom';
 import Alert from '@material-ui/lab/Alert';
 import CreateProjectImage from '../../assets/images/create-project.svg';
-import Expire from '../../components/expire/expire.component';
 import Tooltip from '@material-ui/core/Tooltip';
+import './create-project.styles.scss';
 
-const CreateProject = () => {
+const CreateProjectPage = () => {
     const createdAt = new Date();
     const { id } = useParams();
     const [error, setError] = useState(null);
@@ -206,4 +205,4 @@ const CreateProject = () => {
     );
 };
 
-export default CreateProject;
+export default CreateProjectPage;
