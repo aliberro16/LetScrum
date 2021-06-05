@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SideBar from "../../components/side-bar/side-bar.component";
 import "./waitingroom.scss";
 import photo from "../../assets/images/waiting room.JPG";
@@ -7,7 +7,9 @@ import WarningIcon from "@material-ui/icons/Warning";
 import Button from "@material-ui/core/Button";
 import DoneIcon from '@material-ui/icons/Done';
 import ClearIcon from '@material-ui/icons/Clear';
+
 function waitingroom() {
+  
   return (
     <div>
       <SideBar />
@@ -29,7 +31,6 @@ function waitingroom() {
               <div className="waitingroom-member-info">
                 <span>Ali Berro </span>
                 <span>ali.berro16@hotmail.com </span>
-                <span>ul </span>
               </div>
               <div className="waitingroom-btnwrapper">
                 <Button variant="contained" color="primary">
