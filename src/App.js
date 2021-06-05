@@ -16,6 +16,7 @@ import Profile from './pages/profile-page/profile';
 import ProductBacklog from './pages/product-backlog/productbacklog';
 import PendingProject from './pages/pending-project/PendingProject';
 import JoinProjectPage from './pages/join-project-page/join-project.component';
+import ChooseProjectPage from './pages/choose-project-page/choose-project-page.component';
 import './App.css';
 
 class App extends React.Component {
@@ -56,6 +57,7 @@ class App extends React.Component {
                         <Route exact path='/work/:id/productbacklog' component={ProductBacklog}/>  
                         <Route exact path='/work/:id/project/pending-request' component={PendingProject}/>  
                         <Route exact path='/work/:id/project/join-project' component={JoinProjectPage} />
+                        <Route exact path='/work/:id/project/choose-project' component={ChooseProjectPage} />
                         <Route
                             exact
                             path='/signin'
