@@ -78,7 +78,6 @@ export default function ScrollableTabsButtonPrevent() {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
     const { id } = useParams();
-    const [user, setUser] = useState();
 
     const [data, setData] = useState();
 
@@ -86,7 +85,6 @@ export default function ScrollableTabsButtonPrevent() {
     setValue(newValue);
   };
 
-  const { id } = useParams();
   const [user, setUser] = useState();
   const [open, setOpen] = React.useState(false);
 
