@@ -1,15 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import SideBar from "../../components/side-bar/side-bar.component";
-import "./waitingroom.scss";
 import photo from "../../assets/images/waiting room.JPG";
 import photo2 from "../../assets/images/img_avatar.png";
 import WarningIcon from "@material-ui/icons/Warning";
 import Button from "@material-ui/core/Button";
 import DoneIcon from '@material-ui/icons/Done';
 import ClearIcon from '@material-ui/icons/Clear';
+import {firestore} from '../../firebase/firebase.utils'
+import "./waitingroom.scss";
 
 function waitingroom() {
   
+
   return (
     <div>
       <SideBar />
