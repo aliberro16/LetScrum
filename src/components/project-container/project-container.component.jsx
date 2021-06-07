@@ -144,11 +144,6 @@ const ProjectContainer = () => {
             <div className='project-container-banner'>
                 <h1>Choose Project</h1>
             </div>
-            {checkedProject.createdAt ? (
-                <button>{checkedProject.description}</button>
-            ) : (
-                <button>NO</button>
-            )}
 
             <div>
                 {projectData.map((project, index) =>
@@ -193,44 +188,6 @@ const ProjectContainer = () => {
                                         className='project-container-chooseButton'
                                         key={index}
                                     >
-                                        {/* {convertTimeStampToDate(checkedProject.createdAt)===convertTimeStampToDate(project.createdAt)?
-                                        <button
-                                        style={{
-                                            border: 'none',
-                                            backgroundColor: 'white',
-                                        }}
-                                        key={index}
-                                        // onClick={() =>{
-                                        //     handleClick(index);
-                                        // }
-                                        // }
-                                    >
-                                        <img
-                                            src={Check}
-                                            style={{
-                                                width: '40px',
-                                                height: '40px',
-                                            }}
-                                        />
-                                    </button>
-                                    :
-                                    <div className='choose-btn'>
-                                                <Button
-                                                    variant='contained'
-                                                    color='primary'
-                                                    key={index}
-                                                    onClick={() => {
-                                                        handleClick(index);
-                                                        setAllProjectsNotChecked().then(
-                                                            () =>
-                                                                addIsCheckedToProjectDoc(index)
-                                                        );
-                                                    }}
-                                                >
-                                                    Choose Project
-                                                </Button>
-                                            </div>
-                                    } */}
                                         {chosen[index] ||
                                         checkedProject.title.valueOf() ===
                                             project.title.valueOf() ? (
