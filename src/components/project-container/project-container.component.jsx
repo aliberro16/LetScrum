@@ -74,7 +74,6 @@ const ProjectContainer = () => {
                         // console.log(checkedProject);
                     });
                 } else {
-                    alert('No projects checked!');
                     return;
                 }
             });
