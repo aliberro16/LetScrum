@@ -52,6 +52,13 @@
         Button {
           margin-bottom: 5px;
         }
+        .waitingroom-info-btn{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            width: 100%;
+        }
         .waitingroom-btnwrapper {
           display: flex;
           flex-direction: column;
