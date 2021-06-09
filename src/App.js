@@ -18,6 +18,8 @@ import PendingProject from './pages/pending-project/PendingProject';
 import JoinProjectPage from './pages/join-project-page/join-project.component';
 import ChooseProjectPage from './pages/choose-project-page/choose-project-page.component';
 import './App.css';
+import AddTask from './components/task/AddTask.component';
+import AddUserStory from './components/user-story/AddUserStory.Component';
 
 class App extends React.Component {
     unsubscribeFromAuth = null;
@@ -54,10 +56,12 @@ class App extends React.Component {
                         <Route exact path='/work/:id/project/waiting-room' component={waitingroom}/> 
                         <Route exact path='/work/:id/home' component={HomePage}/> 
                         <Route exact path='/work/:id/profile' component={Profile}/>
-                        <Route exact path='/work/:id/productbacklog' component={ProductBacklog}/>  
+                        <Route exact path='/work/:id/productbacklog' component={ProductBacklog}/>
                         <Route exact path='/work/:id/project/pending-request' component={PendingProject}/>  
                         <Route exact path='/work/:id/project/join-project' component={JoinProjectPage} />
                         <Route exact path='/work/:id/project/choose-project' component={ChooseProjectPage} />
+                        <Route exact path='/work/:id/productbacklog/addtask' component={AddTask} />
+                        <Route exact path='/work/:id/productbacklog/adduserstory' component={AddUserStory} />
                         <Route
                             exact
                             path='/signin'
