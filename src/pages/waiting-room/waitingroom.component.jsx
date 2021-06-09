@@ -13,6 +13,7 @@ import './waitingroom.scss';
 const WaitingRoom = () => {
     const [checkedProjectId, setCheckedProjectId] = useState();
     const [membersData, setMembersData] = useState([]);
+    const [memberEmail, setMemberEmail] = useState('');
     const { id } = useParams();
 
     const getCheckedProjectId = async (uid) => {
@@ -37,7 +38,8 @@ const WaitingRoom = () => {
 
     useEffect(() => {
         console.log(membersData);
-    }, [membersData]);
+        console.log(memberEmail);
+    }, [membersData, memberEmail]);
 
     useEffect(() => {
         setMembersData([]);
@@ -47,7 +49,7 @@ const WaitingRoom = () => {
             })
         );
         // Grab the member info from db
-    }, [checkedProjectId]);
+    }, [checkedProjectId, memberEmail]);
 
     const getMembersDataFromFirestore = async (uid, pid) => {
         await firestore
@@ -62,6 +64,57 @@ const WaitingRoom = () => {
                 querySnapshot.forEach((doc) => {
                     if (doc.exists) {
                         setMembersData((prevData) => [...prevData, doc.data()]);
+                    } else {
+                        console.log('no members yet!');
+                    }
+                });
+            });
+    };
+
+    const acceptMember = async (uid, pid, memberEmail) => {
+        const memberRef = firestore
+            .collection('users')
+            .doc(uid)
+            .collection('projects')
+            .doc(pid)
+            .collection('members');
+
+        await memberRef
+            .where('email', '==', memberEmail)
+            .get()
+            .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    if (doc.exists) {
+                        setMemberEmail(doc.data().email);
+                        memberRef.doc(doc.id).update({ isPending: false });
+                        console.log('done updating member status');
+                    } else {
+                        console.log('no members yet!');
+                    }
+                });
+            });
+    };
+    const rejectMember = async (uid, pid, memberEmail) => {
+        const memberRef = firestore
+            .collection('users')
+            .doc(uid)
+            .collection('projects')
+            .doc(pid)
+            .collection('members');
+
+        await memberRef
+            .where('email', '==', memberEmail)
+            .get()
+            .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    if (doc.exists) {
+                        setMemberEmail(doc.data().email);
+                        memberRef
+                            .doc(doc.id)
+                            .delete()
+                            .then(() =>
+                                console.log('done deleting member from db')
+                            );
                     } else {
                         console.log('no members yet!');
                     }
@@ -83,9 +136,12 @@ const WaitingRoom = () => {
                         <div
                             style={{ display: 'flex', flexDirection: 'column' }}
                         >
-                            {membersData.map((member, index) =>
-                                membersData.length ? (
-                                    <div className='waitingroom-member'>
+                            {membersData.length > 0 ? (
+                                membersData.map((member, index) => (
+                                    <div
+                                        className='waitingroom-member'
+                                        key={index}
+                                    >
                                         <div className='waitingroom-avatar-img'>
                                             <img src={photo2} alt='' />
                                         </div>
@@ -103,6 +159,13 @@ const WaitingRoom = () => {
                                                 <Button
                                                     variant='contained'
                                                     color='primary'
+                                                    onClick={() =>
+                                                        acceptMember(
+                                                            id,
+                                                            checkedProjectId,
+                                                            member.email
+                                                        )
+                                                    }
                                                 >
                                                     <DoneIcon /> Accept
                                                 </Button>
@@ -113,15 +176,25 @@ const WaitingRoom = () => {
                                                         color: 'white',
                                                     }}
                                                     variant='contained'
+                                                    onClick={() =>
+                                                        rejectMember(
+                                                            id,
+                                                            checkedProjectId,
+                                                            member.email
+                                                        )
+                                                    }
                                                 >
                                                     <ClearIcon /> Reject
                                                 </Button>
                                             </div>
                                         </div>
                                     </div>
-                                ) : (
-                                    <div></div>
-                                )
+                                ))
+                            ) : (
+                                <div>
+                                    {' '}
+                                    <WarningIcon /> &nbsp; No Requests!
+                                </div>
                             )}
                         </div>
                     </div>
@@ -164,8 +237,10 @@ export default WaitingRoom;
 //         </div>;
 //     })
 // ) : (
-//     <div>
-//         {' '}
-//         <WarningIcon /> &nbsp; No Requests!
-//     </div>
+{
+    /* <div>
+    {' '}
+    <WarningIcon /> &nbsp; No Requests!
+</div> */
+}
 // )}

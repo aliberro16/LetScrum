@@ -33,7 +33,7 @@ const ProjectContainer = () => {
         // addIsCheckedToProjectDoc();
     };
 
-    const uncheckCheckProject = () => {
+    const uncheckCheckedProject = () => {
         // let currentStat = checkedProject.isChecked
         setCheckedProject(initialValue);
     };
@@ -217,7 +217,7 @@ const ProjectContainer = () => {
                                                                 addIsCheckedToProjectDoc(
                                                                     index
                                                                 );
-                                                                uncheckCheckProject();
+                                                                uncheckCheckedProject();
                                                             }
                                                         );
                                                     }}
