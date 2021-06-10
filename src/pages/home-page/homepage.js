@@ -3,17 +3,17 @@ import ReactDOM from "react-dom";
 import Todocomp from "../../components/todo/Todocomp";
 import SideBar from "../../components/side-bar/side-bar.component";
 import "./homepage.css";
-import CardInfo from "../../components/card/HomeCard";
+import CardInfo from "../../components/card/HomeCard.component";
 import styled from "styled-components";
 const HomePage = () => {
   return (
     <div>
       <SideBar />
       <Container>
-        <div>
+        <div className='card-info'>
           <CardInfo />
         </div>
-        <div className="container">
+        <div className="todo-container">
           <Todocomp />
         </div>
       </Container>

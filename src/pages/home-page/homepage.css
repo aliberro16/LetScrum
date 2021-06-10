@@ -1,27 +1,31 @@
-.container {
+.todo-container {
     font-family: sans-serif;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 40px;
     height: 600px;
     /* margin-left: 900px; */
     width: auto;
     @media only screen and (max-width: 600px) {
-    width: 100%;
+        width: 100%;
     }
-   
-  }
-  
-  .error {
+}
+.card-info {
+    margin: 40px 40px 0;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+        rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+        rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    height: fit-content;
+}
+.error {
     display: none;
-  }
-  .error.active {
+}
+.error.active {
     display: block;
     color: blue;
-  }
-  
-  .fade-out {
+}
+
+.fade-out {
     visibility: hidden;
     opacity: 0;
     transition: visibility 1s 0.5s, opacity 0.5s;
-  }
-  
+}
