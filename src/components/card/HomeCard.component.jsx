@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router';
 import { firestore } from '../../firebase/firebase.utils';
 
@@ -37,7 +38,6 @@ const useStyles = makeStyles({
 export default function HomeCard() {
     const classes = useStyles();
     const { id } = useParams();
-    const bull = <span className={classes.bullet}>•</span>;
     const [chosenProjectId, setChosenProjectId] = useState();
     const [chosenProjectData, setChosenProjectData] = useState({});
 
@@ -103,9 +103,11 @@ export default function HomeCard() {
                 <div></div>
             )}
             <CardActions>
-                <Button size='small' className={classes.btn_hover}>
-                    More Detail
-                </Button>
+                <Link to='/'>
+                    <Button size='small' className={classes.btn_hover}>
+                        More Detail
+                    </Button>
+                </Link>
             </CardActions>
         </Carde>
     );
