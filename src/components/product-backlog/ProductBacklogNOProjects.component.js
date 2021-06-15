@@ -5,9 +5,12 @@ import Button from '@material-ui/core/Button';
 import WarningIcon from '@material-ui/icons/Warning';
 import { Link } from 'react-router-dom';
 import photo from "../../assets/images/productbacklog.svg"
+import SideBar from "../side-bar/side-bar.component";
 function ProductBacklogNoProject(props) {
   
     return (
+      <div>
+      <SideBar/>
       <Container>
       <Content>
         <LeftSection>
@@ -30,6 +33,7 @@ function ProductBacklogNoProject(props) {
         </RightSection>
       </Content>
       </Container>
+      </div>
     );
 }
 

@@ -9,21 +9,23 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import FormInput from "../form-input/form-input.component";
 import AddStoryCard from "./AddStoryCard";
-function AddTask(props) {
+import UserStoryViewCard from "./UserStoryViewCard"
+function UserStoryView(props) {
   return (
     <GeneralContainer>
       <SideBar />
       <Container>
         <Content>
           <Banner>
-            <h1>Add User Story</h1>
+            <h1>User Stories</h1>
           </Banner>
           <TabWraper>
             <PanelWraper>
               <BacklogTabPanel />
             </PanelWraper>
             <TabConent>
-              <AddStoryCard />
+            <h1>User Stories</h1>
+              <UserStoryViewCard />
             </TabConent>
           </TabWraper>
         </Content>
@@ -31,7 +33,7 @@ function AddTask(props) {
     </GeneralContainer>
   );
 }
-export default AddTask;
+export default UserStoryView;
 const GeneralContainer = styled.div`
   display: flex;
 `;
@@ -53,6 +55,11 @@ const TabConent = styled.div`
   width: 1100px;
   height: 550px;
   align-items: flex-start;
+  
+  h1{
+      color:#757575;
+      border-bottom:3px solid #757575;
+  }
   Button {
     height: fit-content;
     margin-left: 20px;
@@ -61,6 +68,9 @@ const TabConent = styled.div`
     display: flex;
     width: 100%;
     justify-content: flex-start;
+    h1{
+        display:none;
+    }
   }
 `;
 const Container = styled.div`

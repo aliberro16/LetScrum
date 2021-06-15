@@ -8,22 +8,22 @@ import ProductBacklogContainer from "../../components/product-backlog/ProductBac
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import FormInput from "../form-input/form-input.component";
-import AddStoryCard from "./AddStoryCard";
-function AddTask(props) {
+import TaskDetailCard from "./TaskDetailCard"
+function TaskDetail(props) {
   return (
     <GeneralContainer>
       <SideBar />
       <Container>
         <Content>
           <Banner>
-            <h1>Add User Story</h1>
+            <h1>Tasks</h1>
           </Banner>
           <TabWraper>
             <PanelWraper>
               <BacklogTabPanel />
             </PanelWraper>
             <TabConent>
-              <AddStoryCard />
+              <TaskDetailCard/>
             </TabConent>
           </TabWraper>
         </Content>
@@ -31,7 +31,7 @@ function AddTask(props) {
     </GeneralContainer>
   );
 }
-export default AddTask;
+export default TaskDetail;
 const GeneralContainer = styled.div`
   display: flex;
 `;
@@ -50,9 +50,14 @@ const TabWraper = styled.div`
   }
 `;
 const TabConent = styled.div`
-  width: 1100px;
+  width: 1020px;
   height: 550px;
   align-items: flex-start;
+  margin-left:100px;
+// margin-right:100px;  
+  h1{
+      color:#757575;
+  }
   Button {
     height: fit-content;
     margin-left: 20px;
@@ -61,12 +66,24 @@ const TabConent = styled.div`
     display: flex;
     width: 100%;
     justify-content: flex-start;
+    h1{
+        display:none;
+    }
   }
+  @media only screen and (max-width: 600px) {
+    width:100%;
+    // margin-right:100px;
+  } 
 `;
 const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media only screen and (max-width: 600px) {
+    width:100%;
+    // background-color:black;
+
+  }
 `;
 const Banner = styled.div`
   background: url(${img});
@@ -78,6 +95,10 @@ const Banner = styled.div`
   align-items: center;
   font-size: 26px;
   padding-left: 15px;
+  @media only screen and (max-width: 600px) {
+    width:440px;
+    // background-color:red;
+  }
 `;
 const PanelWraper = styled.div`
   width: fit-content;

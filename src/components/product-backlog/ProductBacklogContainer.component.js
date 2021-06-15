@@ -20,7 +20,8 @@ function ProductBacklogContainer(props) {
 
 export default ProductBacklogContainer;
 const Content = styled.div`
-  // background-color:green;
+  //  background-color:green;
+  //  width:fit-content;
   height: 800px;
   width: 1300px;
   display: flex;
@@ -28,7 +29,7 @@ const Content = styled.div`
  // justify-content: flex-end;
 `;
 const Container = styled.div`
-  // background-color:black;
+  background-color:black;
   // height:1500px;
   display: flex;
   align-items: center;

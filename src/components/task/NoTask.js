@@ -7,82 +7,84 @@ import ProductBacklogNoProject from "../../components/product-backlog/ProductBac
 import ProductBacklogContainer from "../../components/product-backlog/ProductBacklogContainer.component";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
-import FormInput from "../form-input/form-input.component";
-import AddStoryCard from "./AddStoryCard";
-function AddTask(props) {
+function NoTask(props) {
   return (
-    <GeneralContainer>
+    <div>
       <SideBar />
       <Container>
         <Content>
           <Banner>
-            <h1>Add User Story</h1>
+            <h1>Task</h1>
           </Banner>
           <TabWraper>
-            <PanelWraper>
-              <BacklogTabPanel />
-            </PanelWraper>
+            <BacklogTabPanel />
             <TabConent>
-              <AddStoryCard />
+              <h1>Tasks</h1>
+              <Link to ="/work/:id/productbacklog/addTask">
+                <Button variant="contained" color="primary">
+                  Add Task
+                </Button>
+              </Link>
             </TabConent>
           </TabWraper>
         </Content>
       </Container>
-    </GeneralContainer>
+    </div>
   );
 }
-export default AddTask;
-const GeneralContainer = styled.div`
-  display: flex;
-`;
+export default NoTask;
 const Content = styled.div`
+  //   background-color: green;
+  //  width:fit-content;
+  height: 800px;
+  width: 1300px;
   display: flex;
   flex-direction: column;
-  @media only screen and (max-width: 1200px) {
-  }
+  // justify-content: flex-end;
 `;
 const TabWraper = styled.div`
   display: flex;
-  @media only screen and (max-width: 1200px)
-    display: flex; 
-    justify-content: flex-start;
-    // width: fit-content;
-  }
 `;
 const TabConent = styled.div`
-  width: 1100px;
+  width: 6000px;
   height: 550px;
+  //   background-color: red;
+  display: flex;
   align-items: flex-start;
   Button {
     height: fit-content;
     margin-left: 20px;
   }
-  @media only screen and (max-width: 1200px) {
-    display: flex;
-    width: 100%;
-    justify-content: flex-start;
-  }
 `;
 const Container = styled.div`
+  // background-color:black;
+  // height:1500px;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 const Banner = styled.div`
+  // border: 1px solid #000;
   background: url(${img});
+  // background-color:grey;
+  // background: #2980b9; /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to right, #2980b9, #2c3e50); /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to right, #2980b9, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   width: 100%;
   height: 180px;
+  // margin-left: -30px;
   margin-top: 50px;
   margin-bottom: 50px;
   display: flex;
   align-items: center;
-  font-size: 26px;
-  padding-left: 15px;
-`;
-const PanelWraper = styled.div`
-  width: fit-content;
-  margin-right:20px;
-  @media only screen and (max-width: 600px) {
-    margin-right:0px;
+  @media only screen and (max-width: 750px) {
+    height: 150px;
+  }
+  h1 {
+    @media only screen and (max-width: 750px) {
+      margin-top: 90px;
+    }
+    margin-left: 25px;
+    font-size: 40px;
   }
 `;
