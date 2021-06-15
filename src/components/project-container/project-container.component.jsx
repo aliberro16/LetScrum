@@ -53,9 +53,6 @@ const ProjectContainer = () => {
             });
     }, []);
 
-    useEffect(() => {
-        console.log(checkedProject);
-    }, [checkedProject]);
 
     const getTheCheckedProject = async () => {
         const projectRef = firestore
