@@ -6,20 +6,25 @@ import img from "../../assets/images/Bg1.jpg";
 import ProductBacklogNoProject from "../../components/product-backlog/ProductBacklogNOProjects.component";
 import ProductBacklogContainer from "../../components/product-backlog/ProductBacklogContainer.component";
 import Button from "@material-ui/core/Button";
-function ProductBacklog(props) {
-  // this page will render if there is a project registerd for the user 
+import { Link } from "react-router-dom";
+function NoTask(props) {
   return (
     <div>
       <SideBar />
       <Container>
         <Content>
           <Banner>
-            <h1>Product Backlog</h1>
+            <h1>Task</h1>
           </Banner>
           <TabWraper>
             <BacklogTabPanel />
             <TabConent>
-              <h1>TODO | DOING | DONE</h1>
+              <h1>Tasks</h1>
+              <Link to ="/work/:id/productbacklog/addTask">
+                <Button variant="contained" color="primary">
+                  Add Task
+                </Button>
+              </Link>
             </TabConent>
           </TabWraper>
         </Content>
@@ -27,9 +32,9 @@ function ProductBacklog(props) {
     </div>
   );
 }
-export default ProductBacklog;
+export default NoTask;
 const Content = styled.div`
-//   background-color: green;
+  //   background-color: green;
   //  width:fit-content;
   height: 800px;
   width: 1300px;
@@ -43,12 +48,12 @@ const TabWraper = styled.div`
 const TabConent = styled.div`
   width: 6000px;
   height: 550px;
-//   background-color: red;
-  display:flex;
-  align-items:flex-start;
-  Button{
-      height:fit-content;
-      margin-left:20px;
+  //   background-color: red;
+  display: flex;
+  align-items: flex-start;
+  Button {
+    height: fit-content;
+    margin-left: 20px;
   }
 `;
 const Container = styled.div`

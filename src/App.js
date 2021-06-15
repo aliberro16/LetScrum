@@ -18,6 +18,16 @@ import PendingProject from './pages/pending-project/PendingProject';
 import JoinProjectPage from './pages/join-project-page/join-project.component';
 import ChooseProjectPage from './pages/choose-project-page/choose-project-page.component';
 import './App.css';
+import AddTask from './components/task/AddTask.component';
+import AddUserStory from './components/user-story/AddUserStory.Component';
+import NoTask from './components/task/NoTask';
+import ProductBacklogNoProject from './components/product-backlog/ProductBacklogNOProjects.component';
+import NoStory from './components/user-story/NoStory';
+import AddTaskCard from "./components/task/AddTaskCard"
+import UserStoryView from "./components/user-story/UserStoryView"
+import StoryDetail from './components/user-story/StoryDetail';
+import TaskDetail from './components/task/TaskDetail';
+
 
 class App extends React.Component {
     unsubscribeFromAuth = null;
@@ -54,10 +64,18 @@ class App extends React.Component {
                         <Route exact path='/work/:id/project/waiting-room' component={WaitingRoom}/> 
                         <Route exact path='/work/:id/home' component={HomePage}/> 
                         <Route exact path='/work/:id/profile' component={Profile}/>
-                        <Route exact path='/work/:id/productbacklog' component={ProductBacklog}/>  
+                        <Route exact path='/work/:id/productbacklog' component={ProductBacklogNoProject}/>
                         <Route exact path='/work/:id/project/pending-request' component={PendingProject}/>  
                         <Route exact path='/work/:id/project/join-project' component={JoinProjectPage} />
                         <Route exact path='/work/:id/project/choose-project' component={ChooseProjectPage} />
+                        <Route exact path='/work/:id/productbacklog/Task' component={NoTask} />
+                        <Route exact path='/work/:id/productbacklog/userstory' component={NoStory} />
+                        <Route exact path='/work/:id/productbacklog/ProductBacklog' component={ProductBacklog}/>
+                        <Route exact path='/work/:id/productbacklog/addTask' component={AddTask} />
+                        <Route exact path='/work/:id/productbacklog/addUserStory' component={AddUserStory} />
+                        <Route exact path='/work/:id/productbacklog/userStoryView' component={UserStoryView} />
+                        <Route exact path='/work/:id/productbacklog/StoryDetail' component={StoryDetail} />
+                        <Route exact path='/work/:id/productbacklog/taskDetail' component={TaskDetail} />
                         <Route
                             exact
                             path='/signin'

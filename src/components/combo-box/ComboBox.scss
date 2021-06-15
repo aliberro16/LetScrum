@@ -1,0 +1,15 @@
+.comboBox-container{
+    display: flex;
+    position: relative;
+    margin-top: 25px ;
+    // width: 100%;
+    
+    .combo-box{
+        background: none;
+        background-color: white;
+        width: 428px;
+        border: none;
+        border-radius: 0;
+        margin: 15px 0;
+    }
+}
