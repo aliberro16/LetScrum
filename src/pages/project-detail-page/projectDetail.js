@@ -8,12 +8,12 @@ import Button from "@material-ui/core/Button";
 import "./project-detail.scss";
 function projectDetail() {
   return (
-    <div className="container">
+    <div className="project-detail-container">
       <SideBar></SideBar>
-      <div className="banner">
+      <div className="project-detail-banner">
         <h1>Project Detail</h1>
       </div>
-      <div className="content">
+      <div className="project-detail-content">
         <div className="projectDetail-leftSection">
           <div className="details">
             <div className="detail-info">
