@@ -35,7 +35,6 @@ import RoomServiceIcon from '@material-ui/icons/RoomService';
 import ProductBackLogIcon from '../../assets/icons/backlog.svg';
 import SprintIcon from '../../assets/icons/sprint.svg';
 import JoinIcon from '../../assets/icons/join.svg';
-// import ImgSlider from '../../components/image-slider/image-slider.component';
 import './side-bar.styles.scss';
 
 
