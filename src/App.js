@@ -18,6 +18,7 @@ import PendingProject from './pages/pending-project/PendingProject';
 import JoinProjectPage from './pages/join-project-page/join-project.component';
 import ChooseProjectPage from './pages/choose-project-page/choose-project-page.component';
 import './App.css';
+import projectDetail from './pages/project-detail-page/projectDetail';
 
 class App extends React.Component {
     unsubscribeFromAuth = null;
@@ -58,6 +59,7 @@ class App extends React.Component {
                         <Route exact path='/work/:id/project/pending-request' component={PendingProject}/>  
                         <Route exact path='/work/:id/project/join-project' component={JoinProjectPage} />
                         <Route exact path='/work/:id/project/choose-project' component={ChooseProjectPage} />
+                        <Route exact path='/work/:id/project/project-detail' component={projectDetail} />
                         <Route
                             exact
                             path='/signin'
