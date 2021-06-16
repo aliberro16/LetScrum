@@ -67,7 +67,8 @@ class App extends React.Component {
                         <Route exact path='/work/:id/productbacklog' component={ProductBacklogNoProject}/>
                         <Route exact path='/work/:id/project/pending-request' component={PendingProject}/>  
                         <Route exact path='/work/:id/project/join-project' component={JoinProjectPage} />
-                        <Route exact path='/work/:id/project/choose-project' component={ChooseProjectPage} />
+                        <Route exact path='/work/:id/project/choose-project/:pid' component={ChooseProjectPage} />
+                        <Route exact path='/work/:id/project/choose-project/' component={ChooseProjectPage} />
                         <Route exact path='/work/:id/productbacklog/Task' component={NoTask} />
                         <Route exact path='/work/:id/productbacklog/userstory' component={NoStory} />
                         <Route exact path='/work/:id/productbacklog/ProductBacklog' component={ProductBacklog}/>

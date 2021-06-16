@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import Alert from "@material-ui/lab/Alert";
 import "./join-project.styles.scss";
 
-const JoinProjectPage = () => {
+const JoinProjectPage = (props) => {
   const [key, setKey] = useState("");
   const { id } = useParams();
   const [userIds, setUsersIds] = useState([]);
@@ -75,7 +75,7 @@ const JoinProjectPage = () => {
     userIds.map(async (userId) => {
       const projectsRef = firestore
         .collection("users")
-        .doc(userId)
+        .doc(props.userId)
         .collection("projects");
 
       projectsRef
@@ -90,6 +90,8 @@ const JoinProjectPage = () => {
           } else {
             //userId is the id of the user who owns this project key
             // console.log('user who owns this project:', userId);
+
+
             // // setMemberData(getMemberInfo(id));
             // console.log('***********', memberData);
             setSuccess(true);

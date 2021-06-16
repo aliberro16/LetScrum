@@ -6,8 +6,9 @@ import img from "../../assets/images/Bg1.jpg";
 import ProductBacklogNoProject from "../../components/product-backlog/ProductBacklogNOProjects.component";
 import ProductBacklogContainer from "../../components/product-backlog/ProductBacklogContainer.component";
 import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 function NoStory(props) {
+  const {id} = useParams()
   return (
     <div>
       <SideBar />
@@ -20,7 +21,7 @@ function NoStory(props) {
             <BacklogTabPanel />
             <TabConent>
               <h1>User Story</h1>
-              <Link to="/work/:id/productbacklog/addUserStory">
+              <Link to={`/work/${id}/productbacklog/addUserStory`}>
                 <Button variant="contained" color="primary">
                   Add User Story
                 </Button>

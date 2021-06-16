@@ -6,7 +6,7 @@ import img from "../../assets/images/Bg1.jpg";
 import ProductBacklogNoProject from "../../components/product-backlog/ProductBacklogNOProjects.component";
 import ProductBacklogContainer from "../../components/product-backlog/ProductBacklogContainer.component";
 import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -16,6 +16,7 @@ import FormInput from "../form-input/form-input.component";
 import ComboBox from "../combo-box/ComboBox.component";
 import photo from "../../assets/images/detailStory.svg";
 export default function StoryDetailCard() {
+  const {id} = useParams()
   return (
     <Container>
       <StoryInfo>
@@ -31,7 +32,7 @@ export default function StoryDetailCard() {
         <TaskList>
           <h2>Tasks: </h2>
           <ul>
-            <Link to="/work/:id/productbacklog/taskDetail">
+            <Link to={`/work/${id}/productbacklog/taskDetail`}>
               <li>Task1</li>
             </Link>
             <li>Task2</li>

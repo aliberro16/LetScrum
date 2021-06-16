@@ -42,7 +42,7 @@ export default function UserStoryViewCard() {
             <Typography variant="h5" color="textSecondary" gutterBottom>
               User Story title
             </Typography>
-            <Typography variant="h7" color="textSecondary" gutterBottom>
+            <Typography variant="h6" color="textSecondary" gutterBottom>
               N Tasks
             </Typography>
           </CardContent>
@@ -53,7 +53,7 @@ export default function UserStoryViewCard() {
           <Typography variant="h5" color="textSecondary" gutterBottom>
             User Story title
           </Typography>
-          <Typography variant="h7" color="textSecondary" gutterBottom>
+          <Typography variant="h6" color="textSecondary" gutterBottom>
             N Tasks
           </Typography>
         </CardContent>

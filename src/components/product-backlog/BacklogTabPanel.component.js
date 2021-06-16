@@ -9,6 +9,7 @@ const BacklogTabPanel = () => {
 
   const [activeIndex, setActiveIndex] = React.useState(0);
   const tabArray = ["ProductBacklog", "UserStory", "Task"];
+  const {id} = useParams();
 
   const handleOnClick = (index) => {
     setActiveIndex(index); // remove the curly braces
@@ -28,7 +29,7 @@ const BacklogTabPanel = () => {
           <div>
             {tabArray.map((tab, index) => (
               <div>
-                <Link to={`/work/:id/productbacklog/${tab}`}>
+                <Link to={`/work/${id}/productbacklog/${tab}`}>
                   <Tab
                     key={index}
                     onClick={() => handleOnClick(index)}

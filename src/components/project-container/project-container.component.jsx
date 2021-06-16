@@ -4,9 +4,7 @@ import { firestore } from '../../firebase/firebase.utils';
 import './project-container.styles.scss';
 import Button from '@material-ui/core/Button';
 import Check from '../../assets/icons/check.svg';
-import ChooseProjectPage from '../../pages/choose-project-page/choose-project-page.component';
-// import SearchBar from "material-ui-search-bar";
-// import SearchBar from '../../components/search';
+
 const ProjectContainer = () => {
     const { id } = useParams();
     const [projectData, setProjectData] = useState([]);
@@ -66,6 +64,7 @@ const ProjectContainer = () => {
             .then((snapshots) => {
                 if (snapshots.size > 0) {
                     snapshots.forEach((project) => {
+                        //project.id
                         setCheckedProject(project.data());
                         // return project.data();
                         // console.log(checkedProject);

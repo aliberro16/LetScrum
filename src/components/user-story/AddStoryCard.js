@@ -1,20 +1,15 @@
 import React, { useState, useEffect } from "react";
-import SideBar from "../../components/side-bar/side-bar.component";
-import BacklogTabPanel from "../../components/product-backlog/BacklogTabPanel.component";
 import styled from "styled-components";
-import img from "../../assets/images/Bg1.jpg";
-import ProductBacklogNoProject from "../../components/product-backlog/ProductBacklogNOProjects.component";
-import ProductBacklogContainer from "../../components/product-backlog/ProductBacklogContainer.component";
 import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import FormInput from "../form-input/form-input.component";
-import ComboBox from "../combo-box/ComboBox.component";
-import { DragHandle } from "@material-ui/icons";
+import { firestore } from "../../firebase/firebase.utils";
+import { Alert, AlertTitle } from '@material-ui/lab';
+
 
 const useStyles = makeStyles({
   root: {},
@@ -33,10 +28,95 @@ const useStyles = makeStyles({
 
 export default function AddStoryCard() {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
-  const [story, setStory] = useState("");
-  const handleChange = (event) => {
-    setStory(event.target.value);
+  // const [story, setStory] = useState("");
+  // const handleChange = (event) => {
+  //   setStory(event.target.value);
+  // };
+  const [checkedId, setCheckedId] = useState("");
+  const { id } = useParams();
+  const [isEnabled, setEnable] = useState(false);
+  const initialData = {
+    story: "",
+    description: "",
+  };
+  const [data, setData] = useState(initialData);
+
+  const checkIfMember = async () => {
+    if (checkedId) {
+      firestore
+        .collection("users")
+        .doc(id)
+        .collection("projects")
+        .doc(checkedId)
+        .get()
+        .then((snapShot) => {
+          if (snapShot.exists) {
+            setEnable(true);
+          } else {
+            setEnable(false);
+          }
+        });
+    }
+  };
+
+  const getTheCheckedId = () => {
+    const projectRef = firestore
+      .collection("users")
+      .doc(id)
+      .collection("projects");
+
+    projectRef
+      .where("isChecked", "==", true)
+      .get()
+      .then((snapshots) => {
+        if (snapshots.size > 0) {
+          snapshots.forEach((project) => {
+            //project.id
+            setCheckedId(project.id);
+          });
+        } else {
+          return;
+        }
+      });
+  };
+  useEffect(() => {
+    getTheCheckedId();
+    // checkIfMember(id, checkedId);
+    console.log(checkedId);
+  }, []);
+
+  useEffect(() => {
+    checkIfMember();
+  }, [checkedId]);
+
+  const addUserStory = async (uid, pid, dataa) => {
+    try {
+      const storyRef = firestore
+        .collection("users")
+        .doc(uid)
+        .collection("projects")
+        .doc(pid)
+        .collection("userStories");
+
+      await storyRef.add(dataa);
+      alert("stroy added success");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addUserStory(id, checkedId, data);
+    console.log(data);
   };
 
   return (
@@ -45,32 +125,87 @@ export default function AddStoryCard() {
         <Typography variant="h4" color="textSecondary" gutterBottom>
           Add User Story
         </Typography>
-        <form>
-          <FormInput
-            type="text"
-            name="Story"
-            value={story.Story}
-            label="User Story"
-            onChange={handleChange}
-          />
-          <FormInput
-            type="text"
-            name="Description"
-            value={story.Description}
-            label="Description"
-            onChange={handleChange}
-          />
-          <BtnWraper>
-            <Link to="/work/:id/productbacklog/userStoryView">
-              <Button type = "submit" variant="contained" color="primary">
+        {isEnabled ? (
+          <form onSubmit={handleSubmit}>
+            <FormInput
+              type="text"
+              name="story"
+              value={data.story}
+              label="User Story"
+              onChange={handleChange}
+              required
+            />
+            <FormInput
+              type="text"
+              name="description"
+              value={data.description}
+              label="Description"
+              onChange={handleChange}
+              required
+              multiline
+            />
+            <BtnWraper>
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                size="large"
+              >
                 ADD
               </Button>
-            </Link>
-            <Button variant="contained" color="secondary">
-              Cancel
-            </Button>
-          </BtnWraper>
-        </form>
+              <Button variant="contained" color="secondary" size="large">
+                Cancel
+              </Button>
+            </BtnWraper>
+          </form>
+        ) : (
+          <div>
+            <Alert severity="warning" >
+            <AlertTitle>Warning</AlertTitle>
+            This is a warning alert — <strong>Only Product Owners can access this form!</strong>
+            </Alert>
+            <form onSubmit={handleSubmit}>
+              <FormInput
+                type="text"
+                name="story"
+                value={data.story}
+                label="User Story"
+                onChange={handleChange}
+                required
+                disabled
+              />
+              <FormInput
+                type="text"
+                name="description"
+                value={data.description}
+                label="Description"
+                onChange={handleChange}
+                required
+                multiline
+                disabled
+              />
+              <BtnWraper>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  disabled
+                >
+                  ADD
+                </Button>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  size="large"
+                  disabled
+                >
+                  Cancel
+                </Button>
+              </BtnWraper>
+            </form>
+          </div>
+        )}
       </CardContent>
     </Carde>
   );
@@ -79,13 +214,7 @@ export default function AddStoryCard() {
 const BtnWraper = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-right: 18px;
-  height: 100px;
-  Button {
-    height: 60px;
-    width: fit-content;
-    font-size: 30px !important;
-  }
+  padding-top: 20px;
 `;
 const Carde = styled(Card)`
   display: flex;
@@ -101,3 +230,5 @@ const Carde = styled(Card)`
     justify-content: flex-start;
   }
 `;
+
+// <Link to={`/work/${id}/productbacklog/userStoryView`}>
