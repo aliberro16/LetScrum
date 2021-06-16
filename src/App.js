@@ -48,7 +48,6 @@ class App extends React.Component {
                         <Route exact path='/work/:id' component={SideBarPage} />
                         <Route exact path='/work/:id/project/create-project' component={CreateProject} />
                         <Route exact path='/work/:id/project/project-detail' component={projectDetail} />
-
                         <Route
                             exact
                             path='/signin'

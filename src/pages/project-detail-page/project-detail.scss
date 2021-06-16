@@ -29,7 +29,7 @@
 
     @media only screen and (max-width: 750px) {
       margin-left: 20px;
-      // background-color: dodgerblue;
+      display: inline-block;
     }
     .projectDetail-leftSection {
       // height: 400px;
@@ -64,8 +64,10 @@
       //   width: 2000px;
       height: fit-content;
       margin-left: -200px;
-      @media only screen and (max-width: 850px) {
-        min-width: 550px;
+      @media only screen and (max-width: 750px) {
+        width: fit-content;
+        margin-left: 0px;
+
       }
 
       .projectDetail-member {
@@ -100,6 +102,7 @@
                 border-radius: 10px;
                 background-color: green;
                 color: white;
+                padding: 1.5px 4px;
               }
             }
             .projectDetail-member-info-wrapper {

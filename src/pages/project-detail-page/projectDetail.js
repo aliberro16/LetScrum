@@ -88,10 +88,10 @@ function projectDetail() {
             </div>
             <div className="projectDetail-btnWrapper">
               <Button variant="contained" color="primary">
-              make scrum master
+                make scrum master
               </Button>
               <Button variant="contained" color="secondary">
-              Remove
+                Remove
               </Button>
             </div>
           </div>
