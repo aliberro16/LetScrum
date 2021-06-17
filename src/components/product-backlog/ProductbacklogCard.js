@@ -17,12 +17,18 @@ function ProductBacklogCard() {
 export default ProductBacklogCard
 const Container = styled.div`
 margin-top:15px;
+margin-right:50px;
+margin-left:50px;
 `;
 const Content = styled.div`
 background-color:#ff5722;
 padding:30px  0px;
 border-radius: 10px;
+:hover{
+    cursor:pointer;
+    background: rgba(255, 87, 34, .8);
 
+}
 `;
 const Info = styled.div`
 display:flex;
