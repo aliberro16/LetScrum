@@ -14,31 +14,10 @@ function ProductBacklogTable() {
         </TableHeader>
         <TableContent>
           <TR>
-            <TD></TD>
             <TD>
               <ProductBacklogCard />
             </TD>
             <TD></TD>
-          </TR>
-          <TR>
-            <TD>
-              <ProductBacklogCard />
-            </TD>
-            <TD></TD>
-            <TD></TD>
-          </TR>
-          <TR>
-            <TD></TD>
-            <TD></TD>
-            <TD>
-              <ProductBacklogCard />
-            </TD>
-          </TR>
-          <TR>
-            <TD></TD>
-            <TD>
-              <ProductBacklogCard />
-            </TD>
             <TD></TD>
           </TR>
           <TR>
@@ -49,32 +28,11 @@ function ProductBacklogTable() {
             <TD></TD>
           </TR>
           <TR>
-            <TD></TD>
-            <TD></TD>
-            <TD>
-              <ProductBacklogCard />
-            </TD>
-          </TR>
-          <TR>
-            <TD></TD>
-            <TD>
-              <ProductBacklogCard />
-            </TD>
-            <TD></TD>
-          </TR>
-          <TR>
             <TD>
               <ProductBacklogCard />
             </TD>
             <TD></TD>
             <TD></TD>
-          </TR>
-          <TR>
-            <TD></TD>
-            <TD></TD>
-            <TD>
-              <ProductBacklogCard />
-            </TD>
           </TR>
         </TableContent>
       </Table>
