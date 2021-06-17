@@ -32,6 +32,7 @@ function ProjectDetail() {
   const [chosen, setChosen] = useState([]);
   const [scrumMaster, setScrumMaster] = useState(memberInitial);
   const [memberEmail, setMemberEmail] = useState("");
+  const [clicked, setClicked] = useState(false);
 
   const getTheCheckedProject = async () => {
     const projectRef = firestore
@@ -90,11 +91,11 @@ function ProjectDetail() {
     getProductOwnerData();
     getMembersData(id, checkedProjectId);
     getScrumMasterData(id, checkedProjectId);
-  }, [checkedProjectId]);
 
-  useEffect(() => {
-    getMembersData(id, checkedProjectId);
-  }, []);
+    return () => {
+      getMembersData(id, checkedProjectId);
+    };
+  }, [checkedProjectId, clicked]);
 
   const getMembersData = async (uid, pid) => {
     await firestore
@@ -180,12 +181,12 @@ function ProjectDetail() {
         }
       });
   };
-  const removeMemberFromFirestore = (memberEmail) => {
+  const removeMemberFromFirestore = (uid, pid, memberEmail) => {
     const memberRef = firestore
       .collection("users")
-      .doc(id)
+      .doc(uid)
       .collection("projects")
-      .doc(checkedProjectId)
+      .doc(pid)
       .collection("members");
 
     memberRef
@@ -195,6 +196,7 @@ function ProjectDetail() {
         querySnapshot.forEach((doc) => {
           if (doc.exists) {
             setMemberEmail(doc.data().email);
+            setClicked(!clicked);
             memberRef
               .doc(doc.id)
               .delete()
@@ -307,12 +309,16 @@ function ProjectDetail() {
                 {chosen[index] ||
                 scrumMaster.email.valueOf() === member.email.valueOf() ? (
                   <div className="projectDetail-btnWrapper">
-                    <Button variant="contained" color="secondary">
+                    <Button
+                      variant="contained"
+                      color="secondary"
+                      onClick={() => removeMemberFromFirestore(member.email)}
+                    >
                       Remove
                     </Button>
                   </div>
                 ) : (
-                  <div className="projectDetail-btnWrapper" key={index}>
+                  <div className="projectDetail-btnWrapper">
                     <Button
                       variant="contained"
                       color="primary"
@@ -321,7 +327,6 @@ function ProjectDetail() {
                         setAllMembersNotChecked().then(() => {
                           uncheckScrumMaster();
                           updateIsScrumMaster(index);
-                          //window.location.reload();
                         });
                       }}
                     >
@@ -330,7 +335,13 @@ function ProjectDetail() {
                     <Button
                       variant="contained"
                       color="secondary"
-                      onClick={() => removeMemberFromFirestore(member.email)}
+                      onClick={() =>
+                        removeMemberFromFirestore(
+                          id,
+                          checkedProjectId,
+                          member.email
+                        )
+                      }
                     >
                       Remove
                     </Button>

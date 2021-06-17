@@ -103,7 +103,6 @@ const JoinProjectPage = () => {
                   alert("member added successfully");
                   setSuccess(true);
                   setError(false);
-                  // setMemberData();
                 })
                 .catch((error) => {
                   console.error(error);

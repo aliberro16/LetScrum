@@ -22,6 +22,8 @@ const ProjectContainer = () => {
     };
     const [checkedProject, setCheckedProject] = useState(initialValue);
 
+    
+
     const handleClick = (i) => {
         const arr = new Array(projectData.length).fill(false);
         const updatedChosenProjects = [...arr];
