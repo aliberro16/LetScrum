@@ -28,13 +28,12 @@ const ProjectContainer = () => {
         updatedChosenProjects[i] = !arr[i];
         setChosen(updatedChosenProjects);
 
-        // addIsCheckedToProjectDoc();
     };
 
     const uncheckCheckedProject = () => {
-        // let currentStat = checkedProject.isChecked
         setCheckedProject(initialValue);
     };
+    
     useEffect(() => {
         setProjectData([]);
         getTheCheckedProject();

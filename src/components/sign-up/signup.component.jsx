@@ -40,7 +40,7 @@ class SignUp extends React.Component {
         try {
             const { user } = await auth.createUserWithEmailAndPassword(
                 email,
-                password
+                password,
             );
             createUserProfileDocument(user, { displayName, phoneNumber });
             // to clear out our form we can do this:
