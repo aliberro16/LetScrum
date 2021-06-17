@@ -7,7 +7,7 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import './footer.css';
+import './Footer.css';
 import Logo from '../../assets/images/logo.png';
 import { Link } from 'react-router-dom';
 
