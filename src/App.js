@@ -18,7 +18,7 @@ import PendingProject from './pages/pending-project/PendingProject';
 import JoinProjectPage from './pages/join-project-page/join-project.component';
 import ChooseProjectPage from './pages/choose-project-page/choose-project-page.component';
 import './App.css';
-import projectDetail from './pages/project-detail-page/projectDetail';
+import ProjectDetail from './pages/project-detail-page/projectDetail.component';
 import AddTask from './components/task/AddTask.component';
 import AddUserStory from './components/user-story/AddUserStory.Component';
 import NoTask from './components/task/NoTask';
@@ -67,7 +67,7 @@ class App extends React.Component {
                         <Route exact path='/work/:id/productbacklog' component={ProductBacklogNoProject}/>
                         <Route exact path='/work/:id/project/pending-request' component={PendingProject}/>  
                         <Route exact path='/work/:id/project/join-project' component={JoinProjectPage} />
-                        <Route exact path='/work/:id/project/project-detail' component={projectDetail} />
+                        <Route exact path='/work/:id/project/project-detail' component={ProjectDetail} />
                         <Route exact path='/work/:id/project/choose-project/:pid' component={ChooseProjectPage} />
                         <Route exact path='/work/:id/project/choose-project/' component={ChooseProjectPage} />
                         <Route exact path='/work/:id/productbacklog/Task' component={NoTask} />
@@ -98,7 +98,7 @@ class App extends React.Component {
                             render={() =>
                                 this.props.currentUser ? (
                                     <Redirect
-                                        to={`work/${this.props.currentUser.uid}`}
+                                        to={`work/${this.props.currentUser.uid}/home`}
                                     />
                                 ) : (
                                     <SignUpPage />
