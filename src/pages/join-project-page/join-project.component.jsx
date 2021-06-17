@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import Alert from "@material-ui/lab/Alert";
 import "./join-project.styles.scss";
 
-const JoinProjectPage = (props) => {
+const JoinProjectPage = () => {
   const [key, setKey] = useState("");
   const { id } = useParams();
   const [userIds, setUsersIds] = useState([]);
@@ -75,7 +75,7 @@ const JoinProjectPage = (props) => {
     userIds.map(async (userId) => {
       const projectsRef = firestore
         .collection("users")
-        .doc(props.userId)
+        .doc(userId)
         .collection("projects");
 
       projectsRef
