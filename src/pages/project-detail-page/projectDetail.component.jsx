@@ -231,7 +231,7 @@ function ProjectDetail() {
               <span>{checkedProject.description}</span>
             </div>
             <div className="detail-info">
-              <h2>Start Date:</h2>
+              <h2>Creation Date:</h2>
               <span>
                 {checkedProject.createdAt
                   ? convertTimeStampToDate(checkedProject.createdAt)
