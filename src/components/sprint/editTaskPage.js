@@ -9,9 +9,9 @@ import Button from "@material-ui/core/Button";
 import ProductBacklogTable from "../product-backlog/productbacklogtable";
 import NoSprint from "./noSprintCard";
 import CreateSprintCard from "../../components/sprint/createSprintCard";
-import ChooseTaskCard from "../../components/sprint/chooseTaskCard";
+import EditTaskCard from "./editTaskCard";
 
-function ChooseTaskPage() {
+function EditTaskPage() {
   return (
     <GeneralContainer>
       <SideBar />
@@ -25,7 +25,7 @@ function ChooseTaskPage() {
               <SprintTabPanel />
             </PanelWraper>
             <TabConent>
-              <ChooseTaskCard />
+              <EditTaskCard/>
             </TabConent>
           </TabWraper>
         </Content>
@@ -34,7 +34,7 @@ function ChooseTaskPage() {
   );
 }
 
-export default ChooseTaskPage;
+export default EditTaskPage;
 const GeneralContainer = styled.div`
   display: flex;
  

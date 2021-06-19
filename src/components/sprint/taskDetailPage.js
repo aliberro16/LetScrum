@@ -10,8 +10,8 @@ import ProductBacklogTable from "../product-backlog/productbacklogtable";
 import NoSprint from "./noSprintCard";
 import CreateSprintCard from "../../components/sprint/createSprintCard";
 import ChooseTaskCard from "../../components/sprint/chooseTaskCard";
-
-function ChooseTaskPage() {
+import TaskDetailCard from "./taskDeatilCard";
+function TaskDetailPage() {
   return (
     <GeneralContainer>
       <SideBar />
@@ -25,7 +25,7 @@ function ChooseTaskPage() {
               <SprintTabPanel />
             </PanelWraper>
             <TabConent>
-              <ChooseTaskCard />
+              <TaskDetailCard />
             </TabConent>
           </TabWraper>
         </Content>
@@ -34,7 +34,7 @@ function ChooseTaskPage() {
   );
 }
 
-export default ChooseTaskPage;
+export default TaskDetailPage;
 const GeneralContainer = styled.div`
   display: flex;
  

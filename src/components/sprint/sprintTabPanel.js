@@ -5,7 +5,7 @@ import { Link, useParams } from "react-router-dom";
 function SprintTabPanel() {
 
     const [activeIndex, setActiveIndex] = React.useState(0);
-    const tabArray = ["CurrentSprint", "DoneSprint"];
+    const tabArray = ["SprintBacklog", "DoneSprint"];
     const handleOnClick = (index) => {
         setActiveIndex(index); // remove the curly braces
       };

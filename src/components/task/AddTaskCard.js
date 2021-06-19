@@ -77,6 +77,7 @@ export default function AddTaskCard() {
             label="User Story"
             variant="outlined"
             comboBoxArray={stories}
+            
           />
           <BtnWraper>
             <Button variant="contained" color="primary">
