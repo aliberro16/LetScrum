@@ -34,6 +34,9 @@ import ChooseMemberPage from './components/sprint/chooseMemberPage';
 import SprintBacklogPage from './components/sprint/sprintBacklogPage';
 import TaskDetailPage from './components/sprint/taskDetailPage';
 import EditTaskPage from './components/sprint/editTaskPage';
+import DoneSprintPage from './components/sprint/doneSprintPage';
+import DoneSprintViewPage from './components/sprint/doneSprintViewPage';
+import AllSprintsPage from './components/sprint/allSprint';
 
 
 class App extends React.Component {
@@ -90,6 +93,9 @@ class App extends React.Component {
                         <Route exact path='/work/:id/sprint/sprintbacklog' component={SprintBacklogPage} />
                         <Route exact path='/work/:id/sprint/taskDetail' component={TaskDetailPage} />
                         <Route exact path='/work/:id/sprint/editTask' component={EditTaskPage} />
+                        <Route exact path='/work/:id/sprint/DoneSprint' component={DoneSprintPage} />
+                        <Route exact path='/work/:id/sprint/DoneSprintView' component={DoneSprintViewPage} />
+                        <Route exact path='/work/:id/sprint/allSprint' component={AllSprintsPage} />
                         <Route
                             exact
                             path='/signin'
