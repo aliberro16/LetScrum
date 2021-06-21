@@ -2,11 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import Checkbox from "@material-ui/core/Checkbox";
 import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 import ComboBox from "../combo-box/ComboBox.component";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import TextField from "@material-ui/core/TextField";
-function chooseMemberCard() {
+function ChooseMemberCard() {
+  const { id } = useParams();
+
   return (
     <Container>
       <Table>
@@ -65,7 +67,7 @@ function chooseMemberCard() {
         </TableContent>
       </Table>
       <BtnWraper>
-        <Link to="/work/:id/sprint/choosemember">
+        <Link to={`/work/${id}/sprint/choosemember`}>
           <Button variant="contained" color="primary" size="meduim">
             Next
           </Button>{" "}
@@ -78,7 +80,7 @@ function chooseMemberCard() {
   );
 }
 const Members = [{ name: "Mazen Hoballah" }, { name: "Ali Berro" }];
-export default chooseMemberCard;
+export default ChooseMemberCard;
 const Container = styled.div`
   width: 100%;
   display: flex;

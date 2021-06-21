@@ -16,6 +16,7 @@ import FormInput from "../form-input/form-input.component";
 import ComboBox from "../combo-box/ComboBox.component";
 import photo from "../../assets/images/detailStory.svg";
 export default function TaskDetailCard() {
+
   return (
     <Container>
       <StoryInfo>

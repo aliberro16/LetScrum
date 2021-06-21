@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import SprintBacklogCard from "./sprintBacklogCard";
-import { Link } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 function SprintBacklogTable() {
+  const { id } = useParams();
+
   return (
     <Container>
       <Table>
@@ -16,7 +18,7 @@ function SprintBacklogTable() {
         <TableContent>
           <TR>
             <TD>
-            <Link to ="/work/:id/sprint/taskDetail">
+            <Link to ={`/work/${id}/sprint/taskDetail`}>
               <SprintBacklogCard />
             </Link>
             </TD>

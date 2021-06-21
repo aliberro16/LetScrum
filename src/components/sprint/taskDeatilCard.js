@@ -6,7 +6,7 @@ import img from "../../assets/images/Bg1.jpg";
 import ProductBacklogNoProject from "../../components/product-backlog/ProductBacklogNOProjects.component";
 import ProductBacklogContainer from "../../components/product-backlog/ProductBacklogContainer.component";
 import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -24,6 +24,7 @@ export default function TaskDetailCard() {
   });
   const classes = useStyles();
   const [progress, setProgress] = React.useState(0);
+  const { id } = useParams();
 
   React.useEffect(() => {
     const timer = setInterval(() => {
@@ -61,7 +62,7 @@ export default function TaskDetailCard() {
           </div>
         </InfoContainer>
         <BtnWraper>
-        <Link to = "/work/:id/sprint/editTask">
+        <Link to = {`/work/${id}/sprint/editTask`}>
           <Button variant="contained" color="primary" size="medium">
             Edit
           </Button>

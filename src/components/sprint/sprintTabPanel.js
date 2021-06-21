@@ -9,6 +9,8 @@ function SprintTabPanel() {
     const handleOnClick = (index) => {
         setActiveIndex(index); // remove the curly braces
       };
+      const { id } = useParams();
+
     return (
         <Container>
         <Content>
@@ -19,7 +21,7 @@ function SprintTabPanel() {
             <div>
               {tabArray.map((tab, index) => (
                 <div>
-                  <Link to={`/work/:id/sprint/${tab}`}>
+                  <Link to={`/work/${id}/sprint/${tab}`}>
                     <Tab
                       key={index}
                       onClick={() => handleOnClick(index)}

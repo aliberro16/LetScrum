@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Checkbox from "@material-ui/core/Checkbox";
 import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
+import { Link, } from "react-router-dom";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import Photo from "../../assets/images/done-sprint.svg";
 import { green } from "@material-ui/core/colors";
@@ -32,6 +32,7 @@ function DoneSprintViewCard() {
   //   const handleChange = (event) => {
   //     setSelectedValue(event.target.value);
   //   };
+
   return (
     <Container>
       <Content>

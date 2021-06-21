@@ -2,14 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import Photo from "../../assets/images/nosprint.svg";
 import ButtonChange from "../btnchange/buttonChange";
-import { Link } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 function NoSprintCard() {
+  const { id } = useParams();
+
   return (
     <Container>
       <Header>
         <h1>it's time to create your first sprint !</h1>
         <BtnWrapper>
-        <Link to="/work/:id/sprint/createSprint">
+        <Link to={`/work/${id}/sprint/createSprint`}>
         <ButtonChange />
         </Link>
         </BtnWrapper>

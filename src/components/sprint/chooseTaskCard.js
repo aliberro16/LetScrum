@@ -2,8 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import Checkbox from "@material-ui/core/Checkbox";
 import Button from "@material-ui/core/Button";
-import {Link} from "react-router-dom";
-function chooseTaskCard() {
+import {Link,useParams} from "react-router-dom";
+function ChooseTaskCard() {
+  const { id } = useParams();
+
   return (
     <Container>
       <Table>
@@ -47,7 +49,7 @@ function chooseTaskCard() {
         </TableContent>
       </Table>
       <BtnWraper>
-      <Link to = "/work/:id/sprint/choosemember">
+      <Link to = {`/work/${id}/sprint/choosemember`}>
       <Button variant="contained" color="primary" size="meduim">
         Next
       </Button>{" "}
@@ -57,7 +59,7 @@ function chooseTaskCard() {
   );
 }
 
-export default chooseTaskCard;
+export default ChooseTaskCard;
 const Container = styled.div`
   width: 100%;
   display:flex;

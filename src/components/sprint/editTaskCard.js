@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Checkbox from "@material-ui/core/Checkbox";
 import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import TextField from "@material-ui/core/TextField";
 import FormInput from "../form-input/form-input.component";
@@ -15,6 +15,8 @@ function EditTaskCard() {
           [progress]: value,
         }));
       };
+      const { id } = useParams();
+
   return (
     <Container>
       <Table>
@@ -99,7 +101,7 @@ function EditTaskCard() {
         </TableContent>
       </Table>
       <BtnWraper>
-        <Link to="/work/:id/sprint/sprintbacklog">
+        <Link to={`/work/${id}/sprint/sprintbacklog`}>
           <Button variant="contained" color="primary" size="meduim">
             Done
           </Button>{" "}

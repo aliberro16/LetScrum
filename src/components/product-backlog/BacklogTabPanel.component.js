@@ -17,6 +17,8 @@ const BacklogTabPanel = () => {
   React.useEffect(() => {
     console.log(activeIndex);
   }, []);
+  
+  const { id } = useParams();
 
   return (
     <Container>
@@ -28,7 +30,7 @@ const BacklogTabPanel = () => {
           <div>
             {tabArray.map((tab, index) => (
               <div>
-                <Link to={`/work/:id/productbacklog/${tab}`}>
+                <Link to={`/work/${id}/productbacklog/${tab}`}>
                   <Tab
                     key={index}
                     onClick={() => handleOnClick(index)}

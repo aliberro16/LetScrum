@@ -3,12 +3,14 @@ import styled from "styled-components";
 import img from "../../assets/images/Bg1.jpg"
 import Button from '@material-ui/core/Button';
 import WarningIcon from '@material-ui/icons/Warning';
-import { Link } from 'react-router-dom';
+import { Link,useParams } from 'react-router-dom';
 import photo from "../../assets/images/productbacklog.svg"
 import SideBar from "../side-bar/side-bar.component";
 function ProductBacklogNoProject(props) {
   
+  const { id } = useParams();
     return (
+
       <div>
       <SideBar/>
       <Container>
@@ -21,7 +23,7 @@ function ProductBacklogNoProject(props) {
           </span>
           <Btnwraper>
             <CreateButton variant="contained">
-              <Link to="/work/:id/project/create-project">Create Project</Link>
+            <Link to={`/work/${id}/project/create-project`}>Create Project</Link>
             </CreateButton>
             <Button variant="contained" color="primary">
               <Link to="/work/:id/project/join-project">Join Project</Link>
