@@ -119,8 +119,6 @@ export default function AddStoryCard() {
     addUserStory(id, checkedId, data);
     console.log(data);
   };
-  const { id } = useParams();
-
   return (
     <Carde className={classes.root}>
       <CardContent>

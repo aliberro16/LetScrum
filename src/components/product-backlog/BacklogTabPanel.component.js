@@ -19,7 +19,6 @@ const BacklogTabPanel = () => {
     console.log(activeIndex);
   }, []);
   
-  const { id } = useParams();
 
   return (
     <Container>
