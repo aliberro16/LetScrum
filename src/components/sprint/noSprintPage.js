@@ -1,32 +1,26 @@
 import React from "react";
-import SideBar from "../../components/side-bar/side-bar.component";
-import BacklogTabPanel from "../../components/product-backlog/BacklogTabPanel.component";
+import SideBar from "../side-bar/side-bar.component";
+import SprintTabPanel from "./sprintTabPanel";
 import styled from "styled-components";
 import img from "../../assets/images/Bg1.jpg";
-import ProductBacklogNoProject from "../../components/product-backlog/ProductBacklogNOProjects.component";
-import ProductBacklogContainer from "../../components/product-backlog/ProductBacklogContainer.component";
+import ProductBacklogNoProject from "../product-backlog/ProductBacklogNOProjects.component";
+import ProductBacklogContainer from "../product-backlog/ProductBacklogContainer.component";
 import Button from "@material-ui/core/Button";
-import { Link,useParams } from "react-router-dom";
-function NoStory(props) {
-  const { id } = useParams();
-
+import ProductBacklogTable from "../product-backlog/productbacklogtable";
+import NoSprint from "./noSprintCard";
+function NoSprintPage(props) {
   return (
     <div>
       <SideBar />
       <Container>
         <Content>
           <Banner>
-            <h1>User Story</h1>
+            <h1>Sprints</h1>
           </Banner>
           <TabWraper>
-            <BacklogTabPanel />
+            <SprintTabPanel />
             <TabConent>
-              <h1>User Story</h1>
-              <Link to={`/work/${id}/productbacklog/addUserStory`}>
-                <Button variant="contained" color="primary">
-                  Add User Story
-                </Button>
-              </Link>
+              <NoSprint />
             </TabConent>
           </TabWraper>
         </Content>
@@ -34,7 +28,7 @@ function NoStory(props) {
     </div>
   );
 }
-export default NoStory;
+export default NoSprintPage;
 const Content = styled.div`
   //   background-color: green;
   //  width:fit-content;
@@ -46,13 +40,16 @@ const Content = styled.div`
 `;
 const TabWraper = styled.div`
   display: flex;
+  justify-content: space-evenly;
 `;
 const TabConent = styled.div`
   width: 6000px;
   height: 550px;
-  //   background-color: red;
-  display: flex;
+  ${"" /* background-color: red; */}
+  display:flex;
   align-items: flex-start;
+  justify-content: flex-end;
+  margin-left: 50px;
   Button {
     height: fit-content;
     margin-left: 20px;

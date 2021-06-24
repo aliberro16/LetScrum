@@ -27,6 +27,16 @@ import NoStory from './components/user-story/NoStory';
 import UserStoryView from "./components/user-story/UserStoryView"
 import StoryDetail from './components/user-story/StoryDetail';
 import TaskDetail from './components/task/TaskDetail';
+import NoSprintPage from './components/sprint/noSprintPage';
+import CreateSprintPage from './components/sprint/createSprintPage';
+import ChooseTaskPage from './components/sprint/chooseTaskPage';
+import ChooseMemberPage from './components/sprint/chooseMemberPage';
+import SprintBacklogPage from './components/sprint/sprintBacklogPage';
+import TaskDetailPage from './components/sprint/taskDetailPage';
+import EditTaskPage from './components/sprint/editTaskPage';
+import DoneSprintPage from './components/sprint/doneSprintPage';
+import DoneSprintViewPage from './components/sprint/doneSprintViewPage';
+import AllSprintsPage from './components/sprint/allSprint';
 
 
 class App extends React.Component {
@@ -78,6 +88,17 @@ class App extends React.Component {
                         <Route exact path='/work/:id/productbacklog/userStoryView' component={UserStoryView} />
                         <Route exact path='/work/:id/productbacklog/StoryDetail' component={StoryDetail} />
                         <Route exact path='/work/:id/productbacklog/taskDetail' component={TaskDetail} />
+                        <Route exact path='/work/:id/sprint' component={NoSprintPage} />
+                        <Route exact path='/work/:id/sprint/createSprint' component={CreateSprintPage} />
+                        <Route exact path='/work/:id/sprint/chooseTask' component={ChooseTaskPage} />
+                        <Route exact path='/work/:id/sprint/choosemember' component={ChooseMemberPage} />
+                        <Route exact path='/work/:id/sprint/sprintbacklog' component={SprintBacklogPage} />
+                        <Route exact path='/work/:id/sprint/taskDetail' component={TaskDetailPage} />
+                        <Route exact path='/work/:id/sprint/editTask' component={EditTaskPage} />
+                        <Route exact path='/work/:id/sprint/DoneSprint' component={AllSprintsPage} />
+                        <Route exact path='/work/:id/sprint/DoneSprintView' component={DoneSprintViewPage} />
+                        <Route exact path='/work/:id/sprint/sprintSummary' component={DoneSprintPage} />
+
                         <Route
                             exact
                             path='/signin'

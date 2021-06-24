@@ -26,6 +26,7 @@ const useStyles = makeStyles({
   },
 });
 
+
 export default function AddStoryCard() {
   const classes = useStyles();
   // const [story, setStory] = useState("");
@@ -118,7 +119,6 @@ export default function AddStoryCard() {
     addUserStory(id, checkedId, data);
     console.log(data);
   };
-
   return (
     <Carde className={classes.root}>
       <CardContent>
@@ -231,4 +231,3 @@ const Carde = styled(Card)`
   }
 `;
 
-// <Link to={`/work/${id}/productbacklog/userStoryView`}>

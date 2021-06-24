@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SignUp from '../../components/sign-up/signup.component';
+import { useLocation } from 'react-router';
+const SignUpPage = (props) => {
+    let location = useLocation();
 
-const SignUpPage = () => {
+    // useEffect(()=>{
+    //     console.log(location.email);
+    // },[])
     return (
         <div className='back'>
-            <SignUp />
+            <SignUp email={location.email}/>
         </div>
     );
 };
