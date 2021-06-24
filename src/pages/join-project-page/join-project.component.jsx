@@ -4,7 +4,6 @@ import FormInput from "../../components/form-input/form-input.component";
 import Button from "@material-ui/core/Button";
 import { firestore } from "../../firebase/firebase.utils";
 import { useParams } from "react-router-dom";
-import Alert from "@material-ui/lab/Alert";
 import "./join-project.styles.scss";
 
 const JoinProjectPage = () => {
@@ -12,9 +11,7 @@ const JoinProjectPage = () => {
   const { id } = useParams();
   const [userIds, setUsersIds] = useState([]);
   const [memberData, setMemberData] = useState();
-  const [error, setError] = useState(null);
-  const [errorMessage, setErrorMessage] = useState("");
-  const [isSuccessfull, setSuccess] = useState(null);
+
 
   const plusData = {
     isPending: true,
@@ -83,9 +80,7 @@ const JoinProjectPage = () => {
         .get()
         .then((snapShot) => {
           if (snapShot.empty) {
-            setSuccess(false);
-            setError(true);
-            setErrorMessage("Key/Project Not Found");
+
             return;
           } else {
             //userId is the id of the user who owns this project key
@@ -93,21 +88,17 @@ const JoinProjectPage = () => {
 
 
             // // setMemberData(getMemberInfo(id));
-            // console.log('***********', memberData);
-            setSuccess(true);
-            setError(false);
+
             snapShot.forEach((doc) => {
               console.log(doc.id, "=>", doc.data());
               addMemberDocToFirestore(userId, doc.id, memberData)
                 .then(() => {
                   alert("member added successfully");
-                  setSuccess(true);
-                  setError(false);
+
                 })
                 .catch((error) => {
                   console.error(error);
-                  setError(error);
-                  setErrorMessage(error.message);
+
                 });
             });
           }

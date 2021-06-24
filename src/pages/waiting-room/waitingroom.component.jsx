@@ -209,38 +209,3 @@ const WaitingRoom = () => {
 
 export default WaitingRoom;
 
-// {membersData ? (
-//     membersData.map((member,ind) => {
-//         <div key={ind}>
-//             <div className='waitingroom-member-info'>
-//                 <span>{member.displayName}</span>
-//                 <span>{member.email}</span>
-//             </div>
-
-//             <div className='waitingroom-btnwrapper'>
-//                 <Button
-//                     variant='contained'
-//                     color='primary'
-//                 >
-//                     <DoneIcon /> Accept
-//                 </Button>
-//                 <Button
-//                     style={{
-//                         backgroundColor: '#ff5722',
-//                         color: 'white',
-//                     }}
-//                     variant='contained'
-//                 >
-//                     <ClearIcon /> Reject
-//                 </Button>
-//             </div>
-//         </div>;
-//     })
-// ) : (
-{
-    /* <div>
-    {' '}
-    <WarningIcon /> &nbsp; No Requests!
-</div> */
-}
-// )}
