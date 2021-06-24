@@ -294,7 +294,7 @@ const SideBar = (props) => {
                             </ListItem>
                         </Link>
                         <Link
-                            to={`/work/${id}/sprints`}
+                            to={`/work/${id}/sprint`}
                             className={classes.blackLink}
                         >
                             <ListItem button>

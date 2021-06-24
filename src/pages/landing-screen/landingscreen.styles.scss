@@ -55,6 +55,7 @@
                 .inp-btn {
                     display: flex;
                     justify-content: left;
+                    align-items: center;
                     .email-input {
                         outline: 0;
                         font: 400 14px/16px 'Roboto', Arial, serif;
@@ -75,6 +76,7 @@
                         margin-left: 10px;
                         background-color: #ff8148 !important;
                         width: 140px;
+                        
                     }
                 }
             }

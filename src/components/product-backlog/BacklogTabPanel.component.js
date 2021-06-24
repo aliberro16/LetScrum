@@ -18,6 +18,8 @@ const BacklogTabPanel = () => {
   React.useEffect(() => {
     console.log(activeIndex);
   }, []);
+  
+  const { id } = useParams();
 
   return (
     <Container>

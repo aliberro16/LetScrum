@@ -6,9 +6,16 @@ import img from "../../assets/images/Bg1.jpg";
 import ProductBacklogNoProject from "../../components/product-backlog/ProductBacklogNOProjects.component";
 import ProductBacklogContainer from "../../components/product-backlog/ProductBacklogContainer.component";
 import Button from "@material-ui/core/Button";
+<<<<<<< HEAD
 import { Link, useParams } from "react-router-dom";
 function NoTask(props) {
   const { id } = useParams();
+=======
+import { Link,useParams } from "react-router-dom";
+function NoTask(props) {
+  const { id } = useParams();
+
+>>>>>>> sprint
   return (
     <div>
       <SideBar />
@@ -21,7 +28,11 @@ function NoTask(props) {
             <BacklogTabPanel />
             <TabConent>
               <h1>Tasks</h1>
+<<<<<<< HEAD
               <Link to={`/work/${id}/productbacklog/addTask`}>
+=======
+              <Link to ={`/work/${id}/productbacklog/addTask`}>
+>>>>>>> sprint
                 <Button variant="contained" color="primary">
                   Add Task
                 </Button>

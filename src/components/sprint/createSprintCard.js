@@ -30,61 +30,50 @@ const useStyles = makeStyles({
   },
 });
 
-export default function AddTaskCard() {
+export default function CreateSprintCard() {
   const { id } = useParams();
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
-  const [task, setTask] = useState("");
+  const [sprint, setSprint] = useState("");
   const handleChange = (event) => {
-    setTask(event.target.value);
+    setSprint(event.target.value);
   };
 
   return (
     <Carde className={classes.root}>
       <CardContent>
         <Typography variant="h4" color="textSecondary" gutterBottom>
-          Add Task
+          Create Sprint
         </Typography>
         <form>
           <FormInput
             type="text"
-            name="Task"
-            value={task.Task}
-            label="Task"
+            name="name"
+            value={sprint.Name}
+            label="Name"
             onChange={handleChange}
           />
           <FormInput
             type="text"
-            name="Priority"
-            value={task.Priority}
-            label="Priority"
+            name="Description"
+            value={sprint.Description}
+            label="Description"
             onChange={handleChange}
           />
           <FormInput
-            type="text"
-            name="Time"
-            value={task.Time}
-            label="Time"
+            type="number"
+            name="WeeksNumber"
+            value={sprint.WeeksNumber}
+            label="Number of Weeks"
             onChange={handleChange}
-          />
-          <FormInput
-            type="text"
-            name="Points"
-            value={task.Points}
-            label="Points"
-            onChange={handleChange}
-          />
-          <ComboBox
-            label="User Story"
-            variant="outlined"
-            comboBoxArray={stories}
-            
           />
           <BtnWraper>
-            <Button variant="contained" color="primary">
-              ADD
+          <Link to = {`/work/${id}/sprint/chooseTask`}>
+            <Button variant="contained" color="primary" size="large">
+              Create
             </Button>
-            <Button variant="contained" color="secondary">
+          </Link>
+            <Button variant="contained" color="secondary" size="large">
               Cancel
             </Button>
           </BtnWraper>
@@ -93,23 +82,24 @@ export default function AddTaskCard() {
     </Carde>
   );
 }
-
-const stories = [{ label: "Story1" }, { label: "Story2" }, { label: "Story3" }];
-
 const BtnWraper = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-right: 18px;
+  ${'' /* margin-right: 18px; */}
   height: 100px;
   Button {
-    height: 60px;
-    width: fit-content;
-    font-size: 30px !important;
+    ${'' /* height: 60px; */}
+    ${'' /* width: fit-content; */}
+    ${'' /* font-size: 30px !important; */}
   }
 `;
 const Carde = styled(Card)`
   display: flex;
   flex-direction: column;
+  width: 80%;
+  ${"" /* justify-content:center; */}
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius:4px;
   @media only screen and (max-width: 1200px) {
     display: flex;
     width: 700px;

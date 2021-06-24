@@ -6,6 +6,7 @@ import img from "../../assets/images/Bg1.jpg";
 import ProductBacklogNoProject from "../../components/product-backlog/ProductBacklogNOProjects.component";
 import ProductBacklogContainer from "../../components/product-backlog/ProductBacklogContainer.component";
 import Button from "@material-ui/core/Button";
+import ProductBacklogTable from "../../components/product-backlog/productbacklogtable"
 function ProductBacklog(props) {
   // this page will render if there is a project registerd for the user 
   return (
@@ -19,7 +20,7 @@ function ProductBacklog(props) {
           <TabWraper>
             <BacklogTabPanel />
             <TabConent>
-              <h1>TODO | DOING | DONE</h1>
+              <ProductBacklogTable/>
             </TabConent>
           </TabWraper>
         </Content>
@@ -39,13 +40,17 @@ const Content = styled.div`
 `;
 const TabWraper = styled.div`
   display: flex;
+  justify-content:space-evenly;
+
 `;
 const TabConent = styled.div`
   width: 6000px;
   height: 550px;
-//   background-color: red;
+  ${'' /* background-color: red; */}
   display:flex;
   align-items:flex-start;
+  justify-content:flex-end;
+  margin-left:50px;
   Button{
       height:fit-content;
       margin-left:20px;
