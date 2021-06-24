@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '../../components/header/header.component';
 import Footer from '../../components/footer/Footer.component';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -13,6 +13,7 @@ import ReactPlayer from 'react-player';
 import './educationpage.styles.scss';
 import styled from "styled-components"
 function EducationPage() {
+
     return (
         <div className='pagebackground'>
             <Header />

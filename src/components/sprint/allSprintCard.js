@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import styled from "styled-components";
 import photo from "../../assets/images/checklist.svg";
-
+import { Link, useParams } from "react-router-dom";
 function AllSprintCard() {
   const useStyles = makeStyles({
     root: {
@@ -26,6 +26,7 @@ function AllSprintCard() {
     },
   });
   const classes = useStyles();
+  const { id } = useParams();
   return (
     <Container>
       <Carde className={classes.root}>
@@ -45,107 +46,9 @@ function AllSprintCard() {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Learn More</Button>
-        </CardActions>
-      </Carde>
-      <Carde className={classes.root}>
-        <CardContent>
-          <Image>
-            <img src={photo} alt="" />
-          </Image>
-          <Typography
-            className={classes.title}
-            color="textSecondary"
-            gutterBottom
-          >
-            Sprint 1
-          </Typography>
-          <Typography variant="body2" component="p">
-            this is the first sprint
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small">Learn More</Button>
-        </CardActions>
-      </Carde>
-      <Carde className={classes.root}>
-        <CardContent>
-          <Image>
-            <img src={photo} alt="" />
-          </Image>
-          <Typography
-            className={classes.title}
-            color="textSecondary"
-            gutterBottom
-          >
-            Sprint 1
-          </Typography>
-          <Typography variant="body2" component="p">
-            this is the first sprint
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small">Learn More</Button>
-        </CardActions>
-      </Carde>
-      <Carde className={classes.root}>
-        <CardContent>
-          <Image>
-            <img src={photo} alt="" />
-          </Image>
-          <Typography
-            className={classes.title}
-            color="textSecondary"
-            gutterBottom
-          >
-            Sprint 1
-          </Typography>
-          <Typography variant="body2" component="p">
-            this is the first sprint
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small">Learn More</Button>
-        </CardActions>
-      </Carde>
-      <Carde className={classes.root}>
-        <CardContent>
-          <Image>
-            <img src={photo} alt="" />
-          </Image>
-          <Typography
-            className={classes.title}
-            color="textSecondary"
-            gutterBottom
-          >
-            Sprint 1
-          </Typography>
-          <Typography variant="body2" component="p">
-            this is the first sprint
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small">Learn More</Button>
-        </CardActions>
-      </Carde>
-      <Carde className={classes.root}>
-        <CardContent>
-          <Image>
-            <img src={photo} alt="" />
-          </Image>
-          <Typography
-            className={classes.title}
-            color="textSecondary"
-            gutterBottom
-          >
-            Sprint 1
-          </Typography>
-          <Typography variant="body2" component="p">
-            this is the first sprint
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small">Learn More</Button>
+          <Link to={`/work/${id}/sprint/sprintSummary`}>
+            <Button size="small">Sprint Info</Button>
+          </Link>
         </CardActions>
       </Carde>
     </Container>
