@@ -10,6 +10,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import FormInput from '../form-input/form-input.component';
 import ComboBox from '../combo-box/ComboBox.component';
+import { Alert, AlertTitle } from '@material-ui/lab';
 
 const useStyles = makeStyles({
     root: {},
@@ -28,10 +29,12 @@ const useStyles = makeStyles({
 
 export default function AddTaskCard() {
     const classes = useStyles();
+    const [scrumMaster, setScrumMaster] = useState(false);
     const [task, setTask] = useState({
         task: '',
         priority: 0,
         time: 0,
+        progress:0
     });
 
     const handleChange = (e) => {
@@ -47,17 +50,17 @@ export default function AddTaskCard() {
     const [storyData, setStoryData] = useState([
         { story: '', description: '' },
     ]);
-    const options = storyData.map(story=>story.story)
+    const options = storyData.map((story) => story.story);
     const [value, setValue] = useState(options[0]);
     const [inputValue, setInputValue] = useState('');
 
     const onInputChange = (event, newInputValue) => {
         setInputValue(newInputValue);
-    }
+    };
 
-    const handleComboChange = (event, newValue) =>{
+    const handleComboChange = (event, newValue) => {
         setValue(newValue);
-    }
+    };
     useEffect(() => {
         const getMemberEmail = async () => {
             await firestore
@@ -94,6 +97,7 @@ export default function AddTaskCard() {
                                 .onSnapshot((snapshots) => {
                                     snapshots.forEach((docc) => {
                                         console.log(docc.data());
+                                        setScrumMaster(true);
                                         docc.ref.parent.parent
                                             .get()
                                             .then((dc) => {
@@ -135,11 +139,11 @@ export default function AddTaskCard() {
         return () => setStoryData([{ story: '', description: '' }]); // use cleanup to toggle value, if unmounted
     }, [id, memberEmail]);
 
-    useEffect(()=>{
+    useEffect(() => {
         console.log(inputValue);
-    },[inputValue])
+    }, [inputValue]);
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = (e) => {
         e.preventDefault();
         addTask();
         setTask({
@@ -147,35 +151,38 @@ export default function AddTaskCard() {
             priority: 0,
             time: 0,
         });
-    }
-    const addTask = async() => {
+    };
+    const addTask = async () => {
         const userRef = firestore.collection('users');
-            userRef.get().then((snapshots) => {
-                snapshots.forEach((user) => {
-                    const projectRef = userRef
-                        .doc(user.id)
-                        .collection('projects');
+        userRef.get().then((snapshots) => {
+            snapshots.forEach((user) => {
+                const projectRef = userRef.doc(user.id).collection('projects');
 
-                    projectRef.get().then((snapShots) => {
-                        snapShots.forEach((doc) => {
-                            // console.log(doc.id, '=>', doc.data().title);
-                           var userStoryRef = projectRef
-                                .doc(doc.id)
-                                .collection('userStories');
-                                userStoryRef
-                                .where('story', '==', inputValue)
-                                .get()
-                                .then(querySnapShots=>{
-                                    querySnapShots.forEach(storyDoc=>{
-                                        userStoryRef.doc(storyDoc.id).collection('tasks').add(task);
-                                        alert(`Done adding ${task.task} to ${inputValue}`)
-                                    })
-                                })
-                        });
+                projectRef.get().then((snapShots) => {
+                    snapShots.forEach((doc) => {
+                        // console.log(doc.id, '=>', doc.data().title);
+                        var userStoryRef = projectRef
+                            .doc(doc.id)
+                            .collection('userStories');
+                        userStoryRef
+                            .where('story', '==', inputValue)
+                            .get()
+                            .then((querySnapShots) => {
+                                querySnapShots.forEach((storyDoc) => {
+                                    userStoryRef
+                                        .doc(storyDoc.id)
+                                        .collection('tasks')
+                                        .add(task);
+                                    alert(
+                                        `Done adding ${task.task} to ${inputValue}`
+                                    );
+                                });
+                            });
                     });
                 });
             });
-        };
+        });
+    };
 
     return (
         <>
@@ -189,60 +196,154 @@ export default function AddTaskCard() {
                         >
                             Add Task
                         </Typography>
-                        <form onSubmit={handleSubmit}>
-                            <FormInput
-                                type='text'
-                                name='task'
-                                value={task.task}
-                                label='Task'
-                                onChange={handleChange}
-                                required
-                            />
-                            <FormInput
-                                type='number'
-                                name='priority'
-                                value={task.priority}
-                                label='Priority'
-                                onChange={handleChange}
-                                required
-                                InputProps={{
-                                    inputProps: {
-                                        max: 10,
-                                        min: 1,
-                                    },
-                                }}
-                            />
-                            <FormInput
-                                type='number'
-                                name='time'
-                                value={task.time}
-                                label='Time (h)'
-                                onChange={handleChange}
-                                required
-                                InputProps={{
-                                    inputProps: {
-                                        step: 0.5,
-                                        min: 0,
-                                    },
-                                }}
-                            />
-                            <ComboBox
-                                label='User Story'
-                                variant='outlined'
-                                comboBoxArray={storyData}
-                                required
-                                onInputChange = {onInputChange}
-                                handleComboChange= {handleComboChange}
-                            />
-                            <BtnWraper>
-                                <Button variant='contained' color='primary' type='submit'>
-                                    ADD
-                                </Button>
-                                <Button variant='contained' color='secondary'>
-                                    Cancel
-                                </Button>
-                            </BtnWraper>
-                        </form>
+                        {scrumMaster ? (
+                            <form onSubmit={handleSubmit}>
+                                <FormInput
+                                    type='text'
+                                    name='task'
+                                    value={task.task}
+                                    label='Task'
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <FormInput
+                                    type='number'
+                                    name='priority'
+                                    value={task.priority}
+                                    label='Priority'
+                                    onChange={handleChange}
+                                    required
+                                    InputProps={{
+                                        inputProps: {
+                                            max: 10,
+                                            min: 1,
+                                        },
+                                    }}
+                                />
+                                <FormInput
+                                    type='number'
+                                    name='time'
+                                    value={task.time}
+                                    label='Time (h)'
+                                    onChange={handleChange}
+                                    required
+                                    InputProps={{
+                                        inputProps: {
+                                            step: 0.5,
+                                            min: 0,
+                                        },
+                                    }}
+                                />
+                                <ComboBox
+                                    label='User Story'
+                                    variant='outlined'
+                                    comboBoxArray={storyData}
+                                    required
+                                    onInputChange={onInputChange}
+                                    handleComboChange={handleComboChange}
+                                />
+                                <BtnWraper>
+                                    <Button
+                                        variant='contained'
+                                        color='primary'
+                                        type='submit'
+                                        size='large'
+                                    >
+                                        ADD
+                                    </Button>
+                                    <Button
+                                        variant='contained'
+                                        color='secondary'
+                                        size='large'
+
+                                        onClick={() =>
+                                            setTask({
+                                                task: '',
+                                                priority: 0,
+                                                time: 0,
+                                            })
+                                        }
+                                    >
+                                        Cancel
+                                    </Button>
+                                </BtnWraper>
+                            </form>
+                        ) : (
+                            <div>
+                                <Alert severity='warning'>
+                                    <AlertTitle>Warning</AlertTitle>
+                                    This is a warning alert —{' '}
+                                    <strong>
+                                        Only Scrum Master can access this form!
+                                    </strong>
+                                </Alert>
+                                <form onSubmit={handleSubmit}>
+                                    <FormInput
+                                        type='text'
+                                        name='task'
+                                        value={task.task}
+                                        label='Task'
+                                        onChange={handleChange}
+                                        required
+                                        disabled
+                                    />
+                                    <FormInput
+                                        type='number'
+                                        name='priority'
+                                        value={task.priority}
+                                        label='Priority'
+                                        onChange={handleChange}
+                                        required
+                                        InputProps={{
+                                            inputProps: {
+                                                max: 10,
+                                                min: 1,
+                                            },
+                                        }}
+                                        disabled
+                                    />
+                                    <FormInput
+                                        type='number'
+                                        name='time'
+                                        value={task.time}
+                                        label='Time (h)'
+                                        onChange={handleChange}
+                                        required
+                                        InputProps={{
+                                            inputProps: {
+                                                step: 0.5,
+                                                min: 0,
+                                            },
+                                        }}
+                                        disabled
+                                    />
+                                    <ComboBox
+                                        label='User Story'
+                                        variant='outlined'
+                                        comboBoxArray={storyData}
+                                        required
+                                        onInputChange={onInputChange}
+                                        handleComboChange={handleComboChange}
+                                    />
+                                    <BtnWraper>
+                                        <Button
+                                            variant='contained'
+                                            color='primary'
+                                            disabled
+                                        >
+                                            ADD
+                                        </Button>
+                                        <Button
+                                            variant='contained'
+                                            color='secondary'
+                                            disabled
+                                        >
+                                            Cancel
+                                        </Button>
+                                    </BtnWraper>
+                                </form>
+                            </div>
+                        )}
                     </CardContent>
                 </Carde>
             ) : (
@@ -260,14 +361,15 @@ const BtnWraper = styled.div`
     margin-right: 18px;
     height: 100px;
     Button {
-        height: 60px;
-        width: fit-content;
-        font-size: 30px !important;
+        // height: 60px;
+        // width: fit-content;
+        // font-size: 30px !important;
     }
 `;
 const Carde = styled(Card)`
     display: flex;
     flex-direction: column;
+    height : 100%;
     @media only screen and (max-width: 1200px) {
         display: flex;
         width: 700px;

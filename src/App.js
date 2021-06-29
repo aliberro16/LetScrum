@@ -90,8 +90,8 @@ class App extends React.Component {
                         <Route exact path='/work/:id/productbacklog/taskDetail' component={TaskDetail} />
                         <Route exact path='/work/:id/sprint' component={NoSprintPage} />
                         <Route exact path='/work/:id/sprint/createSprint' component={CreateSprintPage} />
-                        <Route exact path='/work/:id/sprint/chooseTask' component={ChooseTaskPage} />
-                        <Route exact path='/work/:id/sprint/choosemember' component={ChooseMemberPage} />
+                        <Route exact path='/work/:id/sprint/:sprintId/chooseTask' component={ChooseTaskPage} />
+                        <Route exact path='/work/:id/sprint/:sprintId/choosemember' component={ChooseMemberPage} />
                         <Route exact path='/work/:id/sprint/sprintbacklog' component={SprintBacklogPage} />
                         <Route exact path='/work/:id/sprint/taskDetail' component={TaskDetailPage} />
                         <Route exact path='/work/:id/sprint/editTask' component={EditTaskPage} />

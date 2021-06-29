@@ -102,11 +102,11 @@ function EditTaskCard() {
       </Table>
       <BtnWraper>
         <Link to={`/work/${id}/sprint/sprintbacklog`}>
-          <Button variant="contained" color="primary" size="meduim">
+          <Button variant="contained" color="primary" size="medium">
             Done
           </Button>{" "}
         </Link>
-        <Button variant="contained" color="secondary" size="meduim">
+        <Button variant="contained" color="secondary" size="medium">
           Cancel
         </Button>{" "}
       </BtnWraper>

@@ -3,11 +3,6 @@ import SideBar from "../../components/side-bar/side-bar.component";
 import BacklogTabPanel from "../../components/product-backlog/BacklogTabPanel.component";
 import styled from "styled-components";
 import img from "../../assets/images/Bg1.jpg";
-import ProductBacklogNoProject from "../../components/product-backlog/ProductBacklogNOProjects.component";
-import ProductBacklogContainer from "../../components/product-backlog/ProductBacklogContainer.component";
-import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
-import FormInput from "../form-input/form-input.component";
 import AddTaskCard from "./AddTaskCard";
 function AddTask(props) {
   return (
@@ -51,9 +46,9 @@ const TabWraper = styled.div`
 `;
 const TabConent = styled.div`
   width: 1100px;
-  height: 550px;
+//   height: 550px;
   align-items: flex-start;
-  background-color:red;
+//   background-color:red;
   Button {
     height: fit-content;
     margin-left: 20px;

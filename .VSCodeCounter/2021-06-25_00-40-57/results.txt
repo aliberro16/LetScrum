@@ -1,0 +1,336 @@
+Date : 2021-06-25 00:40:57
+Directory : d:\mazen\Documents\myVsProjects\letScrum\LetScrum
+Total : 252 files,  35883 codes, 669 comments, 1693 blanks, all 38245 lines
+
+Languages
++------------------+------------+------------+------------+------------+------------+
+| language         | files      | code       | comment    | blank      | total      |
++------------------+------------+------------+------------+------------+------------+
+| JSON             |          3 |     18,165 |          0 |          3 |     18,168 |
+| JavaScript       |         63 |      5,539 |        203 |        330 |      6,072 |
+| SCSS             |        133 |      4,431 |        200 |        717 |      5,348 |
+| CSS              |          6 |      4,405 |        148 |        413 |      4,966 |
+| JavaScript React |         22 |      3,173 |         81 |        192 |      3,446 |
+| XML              |         23 |        109 |          2 |          3 |        114 |
+| Markdown         |          1 |         38 |          0 |         33 |         71 |
+| HTML             |          1 |         23 |         35 |          2 |         60 |
++------------------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                          | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                             |        252 |     35,883 |        669 |      1,693 |     38,245 |
+| public                                                                                                                        |          2 |         48 |         35 |          3 |         86 |
+| src                                                                                                                           |        247 |     17,657 |        634 |      1,655 |     19,946 |
+| src\assets                                                                                                                    |        140 |      7,690 |        299 |      1,027 |      9,016 |
+| src\assets\icons                                                                                                              |          7 |         93 |          2 |          3 |         98 |
+| src\assets\images                                                                                                             |         16 |         16 |          0 |          0 |         16 |
+| src\assets\scss                                                                                                               |        117 |      7,581 |        297 |      1,024 |      8,902 |
+| src\assets\scss\effects                                                                                                       |        112 |      2,638 |        117 |        493 |      3,248 |
+| src\assets\scss\effects\2d-transitions                                                                                        |         29 |        563 |         29 |        123 |        715 |
+| src\assets\scss\effects\background-transitions                                                                                |         18 |        511 |         18 |         69 |        598 |
+| src\assets\scss\effects\border-transitions                                                                                    |         18 |        445 |         18 |         80 |        543 |
+| src\assets\scss\effects\curls                                                                                                 |          4 |        122 |          4 |         13 |        139 |
+| src\assets\scss\effects\icons                                                                                                 |         28 |        685 |         33 |        160 |        878 |
+| src\assets\scss\effects\shadow-and-glow-transitions                                                                           |          7 |        120 |          7 |         20 |        147 |
+| src\assets\scss\effects\speech-bubbles                                                                                        |          8 |        192 |          8 |         28 |        228 |
+| src\components                                                                                                                |         70 |      7,271 |        206 |        423 |      7,900 |
+| src\components\TabPanel                                                                                                       |          1 |        302 |          8 |         21 |        331 |
+| src\components\btnchange                                                                                                      |          2 |         75 |          1 |          9 |         85 |
+| src\components\card                                                                                                           |          1 |        116 |          1 |          6 |        123 |
+| src\components\combo-box                                                                                                      |          2 |         52 |          5 |          4 |         61 |
+| src\components\dialog                                                                                                         |          1 |        240 |          0 |         16 |        256 |
+| src\components\footer                                                                                                         |          2 |        238 |          1 |          9 |        248 |
+| src\components\form-input                                                                                                     |          2 |         35 |          0 |          4 |         39 |
+| src\components\header                                                                                                         |          2 |        142 |          2 |         14 |        158 |
+| src\components\image-slider                                                                                                   |          1 |        117 |          0 |          8 |        125 |
+| src\components\product-backlog                                                                                                |          6 |        439 |         33 |         38 |        510 |
+| src\components\project-container                                                                                              |          2 |        379 |         12 |         28 |        419 |
+| src\components\scroll-to-top-button                                                                                           |          2 |         61 |          3 |          7 |         71 |
+| src\components\side-bar                                                                                                       |          2 |        472 |         11 |         25 |        508 |
+| src\components\sign-in                                                                                                        |          2 |        165 |          0 |          6 |        171 |
+| src\components\sign-up                                                                                                        |          2 |        197 |          7 |         12 |        216 |
+| src\components\sprint                                                                                                         |         22 |      2,436 |         63 |        108 |      2,607 |
+| src\components\task                                                                                                           |          5 |        710 |         28 |         34 |        772 |
+| src\components\todo                                                                                                           |          5 |        322 |          5 |         34 |        361 |
+| src\components\user-story                                                                                                     |          7 |        761 |         26 |         37 |        824 |
+| src\firebase                                                                                                                  |          1 |         39 |         23 |         11 |         73 |
+| src\pages                                                                                                                     |         25 |      2,442 |        101 |        167 |      2,710 |
+| src\pages\choose-project-page                                                                                                 |          1 |         14 |          0 |          2 |         16 |
+| src\pages\create-project-page                                                                                                 |          2 |        272 |          1 |         22 |        295 |
+| src\pages\education-page                                                                                                      |          2 |        232 |         11 |         23 |        266 |
+| src\pages\home-page                                                                                                           |          2 |         81 |          1 |          6 |         88 |
+| src\pages\join-project-page                                                                                                   |          2 |        146 |         31 |         20 |        197 |
+| src\pages\landing-screen                                                                                                      |          2 |        328 |         12 |         13 |        353 |
+| src\pages\pending-project                                                                                                     |          1 |         92 |          1 |          6 |         99 |
+| src\pages\product-backlog                                                                                                     |          2 |        117 |         17 |          5 |        139 |
+| src\pages\profile-page                                                                                                        |          1 |         18 |          0 |          3 |         21 |
+| src\pages\project-detail-page                                                                                                 |          2 |        479 |         11 |         25 |        515 |
+| src\pages\project-page                                                                                                        |          2 |        281 |          7 |         15 |        303 |
+| src\pages\sideBar-page                                                                                                        |          1 |         17 |          0 |          3 |         20 |
+| src\pages\signin-page                                                                                                         |          1 |         10 |          0 |          2 |         12 |
+| src\pages\signup-page                                                                                                         |          1 |         12 |          3 |          2 |         17 |
+| src\pages\waiting-room                                                                                                        |          3 |        343 |          6 |         20 |        369 |
+| src\redux                                                                                                                     |          5 |         35 |          1 |          9 |         45 |
+| src\redux\user                                                                                                                |          3 |         24 |          0 |          4 |         28 |
++-------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| filename                                                                                                                      | language         | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\README.md                                                                   | Markdown         |         38 |          0 |         33 |         71 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\package-lock.json                                                           | JSON             |     18,072 |          0 |          1 |     18,073 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\package.json                                                                | JSON             |         68 |          0 |          1 |         69 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\public\index.html                                                           | HTML             |         23 |         35 |          2 |         60 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\public\manifest.json                                                        | JSON             |         25 |          0 |          1 |         26 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\App.css                                                                 | CSS              |         10 |          0 |          3 |         13 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\App.js                                                                  | JavaScript       |        135 |          1 |          8 |        144 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\StartFromTop.js                                                         | JavaScript       |          6 |          0 |          1 |          7 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\icons\backlog.svg                                                | XML              |          1 |          0 |          0 |          1 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\icons\check.svg                                                  | XML              |         40 |          1 |          1 |         42 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\icons\clipboard.svg                                              | XML              |          3 |          0 |          1 |          4 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\icons\email.svg                                                  | XML              |          1 |          0 |          0 |          1 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\icons\google.svg                                                 | XML              |          1 |          0 |          0 |          1 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\icons\join.svg                                                   | XML              |         46 |          1 |          1 |         48 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\icons\sprint.svg                                                 | XML              |          1 |          0 |          0 |          1 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\images\Login.svg                                                 | XML              |          1 |          0 |          0 |          1 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\images\SignUp.svg                                                | XML              |          1 |          0 |          0 |          1 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\images\checklist.svg                                             | XML              |          1 |          0 |          0 |          1 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\images\create-project-image.svg                                  | XML              |          1 |          0 |          0 |          1 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\images\create-project.svg                                        | XML              |          1 |          0 |          0 |          1 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\images\detail.svg                                                | XML              |          1 |          0 |          0 |          1 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\images\detailStory.svg                                           | XML              |          1 |          0 |          0 |          1 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\images\done-sprint.svg                                           | XML              |          1 |          0 |          0 |          1 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\images\join-team-image.svg                                       | XML              |          1 |          0 |          0 |          1 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\images\learn-image.svg                                           | XML              |          1 |          0 |          0 |          1 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\images\my-projects.svg                                           | XML              |          1 |          0 |          0 |          1 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\images\nosprint.svg                                              | XML              |          1 |          0 |          0 |          1 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\images\pending.svg                                               | XML              |          1 |          0 |          0 |          1 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\images\productbacklog.svg                                        | XML              |          1 |          0 |          0 |          1 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\images\trackProjects.svg                                         | XML              |          1 |          0 |          0 |          1 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\images\two-in-one.svg                                            | XML              |          1 |          0 |          0 |          1 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\_hacks.scss                                                 | SCSS             |         15 |          7 |          5 |         27 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\_mixins.scss                                                | SCSS             |         40 |          2 |         10 |         52 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\_options.scss                                               | SCSS             |         24 |         10 |         10 |         44 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_backward.scss                       | SCSS             |         10 |          1 |          2 |         13 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_bob.scss                            | SCSS             |         30 |          1 |          4 |         35 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_bounce-in.scss                      | SCSS             |         10 |          1 |          2 |         13 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_bounce-out.scss                     | SCSS             |         10 |          1 |          2 |         13 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_buzz-out.scss                       | SCSS             |         43 |          1 |         12 |         56 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_buzz.scss                           | SCSS             |         19 |          1 |          4 |         24 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_float.scss                          | SCSS             |         11 |          1 |          2 |         14 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_forward.scss                        | SCSS             |         10 |          1 |          2 |         13 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_grow-rotate.scss                    | SCSS             |         10 |          1 |          2 |         13 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_grow.scss                           | SCSS             |         10 |          1 |          2 |         13 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_hang.scss                           | SCSS             |         30 |          1 |          4 |         35 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_pop.scss                            | SCSS             |         16 |          1 |          3 |         20 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_pulse-grow.scss                     | SCSS             |         17 |          1 |          3 |         21 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_pulse-shrink.scss                   | SCSS             |         17 |          1 |          3 |         21 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_pulse.scss                          | SCSS             |         19 |          1 |          4 |         24 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_push.scss                           | SCSS             |         19 |          1 |          4 |         24 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_rotate.scss                         | SCSS             |         10 |          1 |          2 |         13 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_shrink.scss                         | SCSS             |         10 |          1 |          2 |         13 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_sink.scss                           | SCSS             |         11 |          1 |          2 |         14 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_skew-backward.scss                  | SCSS             |         11 |          1 |          2 |         14 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_skew-forward.scss                   | SCSS             |         11 |          1 |          2 |         14 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_skew.scss                           | SCSS             |         10 |          1 |          2 |         13 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_wobble-bottom.scss                  | SCSS             |         32 |          1 |          8 |         41 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_wobble-horizontal.scss              | SCSS             |         31 |          1 |          8 |         40 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_wobble-skew.scss                    | SCSS             |         31 |          1 |          8 |         40 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_wobble-to-bottom-right.scss         | SCSS             |         31 |          1 |          8 |         40 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_wobble-to-top-right.scss            | SCSS             |         31 |          1 |          8 |         40 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_wobble-top.scss                     | SCSS             |         32 |          1 |          8 |         41 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\2d-transitions\_wobble-vertical.scss                | SCSS             |         31 |          1 |          8 |         40 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\background-transitions\_back-pulse.scss             | SCSS             |         23 |          1 |          3 |         27 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\background-transitions\_bounce-to-bottom.scss       | SCSS             |         30 |          1 |          4 |         35 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\background-transitions\_bounce-to-left.scss         | SCSS             |         30 |          1 |          4 |         35 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\background-transitions\_bounce-to-right.scss        | SCSS             |         30 |          1 |          4 |         35 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\background-transitions\_bounce-to-top.scss          | SCSS             |         30 |          1 |          4 |         35 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\background-transitions\_fade.scss                   | SCSS             |         12 |          1 |          2 |         15 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\background-transitions\_radial-in.scss              | SCSS             |         31 |          1 |          4 |         36 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\background-transitions\_radial-out.scss             | SCSS             |         31 |          1 |          4 |         36 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\background-transitions\_rectangle-in.scss           | SCSS             |         29 |          1 |          4 |         34 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\background-transitions\_rectangle-out.scss          | SCSS             |         29 |          1 |          4 |         34 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\background-transitions\_shutter-in-horizontal.scss  | SCSS             |         30 |          1 |          4 |         35 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\background-transitions\_shutter-in-vertical.scss    | SCSS             |         30 |          1 |          4 |         35 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\background-transitions\_shutter-out-horizontal.scss | SCSS             |         30 |          1 |          4 |         35 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\background-transitions\_shutter-out-vertical.scss   | SCSS             |         30 |          1 |          4 |         35 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\background-transitions\_sweep-to-bottom.scss        | SCSS             |         29 |          1 |          4 |         34 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\background-transitions\_sweep-to-left.scss          | SCSS             |         29 |          1 |          4 |         34 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\background-transitions\_sweep-to-right.scss         | SCSS             |         29 |          1 |          4 |         34 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\background-transitions\_sweep-to-top.scss           | SCSS             |         29 |          1 |          4 |         34 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\border-transitions\_border-fade.scss                | SCSS             |         16 |          1 |          3 |         20 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\border-transitions\_hollow.scss                     | SCSS             |         14 |          1 |          3 |         18 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\border-transitions\_outline-in.scss                 | SCSS             |         28 |          1 |          4 |         33 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\border-transitions\_outline-out.scss                | SCSS             |         25 |          1 |          4 |         30 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\border-transitions\_overline-from-center.scss       | SCSS             |         27 |          1 |          5 |         33 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\border-transitions\_overline-from-left.scss         | SCSS             |         26 |          1 |          5 |         32 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\border-transitions\_overline-from-right.scss        | SCSS             |         26 |          1 |          5 |         32 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\border-transitions\_overline-reveal.scss            | SCSS             |         27 |          1 |          5 |         33 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\border-transitions\_reveal.scss                     | SCSS             |         29 |          1 |          5 |         35 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\border-transitions\_ripple-in.scss                  | SCSS             |         31 |          1 |          5 |         37 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\border-transitions\_ripple-out.scss                 | SCSS             |         30 |          1 |          5 |         36 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\border-transitions\_round-corners.scss              | SCSS             |         10 |          1 |          2 |         13 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\border-transitions\_trim.scss                       | SCSS             |         23 |          1 |          4 |         28 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\border-transitions\_underline-from-center.scss      | SCSS             |         27 |          1 |          5 |         33 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\border-transitions\_underline-from-center2.scss     | SCSS             |         27 |          1 |          5 |         33 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\border-transitions\_underline-from-left.scss        | SCSS             |         26 |          1 |          5 |         32 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\border-transitions\_underline-from-right.scss       | SCSS             |         26 |          1 |          5 |         32 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\border-transitions\_underline-reveal.scss           | SCSS             |         27 |          1 |          5 |         33 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\curls\_curl-bottom-left.scss                        | SCSS             |         30 |          1 |          3 |         34 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\curls\_curl-bottom-right.scss                       | SCSS             |         30 |          1 |          3 |         34 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\curls\_curl-top-left.scss                           | SCSS             |         32 |          1 |          4 |         37 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\curls\_curl-top-right.scss                          | SCSS             |         30 |          1 |          3 |         34 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-back.scss                               | SCSS             |         17 |          1 |          4 |         22 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-bob.scss                                | SCSS             |         36 |          1 |          6 |         43 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-bounce-out.scss                         | SCSS             |         23 |          1 |          5 |         29 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-bounce.scss                             | SCSS             |         18 |          1 |          5 |         24 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-buzz-out.scss                           | SCSS             |         49 |          1 |         14 |         64 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-buzz.scss                               | SCSS             |         25 |          1 |          6 |         32 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-down.scss                               | SCSS             |         26 |          2 |          5 |         33 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-drop.scss                               | SCSS             |         33 |          2 |          8 |         43 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-fade.scss                               | SCSS             |         15 |          1 |          4 |         20 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-float-away.scss                         | SCSS             |         25 |          2 |          6 |         33 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-float.scss                              | SCSS             |         17 |          1 |          4 |         22 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-forward.scss                            | SCSS             |         17 |          1 |          4 |         22 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-grow-rotate.scss                        | SCSS             |         18 |          1 |          5 |         24 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-grow.scss                               | SCSS             |         17 |          1 |          4 |         22 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-hang.scss                               | SCSS             |         36 |          1 |          6 |         43 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-pop.scss                                | SCSS             |         25 |          1 |          5 |         31 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-pulse-grow.scss                         | SCSS             |         23 |          1 |          5 |         29 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-pulse-shrink.scss                       | SCSS             |         23 |          1 |          5 |         29 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-pulse.scss                              | SCSS             |         25 |          1 |          6 |         32 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-push.scss                               | SCSS             |         25 |          1 |          5 |         31 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-rotate.scss                             | SCSS             |         18 |          1 |          5 |         24 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-shrink.scss                             | SCSS             |         17 |          1 |          4 |         22 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-sink-away.scss                          | SCSS             |         25 |          2 |          6 |         33 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-sink.scss                               | SCSS             |         17 |          1 |          4 |         22 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-spin.scss                               | SCSS             |         15 |          1 |          4 |         20 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-up.scss                                 | SCSS             |         26 |          2 |          5 |         33 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-wobble-horizontal.scss                  | SCSS             |         37 |          1 |         10 |         48 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\icons\_icon-wobble-vertical.scss                    | SCSS             |         37 |          1 |         10 |         48 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\shadow-and-glow-transitions\_box-shadow-inset.scss  | SCSS             |         13 |          1 |          3 |         17 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\shadow-and-glow-transitions\_box-shadow-outset.scss | SCSS             |         10 |          1 |          2 |         13 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\shadow-and-glow-transitions\_float-shadow.scss      | SCSS             |         30 |          1 |          4 |         35 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\shadow-and-glow-transitions\_glow.scss              | SCSS             |         10 |          1 |          2 |         13 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\shadow-and-glow-transitions\_grow-shadow.scss       | SCSS             |         11 |          1 |          2 |         14 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\shadow-and-glow-transitions\_shadow-radial.scss     | SCSS             |         36 |          1 |          5 |         42 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\shadow-and-glow-transitions\_shadow.scss            | SCSS             |         10 |          1 |          2 |         13 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\speech-bubbles\_bubble-bottom.scss                  | SCSS             |         22 |          1 |          3 |         26 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\speech-bubbles\_bubble-float-bottom.scss            | SCSS             |         26 |          1 |          4 |         31 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\speech-bubbles\_bubble-float-left.scss              | SCSS             |         26 |          1 |          4 |         31 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\speech-bubbles\_bubble-float-right.scss             | SCSS             |         26 |          1 |          4 |         31 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\speech-bubbles\_bubble-float-top.scss               | SCSS             |         26 |          1 |          4 |         31 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\speech-bubbles\_bubble-left.scss                    | SCSS             |         22 |          1 |          3 |         26 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\speech-bubbles\_bubble-right.scss                   | SCSS             |         22 |          1 |          3 |         26 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\effects\speech-bubbles\_bubble-top.scss                     | SCSS             |         22 |          1 |          3 |         26 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\hover.css                                                   | CSS              |      4,201 |        145 |        391 |      4,737 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\assets\scss\hover.scss                                                  | SCSS             |        663 |         16 |        115 |        794 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\TabPanel\TabPanel.component.jsx                              | JavaScript React |        302 |          8 |         21 |        331 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\btnchange\buttonChange.css                                   | CSS              |         57 |          1 |          7 |         65 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\btnchange\buttonChange.js                                    | JavaScript       |         18 |          0 |          2 |         20 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\card\HomeCard.component.jsx                                  | JavaScript React |        116 |          1 |          6 |        123 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\combo-box\ComboBox.component.js                              | JavaScript       |         39 |          4 |          3 |         46 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\combo-box\ComboBox.scss                                      | SCSS             |         13 |          1 |          1 |         15 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\dialog\CustomizedDialogs.js                                  | JavaScript       |        240 |          0 |         16 |        256 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\footer\Footer.component.jsx                                  | JavaScript React |        142 |          0 |          2 |        144 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\footer\Footer.css                                            | CSS              |         96 |          1 |          7 |        104 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\form-input\form-input.component.jsx                          | JavaScript React |         16 |          0 |          2 |         18 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\form-input\form-input.styles.scss                            | SCSS             |         19 |          0 |          2 |         21 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\header\header.component.jsx                                  | JavaScript React |         78 |          1 |          4 |         83 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\header\header.styles.scss                                    | SCSS             |         64 |          1 |         10 |         75 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\image-slider\image-slider.component.jsx                      | JavaScript React |        117 |          0 |          8 |        125 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\product-backlog\BacklogTabPanel.component.js                 | JavaScript       |         71 |          2 |         12 |         85 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\product-backlog\BacklogTabPanel.scss                         | SCSS             |          4 |          1 |          2 |          7 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\product-backlog\ProductBacklogContainer.component.js         | JavaScript       |         48 |         11 |          4 |         63 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\product-backlog\ProductBacklogNOProjects.component.js        | JavaScript       |         93 |          0 |          5 |         98 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\product-backlog\ProductbacklogCard.js                        | JavaScript       |         47 |          0 |          5 |         52 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\product-backlog\productbacklogtable.js                       | JavaScript       |        176 |         19 |         10 |        205 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\project-container\project-container.component.jsx            | JavaScript React |        306 |          6 |         24 |        336 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\project-container\project-container.styles.scss              | SCSS             |         73 |          6 |          4 |         83 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\scroll-to-top-button\ScrollButton.js                         | JavaScript       |         57 |          3 |          7 |         67 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\scroll-to-top-button\ScrollButton.scss                       | SCSS             |          4 |          0 |          0 |          4 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\search.js                                                    | JavaScript       |         12 |          0 |          3 |         15 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\side-bar\side-bar.component.jsx                              | JavaScript React |        453 |         10 |         22 |        485 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\side-bar\side-bar.styles.scss                                | SCSS             |         19 |          1 |          3 |         23 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sign-in\signin.component.jsx                                 | JavaScript React |        108 |          0 |          4 |        112 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sign-in\signin.styles.scss                                   | SCSS             |         57 |          0 |          2 |         59 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sign-up\signup.component.jsx                                 | JavaScript React |        149 |          7 |          9 |        165 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sign-up\signup.styles.scss                                   | SCSS             |         48 |          0 |          3 |         51 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sprint\allSprint.js                                          | JavaScript       |         96 |          1 |          3 |        100 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sprint\allSprintCard.js                                      | JavaScript       |         70 |          1 |          3 |         74 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sprint\chooseMemberCard.js                                   | JavaScript       |        133 |         10 |          5 |        148 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sprint\chooseMemberPage.js                                   | JavaScript       |         95 |          1 |          4 |        100 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sprint\chooseTaskCard.js                                     | JavaScript       |        115 |          1 |          7 |        123 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sprint\chooseTaskPage.js                                     | JavaScript       |         95 |          1 |          4 |        100 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sprint\createSprintCard.js                                   | JavaScript       |        192 |          6 |          6 |        204 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sprint\createSprintPage.js                                   | JavaScript       |         90 |          1 |          1 |         92 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sprint\doneSprintCard.js                                     | JavaScript       |        260 |          5 |          9 |        274 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sprint\doneSprintPage.js                                     | JavaScript       |         96 |          1 |          3 |        100 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sprint\doneSprintViewCard.js                                 | JavaScript       |        199 |          5 |         12 |        216 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sprint\doneSprintViewPage.js                                 | JavaScript       |         96 |          1 |          3 |        100 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sprint\editTaskCard.js                                       | JavaScript       |        164 |         14 |          5 |        183 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sprint\editTaskPage.js                                       | JavaScript       |         95 |          1 |          4 |        100 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sprint\noSprintCard.js                                       | JavaScript       |         59 |          0 |          6 |         65 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sprint\noSprintPage.js                                       | JavaScript       |         78 |         11 |          1 |         90 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sprint\sprintBacklogCard.js                                  | JavaScript       |         35 |          0 |          4 |         39 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sprint\sprintBacklogPage.js                                  | JavaScript       |         96 |          1 |          3 |        100 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sprint\sprintBacklogTable.js                                 | JavaScript       |         82 |          0 |          5 |         87 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sprint\sprintTabPanel.js                                     | JavaScript       |         66 |          1 |         10 |         77 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sprint\taskDeatilCard.js                                     | JavaScript       |        128 |          0 |          7 |        135 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\sprint\taskDetailPage.js                                     | JavaScript       |         96 |          1 |          3 |        100 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\task\AddTask.component.js                                    | JavaScript       |         81 |          3 |          1 |         85 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\task\AddTaskCard.js                                          | JavaScript       |        355 |          8 |         21 |        384 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\task\NoTask.js                                               | JavaScript       |         79 |         12 |          2 |         93 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\task\TaskDetail.js                                           | JavaScript       |        103 |          5 |          2 |        110 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\task\TaskDetailCard.js                                       | JavaScript       |         92 |          0 |          8 |        100 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\todo\AddTodoForm.js                                          | JavaScript       |         45 |          0 |          6 |         51 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\todo\EditTodo.js                                             | JavaScript       |         53 |          0 |          4 |         57 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\todo\List.js                                                 | JavaScript       |         39 |          0 |          3 |         42 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\todo\Todo.js                                                 | JavaScript       |         67 |          0 |         10 |         77 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\todo\Todocomp.js                                             | JavaScript       |        118 |          5 |         11 |        134 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\user-story\AddStoryCard.js                                   | JavaScript       |        213 |          6 |         15 |        234 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\user-story\AddUserStory.Component.js                         | JavaScript       |         87 |          1 |          1 |         89 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\user-story\NoStory.js                                        | JavaScript       |         79 |         12 |          2 |         93 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\user-story\StoryDetail.js                                    | JavaScript       |        104 |          6 |          2 |        112 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\user-story\StoryDetailCard.js                                | JavaScript       |         91 |          0 |          9 |        100 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\user-story\UserStoryView.js                                  | JavaScript       |         96 |          1 |          2 |         99 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\components\user-story\UserStoryViewCard.js                              | JavaScript       |         91 |          0 |          6 |         97 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\constants.js                                                            | JavaScript       |          2 |          0 |          0 |          2 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\firebase\firebase.utils.js                                              | JavaScript       |         39 |         23 |         11 |         73 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\index.css                                                               | CSS              |         12 |          0 |          3 |         15 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\index.js                                                                | JavaScript       |         15 |          3 |          3 |         21 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\choose-project-page\choose-project-page.component.jsx             | JavaScript React |         14 |          0 |          2 |         16 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\create-project-page\create-project.component.jsx                  | JavaScript React |        196 |          0 |         13 |        209 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\create-project-page\create-project.styles.scss                    | SCSS             |         76 |          1 |          9 |         86 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\education-page\educationpage.component.jsx                        | JavaScript React |        144 |          0 |          6 |        150 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\education-page\educationpage.styles.scss                          | SCSS             |         88 |         11 |         17 |        116 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\home-page\homepage.css                                            | CSS              |         29 |          1 |          2 |         32 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\home-page\homepage.js                                             | JavaScript       |         52 |          0 |          4 |         56 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\join-project-page\join-project.component.jsx                      | JavaScript React |        124 |         31 |         17 |        172 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\join-project-page\join-project.styles.scss                        | SCSS             |         22 |          0 |          3 |         25 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\landing-screen\landingscreen.component.jsx                        | JavaScript React |        147 |          8 |          5 |        160 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\landing-screen\landingscreen.styles.scss                          | SCSS             |        181 |          4 |          8 |        193 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\pending-project\PendingProject.js                                 | JavaScript       |         92 |          1 |          6 |         99 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\product-backlog\productbacklog.js                                 | JavaScript       |         80 |         13 |          2 |         95 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\product-backlog\productbacklog.scss                               | SCSS             |         37 |          4 |          3 |         44 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\profile-page\profile.js                                           | JavaScript       |         18 |          0 |          3 |         21 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\project-detail-page\project-detail.scss                           | SCSS             |        136 |         11 |          6 |        153 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\project-detail-page\projectDetail.component.jsx                   | JavaScript React |        343 |          0 |         19 |        362 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\project-page\project-page.component.jsx                           | JavaScript React |        164 |          5 |          8 |        177 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\project-page\project-page.styles.scss                             | SCSS             |        117 |          2 |          7 |        126 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\sideBar-page\sideBar-page.component.jsx                           | JavaScript React |         17 |          0 |          3 |         20 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\signin-page\signin-page.component.jsx                             | JavaScript React |         10 |          0 |          2 |         12 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\signup-page\signup-page.component.jsx                             | JavaScript React |         12 |          3 |          2 |         17 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\waiting-room\waitingroom.component.jsx                            | JavaScript React |        199 |          1 |         12 |        212 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\waiting-room\waitingroom.js                                       | JavaScript       |         51 |          0 |          4 |         55 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\pages\waiting-room\waitingroom.scss                                     | SCSS             |         93 |          5 |          4 |        102 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\redux\root-reducer.js                                                   | JavaScript       |          5 |          1 |          2 |          8 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\redux\store.js                                                          | JavaScript       |          6 |          0 |          3 |          9 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\redux\user\user.actions.js                                              | JavaScript       |          5 |          0 |          2 |          7 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\redux\user\user.reducer.jsx                                             | JavaScript React |         16 |          0 |          1 |         17 |
+| d:\mazen\Documents\myVsProjects\letScrum\LetScrum\src\redux\user\user.types.js                                                | JavaScript       |          3 |          0 |          1 |          4 |
+| Total                                                                                                                         |                  |     35,883 |        669 |      1,693 |     38,245 |
++-------------------------------------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+

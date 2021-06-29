@@ -163,7 +163,7 @@ function DoneSprintCard() {
       </Table>
       <BtnWraper>
         <Link to={`/work/${id}/sprint/DoneSprintView`}>
-          <Button variant="contained" color="primary" size="meduim">
+          <Button variant="contained" color="primary" size="medium">
             Next
           </Button>{" "}
         </Link>

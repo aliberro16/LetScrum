@@ -29,7 +29,7 @@ const BacklogTabPanel = () => {
           </Header>
           <div>
             {tabArray.map((tab, index) => (
-              <div>
+              <div key={index}>
                 <Link to={`/work/${id}/productbacklog/${tab}`}>
                   <Tab
                     key={index}

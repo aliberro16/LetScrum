@@ -20,7 +20,7 @@ function SprintTabPanel() {
             </Header>
             <div>
               {tabArray.map((tab, index) => (
-                <div>
+                <div key={index}>
                   <Link to={`/work/${id}/sprint/${tab}`}>
                     <Tab
                       key={index}
