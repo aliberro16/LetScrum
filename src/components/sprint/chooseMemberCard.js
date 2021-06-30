@@ -45,7 +45,7 @@ function ChooseMemberCard() {
         }
         console.log(ind);
     }, [ind, inputValue]);
-
+    
     useEffect(() => {
         console.log(inputValue);
     }, [inputValue]);

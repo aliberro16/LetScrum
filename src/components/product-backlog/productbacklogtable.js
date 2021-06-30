@@ -51,32 +51,24 @@ function ProductBacklogTable() {
                                                             .then(
                                                                 (snapShots) => {
                                                                     snapShots.forEach(
-                                                                        (
-                                                                            task
-                                                                        ) => {
-                                                                            console.log(
-                                                                                task.data()
-                                                                            );
-                                                                            // task.data().story = storyDoc.data().story;
-                                                                            // Object.assign(task.data(), {story: storyDoc.data().story})
-                                                                            // console.log(storyDoc.data().story);
-                                                                            var story =
-                                                                                {
-                                                                                    story: storyDoc.data()
-                                                                                        .story,
-                                                                                };
+                                                                        (task) => {
+                                                                            console.log(task.data());
+                                                                            var story ={story: storyDoc.data().story,};
                                                                             var newTask =
-                                                                                {
-                                                                                    ...task.data(),
-                                                                                    ...story,
-                                                                                };
-                                                                            setTaskData(
-                                                                                (
-                                                                                    prevData
-                                                                                ) => [
+                                                                            {
+                                                                                ...task.data(),
+                                                                                ...story,
+                                                                            };
+                                                                            newTask.progress === 0
+                                                                            ? setTodoTasks((prevTasks1) => [...prevTasks1, newTask])
+                                                                            : newTask.progress <= 99 && newTask.progress >= 1
+                                                                            ? setDoingTasks((prevTasks2) => [...prevTasks2, newTask])
+                                                                            : setDoneTasks((prevTasks3) => [...prevTasks3, newTask])
+                                                                            setTaskData((prevData) => [
                                                                                     ...prevData,
                                                                                     newTask,
                                                                                 ]
+                                                                                
                                                                             );
                                                                         }
                                                                     );
@@ -94,22 +86,17 @@ function ProductBacklogTable() {
             });
         });
     };
-    // const todoTasks = [];
-    // const doingTasks = [];
-    // const doneTasks = [];
+
     const [todoTasks, setTodoTasks] = useState([]);
     const [doingTasks, setDoingTasks] = useState([]);
     const [doneTasks, setDoneTasks] = useState([]);
-    
-    const fillArrays = () => {
-        taskData.map((task) => {
-            task.progress === 0
-                ? setTodoTasks((prevTasks) => [...prevTasks, task])
-                : task.progress <= 99 && task.progress >= 1
-                ? setDoingTasks((prevTasks) => [...prevTasks, task])
-                : setDoneTasks((prevTasks) => [...prevTasks, task]);
-        });
-    };
+    // const [okay, setOkay] = useState(false);
+    // useEffect(()=>{
+    // setTimeout(() => {
+    //     console.log(taskData);
+    // }, 3000);
+    // },[])
+
     useEffect(() => {
         setTaskData([]);
         setDoneTasks([]);
@@ -118,28 +105,23 @@ function ProductBacklogTable() {
 
         getMemberEmail();
         searchForTheMembersProjects();
-        fillArrays()
-     
-        return () => {
-            setTaskData([]);
-            setDoneTasks([]);
-            setDoingTasks([]);
-            setTodoTasks([]);
-        };
-    }, [id, memberEmail]);
+        // const fillArrays = () => {
+        //     if (taskData.length > 0) {
+        //         console.log('okay');
+        //         taskData.map((task) =>
+        //             task.progress === 0
+        //                 ? setTodoTasks((prevTasks) => [...prevTasks, task])
+        //                 : task.progress <= 99 && task.progress >= 1
+        //                 ? setDoingTasks((prevTasks) => [...prevTasks, task])
+        //                 : setDoneTasks((prevTasks) => [...prevTasks, task])
+        //         );
+        //     } else {
+        //         console.log('not okay');
+        //     }
+        // };
+        // fillArrays();
 
-    // useEffect(()=>{
-    //     const fillArrays = () => {
-    //         taskData.map((task) => {
-    //             task.progress === 0
-    //                 ? setTodoTasks((prevTasks) => [...prevTasks, task])
-    //                 : task.progress <= 99 && task.progress >= 1
-    //                 ? setDoingTasks((prevTasks) => [...prevTasks, task])
-    //                 : setDoneTasks((prevTasks) => [...prevTasks, task]);
-    //         });
-    //     };
-    //     fillArrays();
-    // }, [])
+    }, [id,memberEmail]);
 
     return (
         <Container>
@@ -190,7 +172,7 @@ const TR = styled.tr`
     justify-content: space-around;
     background-color: #edecee;
 `;
-const TableHeader = styled.div`
+const TableHeader = styled.tbody`
     width: 1000px;
     position: sticky;
     top: 0;
