@@ -3,8 +3,6 @@ import { firestore } from '../../firebase/firebase.utils';
 import BacklogTabPanel from '../../components/product-backlog/BacklogTabPanel.component';
 import styled from 'styled-components';
 import img from '../../assets/images/Bg1.jpg';
-import ProductBacklogNoProject from '../../components/product-backlog/ProductBacklogNOProjects.component';
-import ProductBacklogContainer from '../../components/product-backlog/ProductBacklogContainer.component';
 import Button from '@material-ui/core/Button';
 import { Link, useParams } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
