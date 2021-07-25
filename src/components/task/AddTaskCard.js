@@ -34,7 +34,6 @@ export default function AddTaskCard() {
         task: '',
         priority: 0,
         time: 0,
-        progress:0
     });
 
     const handleChange = (e) => {
@@ -169,19 +168,21 @@ export default function AddTaskCard() {
                             .get()
                             .then((querySnapShots) => {
                                 querySnapShots.forEach((storyDoc) => {
+                                    const finalTask = {...task, progress:0}
                                     userStoryRef
                                         .doc(storyDoc.id)
                                         .collection('tasks')
-                                        .add(task);
-                                    alert(
-                                        `Done adding ${task.task} to ${inputValue}`
-                                    );
+                                        .add(finalTask);
+                                    
                                 });
                             });
                     });
                 });
             });
         });
+        alert(
+            `Done adding ${task.task} to ${inputValue}`
+        );
     };
 
     return (

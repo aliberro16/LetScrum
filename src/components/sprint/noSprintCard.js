@@ -9,7 +9,7 @@ function NoSprintCard() {
   return (
     <Container>
       <Header>
-        <h1>it's time to create your first sprint !</h1>
+        <h1>It's time to create your first sprint !</h1>
         <BtnWrapper>
         <Link to={`/work/${id}/sprint/createSprint`}>
         <ButtonChange />

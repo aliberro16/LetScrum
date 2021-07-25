@@ -92,10 +92,10 @@ class App extends React.Component {
                         <Route exact path='/work/:id/sprint/createSprint' component={CreateSprintPage} />
                         <Route exact path='/work/:id/sprint/:sprintId/chooseTask' component={ChooseTaskPage} />
                         <Route exact path='/work/:id/sprint/:sprintId/choosemember' component={ChooseMemberPage} />
-                        <Route exact path='/work/:id/sprint/sprintbacklog' component={SprintBacklogPage} />
-                        <Route exact path='/work/:id/sprint/taskDetail' component={TaskDetailPage} />
-                        <Route exact path='/work/:id/sprint/editTask' component={EditTaskPage} />
-                        <Route exact path='/work/:id/sprint/DoneSprint' component={AllSprintsPage} />
+                        <Route exact path='/work/:id/sprint/:sprintId/sprintbacklog' component={SprintBacklogPage} />
+                        <Route exact path='/work/:id/sprint/:sprintId/taskDetail/:taskId' component={TaskDetailPage} />
+                        <Route exact path='/work/:id/sprint/:sprintId/editTask/:taskId' component={EditTaskPage} />
+                        <Route exact path='/work/:id/sprints' component={AllSprintsPage} />
                         <Route exact path='/work/:id/sprint/DoneSprintView' component={DoneSprintViewPage} />
                         <Route exact path='/work/:id/sprint/sprintSummary' component={DoneSprintPage} />
 

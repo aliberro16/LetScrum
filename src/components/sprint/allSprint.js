@@ -3,13 +3,6 @@ import SideBar from "../side-bar/side-bar.component";
 import SprintTabPanel from "./sprintTabPanel";
 import styled from "styled-components";
 import img from "../../assets/images/Bg1.jpg";
-import ProductBacklogNoProject from "../product-backlog/ProductBacklogNOProjects.component";
-import ProductBacklogContainer from "../product-backlog/ProductBacklogContainer.component";
-import Button from "@material-ui/core/Button";
-import ProductBacklogTable from "../product-backlog/productbacklogtable";
-import NoSprint from "./noSprintCard";
-import CreateSprintCard from "./createSprintCard";
-import ChooseTaskCard from "./chooseTaskCard";
 import AllSprintCard from "./allSprintCard";
 function  AllSprintsPage() {
   return (

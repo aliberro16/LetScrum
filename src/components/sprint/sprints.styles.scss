@@ -1,0 +1,15 @@
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    align-items: flex-start;
+}
+.actions {
+    display: flex;
+    justify-content: flex-start;
+    // margin-top: 16px;
+    margin-left: 0;
+    .info-btn{
+        margin-left: 0;
+    }
+}

@@ -1,60 +1,47 @@
 import React, { useEffect, useState } from 'react';
 import { firestore } from '../../firebase/firebase.utils';
 import styled from 'styled-components';
-import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
-import { Link, useParams, useLocation } from 'react-router-dom';
+import { Link, useParams, useLocation, useHistory } from 'react-router-dom';
 import ComboBox from '../combo-box/ComboBox.component';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
 
 function ChooseMemberCard() {
-    const { id } = useParams();
     let location = useLocation();
+    let history = useHistory();
+    const { id } = useParams();
+    const { sprintId } = useParams();
     const [tasks, setTasks] = useState([]);
     const [memberEmail, setMemberEmail] = useState('');
     const [memData, setMemData] = useState([]);
-    // const [selectedValue, setSelectedValue] = useState(new Array(tasks.length).fill({}));
     const [inputValue, setInputValue] = useState('');
+    const [assignedTasks, setAssignedTasks] = useState([]);
     const [ind, setIndex] = useState();
-
-    // const onInputChange = (newInputValue) => {
-    //     // setInputValue(new Array(tasks.length).fill(''))
-    //     if (tasks.length !== 0) {
-    //         var updatedTasksArray = [...tasks];
-    //         updatedTasksArray.map((task) => (task.member = newInputValue));
-    //         console.log(updatedTasksArray);
-    //     }
-    //     // updatedTasksArray[i].member = newInputValue;
-    //     // var updatedArr = [...inputValue];
-    //     // updatedArr[i] = newInputValue;
-    //     // setInputValue(updatedArr);
-    // };
-
+    // const arr = [];
     useEffect(() => {
         if (tasks.length !== 0) {
-            // var updatedTasksArray = [...tasks];
-            // // for(let i=0; i<updatedTasksArray.lenght ; i++){
-            // //         updatedTasksArray[ind].member = inputValue;
-                
-            // // }
-            // // console.log(updatedTasksArray);
-            var member = { member : inputValue};
-            var newTask={...tasks[ind], ...member}
+            var member = { member: inputValue };
+            var newTask = { ...tasks[ind], ...member };
             console.log(newTask);
+            setAssignedTasks((prev) => [...prev, newTask]);
+            // assignedTasks.splice(ind, 1, newTask);
+            let arr = [...assignedTasks];
+            arr[ind] = newTask;
+            setAssignedTasks(arr);
         }
-        console.log(ind);
+        console.log('index => ', ind);
+        // console.log('new tasks array => ', array);
     }, [ind, inputValue]);
-    
-    useEffect(() => {
-        console.log(inputValue);
-    }, [inputValue]);
 
-    // const handleChange = (e,i, newValue) =>{
-    //     const update = [...selectedValue];
-    //     update[i] = newValue;
-    //     setSelectedValue(update)
-    // }
+    useEffect(() => {
+        console.log('assigned tasks =>', assignedTasks);
+    }, [assignedTasks]);
+
+    useEffect(() => {
+        console.log('input value => ', inputValue);
+    }, [ind, inputValue]);
+
     const getMemberEmail = async () => {
         await firestore
             .collection('users')
@@ -123,11 +110,45 @@ function ChooseMemberCard() {
         });
     };
 
-    const assignTaskToMember = (name) => {
-        firestore.collection('users').where('displayName', '==', name);
+    const assignTaskToMember = () => {
+        assignedTasks.forEach((assignedTask) => {
+            const userRef = firestore.collection('users');
+            userRef.get().then((snapshots) => {
+                snapshots.forEach((user) => {
+                    const projectRef = userRef
+                        .doc(user.id)
+                        .collection('projects');
+
+                    projectRef.get().then((snapShots) => {
+                        snapShots.forEach((doc) => {
+                            projectRef
+                                .doc(doc.id)
+                                .collection('members')
+                                .where('email', '==', memberEmail)
+                                .onSnapshot((snapshots) => {
+                                    snapshots.forEach((docc) => {
+                                        docc.ref.parent.parent
+                                            .get()
+                                            .then((dc) => {
+                                                if (dc.exists) {
+                                                    projectRef
+                                                        .doc(dc.id)
+                                                        .collection('sprints')
+                                                        .doc(sprintId)
+                                                        .collection('tasks')
+                                                        .add(assignedTask);
+                                                }
+                                            });
+                                    });
+                                });
+                        });
+                    });
+                });
+            });
+        });
     };
+
     useEffect(() => {
-        
         setMemData([]);
         getMemberEmail();
         searchForTheMembersProjects();
@@ -137,6 +158,10 @@ function ChooseMemberCard() {
         setTasks(location.task);
         // console.log(tasks);
     }, [tasks]);
+
+    const handleClick = () => {
+        assignTaskToMember();
+    };
 
     return (
         <Container>
@@ -192,19 +217,26 @@ function ChooseMemberCard() {
                 </TableContent>
             </Table>
             <BtnWraper>
-                <Link to={`/work/${id}/sprint/choosemember`}>
-                    <Button variant='contained' color='primary' size='medium'>
-                        Next
-                    </Button>{' '}
-                </Link>
+                <Link to={`/work/${id}/sprint/${sprintId}/DoneSprint`}>
                 <Button
                     variant='contained'
-                    color='secondary'
+                    color='primary'
                     size='medium'
-                    onChange
+                    onClick={handleClick}
                 >
-                    Cancel
+                    Save
                 </Button>{' '}
+                </Link>
+                <Link>
+                    <Button
+                        variant='contained'
+                        color='secondary'
+                        size='medium'
+                        onClick={()=>history.goBack()}
+                    >
+                        Cancel
+                    </Button>
+                </Link>
             </BtnWraper>
         </Container>
     );

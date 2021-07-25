@@ -20,6 +20,7 @@ const Header = ({ currentUser }) => {
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
     });
+
     let navbarClasses = ['navbar'];
     let optionClasses = ['option hvr-underline-from-center'];
     if (scrolled) {
@@ -27,17 +28,17 @@ const Header = ({ currentUser }) => {
         optionClasses.push('hvr-underline2');
     }
     return (
-        <div className='header'>
+        <div className='hheader'>
             <div className={navbarClasses.join(' ')}>
                 <Container className='navbar-content'>
-                    <Link to='/' className='logo-container'>
-                        <img src={Logo} alt='LetScrum' className='logo' />
+                    <Link to='/' className='llogo-container'>
+                        <img src={Logo} alt='LetScrum' />
                     </Link>
                     <div className='options'>
-                        <Link to='/learn' className={optionClasses.join('active ')}>
+                        <Link to='/learn' className={optionClasses.join('active')}>
                             LEARN SCRUM
                         </Link>
-                        <Link to='/project' className={optionClasses.join('active ')}>
+                        <Link to='/project' className={optionClasses.join('active')}>
                             PROJECTS
                         </Link>
                         {/* <div onClick={() => auth.signOut()} className={optionClasses.join(' ')}>

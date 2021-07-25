@@ -5,6 +5,8 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 class ChooseTaskCard extends React.Component {
     constructor(props) {
         super(props);
@@ -181,7 +183,20 @@ class ChooseTaskCard extends React.Component {
                                 </TR>
                             ))
                         ) : (
-                            <div></div>
+                            <TR>
+                            
+                            <TD>
+                                <CircularProgress
+                                    color='secondary'
+                                    style={{
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        margin:'50px 0'
+                                    }}
+                                />
+                            </TD>
+                        </TR>
                         )}
                     </TableContent>
                 </Table>

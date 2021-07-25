@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import ProductBacklogCard from './ProductbacklogCard';
 import { useParams } from 'react-router-dom';
 import { firestore } from '../../firebase/firebase.utils';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 function ProductBacklogTable() {
     const { id } = useParams();
@@ -51,24 +52,59 @@ function ProductBacklogTable() {
                                                             .then(
                                                                 (snapShots) => {
                                                                     snapShots.forEach(
-                                                                        (task) => {
-                                                                            console.log(task.data());
-                                                                            var story ={story: storyDoc.data().story,};
+                                                                        (
+                                                                            task
+                                                                        ) => {
+                                                                            console.log(
+                                                                                task.data()
+                                                                            );
+                                                                            var story =
+                                                                                {
+                                                                                    story: storyDoc.data()
+                                                                                        .story,
+                                                                                };
                                                                             var newTask =
-                                                                            {
-                                                                                ...task.data(),
-                                                                                ...story,
-                                                                            };
-                                                                            newTask.progress === 0
-                                                                            ? setTodoTasks((prevTasks1) => [...prevTasks1, newTask])
-                                                                            : newTask.progress <= 99 && newTask.progress >= 1
-                                                                            ? setDoingTasks((prevTasks2) => [...prevTasks2, newTask])
-                                                                            : setDoneTasks((prevTasks3) => [...prevTasks3, newTask])
-                                                                            setTaskData((prevData) => [
+                                                                                {
+                                                                                    ...task.data(),
+                                                                                    ...story,
+                                                                                };
+                                                                            newTask.progress ===
+                                                                            0
+                                                                                ? setTodoTasks(
+                                                                                      (
+                                                                                          prevTasks1
+                                                                                      ) => [
+                                                                                          ...prevTasks1,
+                                                                                          newTask,
+                                                                                      ]
+                                                                                  )
+                                                                                : newTask.progress <=
+                                                                                      99 &&
+                                                                                  newTask.progress >=
+                                                                                      1
+                                                                                ? setDoingTasks(
+                                                                                      (
+                                                                                          prevTasks2
+                                                                                      ) => [
+                                                                                          ...prevTasks2,
+                                                                                          newTask,
+                                                                                      ]
+                                                                                  )
+                                                                                : setDoneTasks(
+                                                                                      (
+                                                                                          prevTasks3
+                                                                                      ) => [
+                                                                                          ...prevTasks3,
+                                                                                          newTask,
+                                                                                      ]
+                                                                                  );
+                                                                            setTaskData(
+                                                                                (
+                                                                                    prevData
+                                                                                ) => [
                                                                                     ...prevData,
                                                                                     newTask,
                                                                                 ]
-                                                                                
                                                                             );
                                                                         }
                                                                     );
@@ -90,12 +126,6 @@ function ProductBacklogTable() {
     const [todoTasks, setTodoTasks] = useState([]);
     const [doingTasks, setDoingTasks] = useState([]);
     const [doneTasks, setDoneTasks] = useState([]);
-    // const [okay, setOkay] = useState(false);
-    // useEffect(()=>{
-    // setTimeout(() => {
-    //     console.log(taskData);
-    // }, 3000);
-    // },[])
 
     useEffect(() => {
         setTaskData([]);
@@ -105,23 +135,8 @@ function ProductBacklogTable() {
 
         getMemberEmail();
         searchForTheMembersProjects();
-        // const fillArrays = () => {
-        //     if (taskData.length > 0) {
-        //         console.log('okay');
-        //         taskData.map((task) =>
-        //             task.progress === 0
-        //                 ? setTodoTasks((prevTasks) => [...prevTasks, task])
-        //                 : task.progress <= 99 && task.progress >= 1
-        //                 ? setDoingTasks((prevTasks) => [...prevTasks, task])
-        //                 : setDoneTasks((prevTasks) => [...prevTasks, task])
-        //         );
-        //     } else {
-        //         console.log('not okay');
-        //     }
-        // };
-        // fillArrays();
-
-    }, [id,memberEmail]);
+        
+    }, [id, memberEmail]);
 
     return (
         <Container>
@@ -129,24 +144,45 @@ function ProductBacklogTable() {
                 <TableHeader>
                     <TR>
                         <TH>TODO</TH>
-                        <TH>Doing</TH>
-                        <TH>Done</TH>
+                        <TH>DOING</TH>
+                        <TH>DONE</TH>
                     </TR>
                 </TableHeader>
                 <TableContent>
-                    <TR>
-                        <TD>
-                            <ProductBacklogCard tasks={todoTasks} />
-                        </TD>
-                        <TD>
-                            {' '}
-                            <ProductBacklogCard tasks={doingTasks} />
-                        </TD>
-                        <TD>
-                            {' '}
-                            <ProductBacklogCard tasks={doneTasks} />
-                        </TD>
-                    </TR>
+                    {todoTasks.length ||
+                    doingTasks.length ||
+                    doneTasks.length ? (
+                        <TR>
+                            <TD>
+                                <ProductBacklogCard tasks={todoTasks} />
+                            </TD>
+                            <TD>
+                                {' '}
+                                <ProductBacklogCard tasks={doingTasks} />
+                            </TD>
+                            <TD>
+                                {' '}
+                                <ProductBacklogCard tasks={doneTasks} />
+                            </TD>
+                        </TR>
+                    ) : (
+                        <TR>
+                            <TD>
+
+                            </TD>
+                            <TD>
+                                <CircularProgress
+                                    color='secondary'
+                                    style={{
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        marginTop:'100px'
+                                    }}
+                                />
+                            </TD>
+                        </TR>
+                    )}
                 </TableContent>
             </Table>
         </Container>

@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
 import { Link, useParams } from "react-router-dom";
-
+import './sprintTabPanel.styles.scss'
 function SprintTabPanel() {
 
     const [activeIndex, setActiveIndex] = React.useState(0);
-    const tabArray = ["SprintBacklog", "DoneSprint"];
+    const tabArray = ["Create Sprint", "Sprints"];
     const handleOnClick = (index) => {
         setActiveIndex(index); // remove the curly braces
       };
@@ -21,15 +21,30 @@ function SprintTabPanel() {
             <div>
               {tabArray.map((tab, index) => (
                 <div key={index}>
-                  <Link to={`/work/${id}/sprint/${tab}`}>
+                    {
+                        tab === 'Sprints'
+                        ?
+                        
+                  <Link to={`/work/${id}/${tab}`}>
                     <Tab
                       key={index}
                       onClick={() => handleOnClick(index)}
-                      className={activeIndex === index ? "active" : "unactive"}
+                      className={activeIndex === index ? "active" : ""}
                     >
                       <span>{tab}</span>
                     </Tab>
                   </Link>
+                  :
+                  <Link to={`/work/${id}/sprint/createSprint`}>
+                  <Tab
+                    key={index}
+                    onClick={() => handleOnClick(index)}
+                    className={activeIndex === index ? "active" : ""}
+                  >
+                    <span>{tab}</span>
+                  </Tab>
+                </Link>   
+                    }
                 </div>
               ))}
             </div>
